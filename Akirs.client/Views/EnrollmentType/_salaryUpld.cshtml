@@ -1,0 +1,73 @@
+﻿
+@model List<Akirs.client.DL.Salaryupload_temp>
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+</style>
+<div class="table-responsive divad2a">
+    <table id="example1_salary" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th> S/N</th>
+                <th>
+                    VALIDATION STATUS
+                </th>
+                <th>EmployeeID</th>
+                <th>EmployeeName</th>
+                <th>AnnualBasic</th>
+                <th>AnnualHousing</th>
+                <th>AnnualTransport</th>
+                <th>AnnualMeal</th>
+                <th>AnnualOthers</th>
+                <th>NHFContribution</th>
+                <th>Pension</th>
+                <th>Premium</th>
+                <th>NHIS</th>
+                <th>Others</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+                        <td> @cnt </td>
+                        <td style="text-align:center">
+
+                            <a class="btn btn-warning btn-xs" data-toggle="popover" data-trigger="hover" data-html="true" data-content="@d.VALIDATIONERRORMESSAGE">
+                                <i class="fa fa-times"></i>
+                            </a>
+
+                        </td>
+                        <td> @d.EmployeeID</td>
+                        <td> @d.EmployeeName</td>
+                        <td> @d.AnnualBasic</td>
+                        <td> @d.AnnualHousing</td>
+                        <td> @d.AnnualTransport</td>
+                        <td> @d.AnnualMeal</td>
+                        <td> @d.AnnualOthers</td>
+                        <td> @d.NHFContribution</td>
+                        <td> @d.Pension</td>
+                        <td> @d.Premium</td>
+                        <td> @d.NHIS</td>
+                        <td> @d.Others</td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $("[data-toggle=popover]").popover();
+</script>
+

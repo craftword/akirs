@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+
+<style>
+    .error3 {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError3 {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+    .top-space {
+        margin-top: 10px;
+    }
+
+    .buttonDash:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #57ACE7;
+    }
+</style>
+<div class="container-fluid" style="background-color:#f8f8f8; padding-top: 15px; padding-bottom: 15px; width:auto" >
+    <div style="background-color:#9cf7d6">
+        <div class="alert alert-success" role="alert" id="success_message"> <h3>UserProfile </h3> </div>
+    </div>
+    <div class="container-fluid" style="background-color:#f8f8f8; padding-top: 15px; padding-bottom: 15px;">
+        <div class="row">
+            @*<div class="col-lg-12">
+                    <h1 class="page-header">User</h1>
+                </div>*@
+            <!-- /.col-lg-12 -->
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Text input-->
+
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Last Name</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input name="first_name" id="userLastName" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">First Name</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input name="last_name" id="userFirstName" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Text input-->
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label"> Enrollement ID</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input name="email" id="userEnrollmentId" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Phone #</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input name="phone" id="userNum" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="col-md-6">
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Address</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                                    <input name="phone" id="userAddress" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Gender</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                    <input name="phone" id="userGender" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="col-md-6">
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">No Of Children</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input name="phone" id="userNoOfChild" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Status</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                    <input name="phone" id="userStatus" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="col-md-6">
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">Marital Status</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star-empty"></i></span>
+                                    <input name="phone" id="userMStatus" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Text input-->
+                        <div class="form-group" style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">City</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-equalizer"></i></span>
+                                    <input name="phone" id="userCity" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Text input-->
+                    <div class="col-md-6">
+                        <div style="margin-top: 15px !important">
+                            <label class="col-md-12 control-label">E-Mail</label>
+                            <div class="col-md-12 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input name="email" id="userEmail" class="form-control" type="text" readonly="readonly" style="background-color: #fff !important">
+                                </div>
+                            </div>
+                        </div>
+                   
+                     </div>
+                </div>
+
+
+            </div>
+        </div>
+        
+        <br />
+        <div class="alert alert-success" role="alert" id="success_message"> <i class=""></i> </div>
+
+        <div class="ajax-loader">
+            <img src="~/resources/images/ajax-loader.gif" class="img-responsive" />
+        </div>
+    </div>
+</div>
+
+<div id="loader2" style="display:none" data-request-url="@Url.Action("GetUserProfile", "Family")"></div>
+@*<div id="createurl" style="display:none" data-request-url="@Url.Action("ViewDetail", "Family")"></div>
+    <div id="relationshipurl" style="display:none" data-request-url="@Url.Action("RelationShipList", "Family")"></div>
+    <div id="createfamilyurl" style="display:none" data-request-url="@Url.Action("Create", "Family")"></div>*@
+
+@section Scripts {
+
+    <script src="~/resources/js/familyUser.js"></script>
+
+
+
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example2').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+    <script>
+        function dashboardbackOnClick() {
+           // window.location.assign("http://localhost:27035/UserHome");
+            window.location.assign("http://62.173.32.98:Revenuepoint/UserHome");
+        }
+    </script>
+}

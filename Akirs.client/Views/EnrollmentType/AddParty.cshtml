@@ -1,0 +1,17 @@
+﻿@model Akirs.client.Models.EnrollmentViewModel
+@{
+    ViewBag.Title = "AddParty";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+             @Html.Partial(ViewBag.ViewToShow as string, Model)
+        </div>
+    </div>
+</section>
+
+

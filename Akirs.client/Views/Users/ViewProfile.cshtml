@@ -1,0 +1,216 @@
+﻿
+@{
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .error {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+        .buttonDash:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #57ACE7;
+        }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit Profile</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+
+
+    <div class="container">
+
+        <div class="well form-horizontal" >
+            <fieldset>
+
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">User ID</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                            <input name="phone" id="userEnrollmentId" class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                </div>
+                               
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">First Name</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="first_name"  id="userFirstName" class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Last Name</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="last_name" id="userLastName"  class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input name="email" id="userEmail" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Text input-->
+
+                <div class="form-group">
+          <label class="col-md-4 control-label">Phone #</label>
+          <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                  <input name="phone" id="userNum"  class="form-control" type="text">
+              </div>
+          </div>
+      </div>
+
+    <!-- Text input-->
+
+                      <div class="form-group">
+            <label class="col-md-4 control-label">Gender</label>                          
+            <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="address" id="userGender"  class="form-control" type="text" disabled>
+                </div>
+            </div>
+        </div>
+
+                  <!-- Text input-->
+
+                  <div class="form-group">
+                      <label class="col-md-4 control-label">Number Of Children</label>
+                      <div class="col-md-4 inputGroupContainer">
+                          <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                              <input name="city" id="userNOC" class="form-control" type="text" >
+                          </div>
+                      </div>
+                  </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Status</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                            <input name="city" id="userStatus" class="form-control" type="text" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Marital Status</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <span class="input-group-addon" style="position: absolute; padding: 8px 20px; border-right: 1px solid #ccc;"><i class="glyphicon glyphicon-star-empty" style="left:-7px;"></i></span>
+                        <select class="form-control" name="Gender" id="userMStatus" style="padding: 6px 48px !important;">
+                            <option value="S">Single</option>
+                            <option value="M">Married</option>
+                        </select>
+                        @*<div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-star-empty"></i></span>
+                            <input name="city" id="userMStatus" class="form-control" type="text">
+                        </div>*@
+                    </div>
+                </div>
+
+                <!-- Text input-->
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">City</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-equalizer"></i></span>
+                            <input name="city" id="userCity" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+
+           
+                <!-- Success message -->
+                <div class="alert alert-success" role="alert" id="success_message"> <i class=""></i> </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-success" id="saveProfile">Update <span class="glyphicon glyphicon-save"></span></button>
+                        <button type="button" class="btn btn-warning" onclick="dashboardbackOnClick()">Back <span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+    </div>
+</div><!-- /.container -->
+    
+ 
+    <div class="ajax-loader">
+        <img src="~/resources/images/ajax-loader.gif" class="img-responsive" />
+    </div>
+
+<div id="viewProfile_Url" style="display:none" data-request-url="@Url.Action("GetViewProfile", "Users")"></div>
+<div id="SaveUser_url" style="display:none" data-request-url="@Url.Action("SaveUser", "Users")"></div>
+
+@section Scripts {
+
+    <script src="~/resources/js/Users.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+    <script>
+        function dashboardbackOnClick() {
+           // window.location.assign("http://localhost:27035/UserHome");
+           window.location.assign("http://62.173.32.98:Revenuepoint/UserHome");
+        }
+    </script>
+}

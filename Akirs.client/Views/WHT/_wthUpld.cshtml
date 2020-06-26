@@ -1,0 +1,52 @@
+﻿
+@model List<Akirs.client.DL.WHTUPLOAD>
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+</style>
+<div class="table-responsive divad2a">
+    <table id="example1_wht" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th> S/N</th>
+                <th>
+                    VALIDATION STATUS
+                </th>
+                <th>Vendor TINNO</th>
+                <th>Vendor Name</th>
+                <th>Tax Rate</th>
+                <th>Tax Amount</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+                        <td> @cnt </td>
+                        <td style="text-align:center">
+
+                            <a class="btn btn-warning btn-xs" data-toggle="popover" data-trigger="hover" data-html="true" data-content="@d.VALIDATIONERRORSTATUS">
+                                <i class="fa fa-times"></i>
+                            </a>
+
+                        </td>
+                        <td> @d.VendorTINNO</td>
+                        <td> @d.VendorName</td>
+                        <td> @d.TaxRate</td>
+                        <td> @d.TaxAmount</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,606 @@
+﻿<style>
+    .error {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+</style>
+<style>
+    body {
+        margin-top: 40px;
+    }
+
+    .stepwizard-step p {
+        margin-top: 10px;
+    }
+
+    .stepwizard-row {
+        display: table-row;
+    }
+
+    .stepwizard {
+        display: table;
+        width: 50%;
+        position: relative;
+    }
+
+    .stepwizard-step button[disabled] {
+        opacity: 1 !important;
+        filter: alpha(opacity=100) !important;
+    }
+
+    .stepwizard-row:before {
+        top: 14px;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        z-order: 0;
+    }
+
+    .stepwizard-step {
+        display: table-cell;
+        text-align: center;
+        position: relative;
+    }
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 6px 0;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 15px;
+    }
+</style>
+
+
+<div id="content">
+    <div class="container"></div>,<div class="container">
+        <div id="directstepwizard">
+            <div class="stepwizard col-md-offset-3">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                        <p>Step 1 - Basic Information</p>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                        <p>Step 2 - Upload Withold-Tax</p>
+                    </div>
+                    @*<div class="stepwizard-step">
+                            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                            <p>Step 3 - Upload WithHolding Tax</p>
+                        </div>*@
+
+                </div>
+            </div>
+
+            <form role="form" action="" method="post">
+                <div class="row setup-content" id="step-1">
+                    <div class="col-xs-6 col-md-offset-3">
+                        <div class="col-md-12">
+                            <h3> Step 1</h3>
+                            <div class="form-group">
+                                <label class="control-label">Company Name</label>
+                                <input maxlength="100" type="text" name="Companyname" id="Companyname" required="required" class="form-control" placeholder="Enter Company Name">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Email</label>
+                                <input maxlength="100" type="email" required="required" class="form-control" name="Email" id="Email" placeholder="Enter Email" onchange="EmailCheck()">
+                                <span id="status"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label">TIN</label>
+                                <input maxlength="100" type="text" required="required" class="form-control" name="TIN" id="TIN" placeholder="Enter TIN">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Phone Number</label>
+                                <input maxlength="100" type="text" required="required" class="form-control" name="Phonenumber" id="Phonenumber" placeholder="Enter Phone number">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Main Office Address</label>
+                                <select class="form-control" name="AddressType" id="AddressType">
+                                    <option value="1">Head Office</option>
+                                    <option value="2">Main Office</option>
+                                    <option value="3">Branch</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Address</label>
+                                <input type="hidden" id="TaxtypeID" name="TaxtypeID" value="4" />
+                                <textarea required="required" class="form-control" name="Address" id="Address" placeholder="Enter your address"></textarea>
+                            </div>
+
+
+                            <button id="forNext" class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row setup-content" id="step-2">
+                        <div class="col-xs-6 col-md-offset-3">
+                            <div class="col-md-12">
+                                <h3> Step 2</h3>
+                                <div style="background-color:#F4F4F4;margin-bottom:10px;padding:10px">
+                                    @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("upldfilesal", "", new { @style = "display:inline", type = "file" })
+                                        @Html.Hidden("hidEnrollId")
+                                        <button id="btnUploadSal" class="btn btn-default pull-righta"><i class="fa-upload fa"></i>Upload</button>
+                                        <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/payrolltemp.xlsx")"><i class="fa fa-file-excel-o"></i> Download Payroll Upload Template</a>
+                                        <div class="clearfix"></div>
+                                    }
+                                </div>
+                                <div id="divGrid">
+                                    <div class="table-responsive saladiv">
+                                        <table id="example1_salup" class="table table-striped datatable table-condensed table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        VALIDATION STATUS
+                                                    </th>
+                                                    <th>EmployeeID</th>
+                                                    <th>EmployeeName</th>
+                                                    <th>AnnualBasic</th>
+                                                    <th>AnnualHousing</th>
+                                                    <th>AnnualTransport</th>
+                                                    <th>AnnualMeal</th>
+                                                    <th>AnnualOthers</th>
+                                                    <th>NHFContribution</th>
+                                                    <th>Pension</th>
+                                                    <th>Premium</th>
+                                                    <th>NHIS</th>
+                                                    <th>Others</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
+                                <button class="btn btn-primary nextBtn btn-lg pull-right" id="btnSaveDirectAccessment" type="button">Submit</button>
+                                <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
+                                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="row setup-content" id="step-2">
+                    <div class="col-xs-6 col-md-offset-3">
+                        <div class="col-md-12">
+                            <h3> Step 2</h3>
+                            <div style="background-color:#F4F4F4;margin-bottom:10px;padding:10px">
+                                @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                                {
+                    @Html.AntiForgeryToken()
+                                    @Html.TextBox("upldfileWht", "", new { @style = "display:inline", type = "file" })
+                                                    @Html.Hidden("hidEnrollId")
+                                                                    <button id="btnUploadWht" class="btn btn-default pull-righta"><i class="fa-upload fa"></i> Upload</button>
+                                                                                    <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/WithHoldingTax.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Witholding tax Upload Template</a>
+                                                                                                    <div class="clearfix"></div>}
+                            </div>
+                            <div id="divGridwht">
+                                <div class="table-responsive">
+                                    <table id="example1_wht" class="table table-striped datatable table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th> S/N</th>
+                                                <th>
+                                                    VALIDATION STATUS
+                                                </th>
+                                                <th>Vendor TINNO</th>
+                                                <th>Vendor Name</th>
+                                                <th>Tax Rate</th>
+                                                <th>Tax Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" id="btnSaveDirectAccessment" type="button">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+
+        <div class="panel panel-default" id="listAssessment_table" style="display:none">
+            @*<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Collapse</button>*@
+            <div class="panel-heading" style="display:flex; justify-content:space-between">
+                <p>Income Assessment</p>
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#accordion" id="Lock">View</button>
+            </div>
+            <div class="panel-body">
+                <div id="accordion" class="collapse">
+                    <div class="row" id="foritem">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Net Tax</label>
+                    <input class="form-control" value="" id="NetTaxx" readonly />
+                    @*<input class="form-control" value="@witholdTaxAmount" id="txtnettax" readonly />
+                        <input type="hidden" id="TaxtypeID" name="TaxtypeID" value="4" />
+                        <input type="hidden" id="txtamthid" />*@
+                </div>
+
+
+                <div class="text-center">
+                    <button class="btn btn-primary btn-lg" id="verifyy" onclick="verify()" type="button">Verify Payment</button>
+
+                </div>
+            </div>
+
+            @*<div class="col-lg-6">
+                    <div role="form">
+                        <div class="form-group">
+                            <label>Enrollment ID</label>
+                            <input class="form-control" id="txtEnrollId" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Gross Income</label>
+                            <input class="form-control" id="txtincome" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>20% Of Gross Income</label>
+                            <input class="form-control" id="txtgrossincome" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Consolidate Allowance</label>
+                            <input class="form-control" id="txtconsolidateallowance" readonly />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div role="form">
+                        <div class="form-group">
+                            <label>Total PFA</label>
+                            <input class="form-control" id="txttotalpfa" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Taxable Income</label>
+                            <input class="form-control" id="txttaxableincome" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Minimum Tax</label>
+                            <input class="form-control" id="txtminimumtax" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Tax Liability Monthly</label>
+                            <input class="form-control" id="taxableliabmonth" readonly />
+
+                        </div>
+                        <div class="form-group">
+                            <label>Net Tax</label>
+                            <input class="form-control" id="txtnettax" readonly />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-lg" id="verifyy" onclick="verify()" type="button">Verify Payment</button>
+
+                </div>*@
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="whtupload" style="display:none" data-request-url="@Url.Action("UploadFilesWht", "EnrollmentType")"></div>
+@*<div id="salaryupload" style="display:none" data-request-url="@Url.Action("UploadFilesSalary", "EnrollmentType")"></div>*@
+<div id="postdirectAssessment" style="display:none" data-request-url="@Url.Action("CreateDirectAssessment", "EnrollmentType")"></div>
+<div id="assessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetails", "EnrollmentType")"></div>
+<div id="getWhtNatax" style="display:none" data-request-url="@Url.Action("CalculateWithTax", "EnrollmentType")"></div>
+
+
+
+@*<script src="~/resources/js/payeestep.js"></script>*@
+<script src="~/resources_home/js/jquery.min.js"></script>
+<script src="~/resources_home/js/modernizr.custom.js"></script>
+<script src="~/resources_home/js/jquery.easing.1.3.js"></script>
+<script src="~/resources/js/wtholdTaxStep.js"></script>
+<script type="text/javascript">
+
+
+    //onclick of verify pay not working because of novalue for first name and last name(so i used Company Name for it temporarily)
+    //change symbol to naira sign
+
+
+    const verify = () => {
+        var details =
+        {
+            // amount: document.getElementById("txtnettax").value,
+            amount: document.getElementById("txtamthid").value,
+            firstName: document.getElementById("Companyname").value,
+            customerid: document.getElementById('txtEnrollId').value,
+            phone: document.getElementById("Phonenumber").value,
+            emailno: document.getElementById("Email").value,
+            lastname: document.getElementById("Companyname").value
+        }
+        //console.log(details);
+        localStorage.setItem('details', JSON.stringify(details));
+        window.location = 'VerifyPay';
+
+    }
+
+
+</script>
+<script src="~/resources_home/js/bootstrap.min.js"></script>
+
+<script src="~/resources/js/dataTables/jquery.dataTables.min.js"></script>
+<script src="~/resources/js/dataTables/dataTables.bootstrap.min.js"></script>
+<script src="~/resources_home/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script src="~/resources_home/plugins/flexslider/flexslider.config.js"></script>
+<script src="~/resources_home/js/jquery.appear.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/resources_home/js/stellar.js"></script>
+<script src="~/resources_home/js/classie.js"></script>
+<script src="~/resources_home/js/uisearch.js"></script>
+<script>
+    $("#Lock").click(function () {
+        $('#accordion').toggle("slide");
+    });
+</script>
+
+<script>
+    function EmailCheck() {
+        console.log("in here emailcheck")
+        $("#status").html("checking....")
+        $.post("@Url.Action("checkEmailAvailability", "EnrollmentType")",
+            {
+                AspNetUsers: $("#Email").val()
+            },
+        function (data) {
+            if (data == 0) {
+                $("#status").html('<font color="Green">Email Available</font>');
+                $("#Email").css("border-corlor", "green");
+            }
+            else {
+                $("#status").html('<font color="Red">Email Already used </font>');
+                $("#Email").css("border-corlor", "Red");
+                $("#forNext").prop("disabled", "true");
+            }
+        });
+    }
+</script>
+
+
+<script src="~/resources_home/js/jquery.cubeportfolio.min.js"></script>
+<script src="~/resources_home/js/google-code-prettify/prettify.js"></script>
+<script src="~/resources_home/js/animate.js"></script>
+<script src="~/resources_home/js/custom.js"></script>
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/resources/js/jquery.tabletojson.min.js"></script>
+
+
+
+
+
+
+
+
+@*@model IEnumerable<Akirs.client.DL.TaxType>
+    @{
+        ViewBag.Title = "Home Page";
+    }
+    Custom Styling by Seun
+    <style>
+        .wells:hover {
+            border-color: red;
+            border-radius: 4px;
+            border-radius: 6px;
+            background-color: #ffe7e7;
+        }
+
+        .fonts {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: small;
+        }
+    </style>
+
+     divider
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+    </div>
+     end divider
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <section id="featured" class="bg">
+                    Start Slider
+                     Slider
+                    <div id="main-slider" class="main-slider flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="~/resources_home/img/slides/flexslider/back-1.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Pay your <strong>Tax Now</strong></h3>
+                                    <p>Let us develop AKWA IBOM together.</p>
+                                    <a href="#" class="btn btn-theme">Learn More</a>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="~/resources_home/img/slides/flexslider/back-2.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Grow in every <strong>aspect</strong></h3>
+                                    <p> As Akwa Ibom State moves towards meeting the needs of a mega city, we continue to position ourself as the major funding arm of the state government by putting in place structures that will ensure collection of the proper amount of tax revenue at the least cost.</p>
+                                    <a href="#" class="btn btn-theme">Learn More</a>
+                                </div>
+                            </li>
+                            <li>
+                                <img src="~/resources_home/img/slides/flexslider/back-3.jpg" alt="" />
+                                <div class="flex-caption">
+                                    <h3>Build a BETTER  <strong>tomorrow</strong></h3>
+                                    <p>
+                                        The 6th Assembly of the Akwa Ibom State House of Assembly (AKHA) immediately swung into their legislative function and passed the “Akwa Ibom State Revenue Administration Law, 2016” on 30th June, 2016 after engaging in relevant legislative procedures.
+                                    </p>
+                                    <a href="#" class="btn btn-theme">Learn More</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    End Slider
+                </section>
+
+            </div>
+            @using (Html.BeginForm("UploadFilesWht", "EnrollmentType", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="col-lg-4 col-md-12 col-sm-12 fonts" style="padding: 50px 50px 50px 50px;">
+                    <div style="justify-content: center; text-align: center;">
+                        <h3><strong>Create AKIRS Account</strong></h3>
+                        <h4><strong>Upload Withold Tax</strong></h4>
+                        <div class="dot"><span style="color: wheat;">1</span></div>
+                    </div>
+                    <div style="background-color: #edece2;padding: 10px 10px 10px 10px;">
+                        <div>
+                            <div class="custom-file" style="padding: 10px 10px 10px 10px">
+                                @Html.TextBox("file", "", new { type = "file" }) <br />
+                            </div>
+                            <div>
+                                <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/WithHoldingTax.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Witholding tax Upload Template</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-top: 20px;">
+                        <input type="submit" value="Upload" class="btn btn-danger btn-block" />
+                        <button id="btnUploadWht" class="btn btn-danger btn-block">Upload</button>
+                        <div style="justify-content: center;">
+                            <p style="padding: 10px 10px 10px 10px;">Already have an account ?<span> <a href="" style="color: red;">Login Here</a></span></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+
+    <section id="content">
+         divider
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="solidline">
+                    </div>
+                </div>
+            </div>
+        </div>
+         end divider
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6">
+                            <h4>About our AKIRS</h4>
+                            <p><strong>BRIEF PROFILE OF INTERNAL REVENUE SERVICE</strong></p>
+                            <p>
+                                It is interesting to note that Akwa Ibom State Internal Revenue Services came to being as one of the State Government Extra-Ministerial Agencies in 1987.
+                                In accordance with section 85A (I) of the Personnel Income Tax Act 1993 as amended, hereby establish for each state a Board to be known as the
+                                “Board of Internal Revenue” (In this Act referred to as ‘the State Board’) whose operational arm shall be known as the State Internal Revenue Service
+                                (in this Act referred to as “the State Service”).
+                            </p>
+                            <p><strong>ESTABLISHMENT AND COMPOSITION</strong></p>
+                            <p>
+                                Akwa Ibom State Internal Revenue Service is thus a provision of the Personal Income Tax Act of 1993 as amended to date, established to perform the functions as
+                                contained in section 85B(I) of the Act.  Among such functions include: assessment, collection and accounting for tax so collected to the Government of the State.
+                                The State Internal Revenue is made up of eight (8) Directorates namely;
+
+                                Administration and Supplies
+                                Finance and Accounts
+                                Assessment
+                                Collection
+                                Tax Recovery and Litigation
+                                Other State Taxes
+                                Road Taxes
+                                Planning, Research and Statistics
+
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-lg-6">
+                            <h4>Our Vision</h4>
+                            <p><strong>MISSION</strong></p>
+                            <p>
+                                To make the best use of available institutional, administrative, technical, technological, financial and human resources to assess, collect and account for revenue in as efficient and effective manner as possible,
+                                to achieve optimal results in service delivery and revenue collection performance.
+                            </p>
+                            <p><strong>VISION</strong></p>
+                            <p>
+                                Akwa Ibom State Internal Revenue Service to be one Revenue Authority in Nigeria respected for efficiency, effectiveness, professionalism, integrity, excellent customer service and high performance in revenue generation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+         clients
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo1.png" class="img-responsive" />
+                </div>
+
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo2.jpg" class="img-responsive" />
+                </div>
+
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo3.png" class="img-responsive" />
+                </div>
+
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo4.jpg" class="img-responsive" />
+                </div>
+
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo5.jpg" class="img-responsive" />
+                </div>
+                <div class="col-xs-6 col-md-2 aligncenter client">
+                    <img alt="logo" src="~/resources_home/img/clients/logo6.jpg" class="img-responsive" />
+                </div>
+
+            </div>
+        </div>
+
+    </section>*@

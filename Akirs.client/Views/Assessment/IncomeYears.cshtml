@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "IncomeYears";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+    var enrId = Session["EnrollID"];
+
+}
+
+
+<style>
+    .form-group input {
+        text-align: right;
+    }
+</style>
+<input type="hidden"
+       value="@enrId" id="eid" />
+
+<input type="hidden"
+       id="nid" />
+
+<input type="hidden"
+       id="emailhid" />
+
+<input type="hidden"
+       id="comphone" />
+<input type="hidden"
+       id="compname" />
+<input type="hidden"
+       id="compSurname" />
+<input type="hidden"
+       id="amount" />
+@*<input type="hidden"
+    id="directnetid" />*@
+
+<div id="forassess">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <h1 class="page-header">Assessment</h1>
+            </div>
+        </div>
+                   
+                <div class="row" id="secondone">
+
+
+                </div>
+                <div class="form-group text-center">
+                    <label style="color: #00f">Tax Payable: </label><span id="netid" style="color: #00f"></span>
+                    @*<input class="form-control" readonly="readonly" id="nettaxx" />*@
+
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-lg" id="verifyy" type="button">Verify Payment</button>
+                    @*<button class="btn btn-primary btn-sx" type="button">Make Payment</button>*@
+                </div>
+
+            
+        
+    </div>
+</div>
+
+
+
+<div id="directAssessmentload" style="display:none" data-request-url="@Url.Action("GetDirectAssessmentDetailsTax", "Assessment")"></div>
+
+<div id="assessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetailsTax", "Assessment")"></div>
+
+<div id="getEmail" style="display:none" data-request-url="@Url.Action("GetEmail", "Assessment")"></div>
+<div id="getCompany" style="display:none" data-request-url="@Url.Action("checkCompanyData", "Assessment")"></div>
+<div id="getUser" style="display:none" data-request-url="@Url.Action("checkUserData", "Assessment")"></div>
+@*<div id="assessmentload" style="display:none" data-request-+url="@Url.Action("AssessmentDetails", "EnrollmentType")"></div>*@
+
+
+@section Scripts {
+    <script src="~/resources/js/assessment.js"></script>
+}

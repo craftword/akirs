@@ -1,0 +1,72 @@
+﻿
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+</style>
+<div class="table-responsive divad2a">
+
+    <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+
+                <th>EmployeeID</th>
+                <th>EmployeeName</th>
+                <th>AnnualBasic</th>
+                <th>AnnualHousing</th>
+                <th>AnnualTransport</th>
+                <th>AnnualMeal</th>
+                <th>AnnualOthers</th>
+                <th>NHFContribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+
+                        <td> @d.EmployeeID</td>
+                        <td> @d.EmployeeName</td>
+                        <td> @d.AnnualBasic</td>
+                        <td> @d.AnnualHousing</td>
+                        <td> @d.AnnualTransport</td>
+                        <td> @d.AnnualMeal</td>
+                        <td> @d.AnnualOthers</td>
+                        <td> @d.NHFContribution</td>
+                        @*<td><a class="btn btn-primary btn-xs editor_edit"><i class="fa fa-eye"></i></a></td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-1">
+
+            @using (Html.BeginForm("ApprovePayrollEmployee", "UserSalary"))
+            {
+                @*<input type="hidden" name="EmployeeID" value="@employeeId" />*@
+                <input id="modal" type="submit" value="Approve" class="btn btn-info pull-righta" />
+            }
+        </div>
+        <div class="col-lg-1">
+            @using (Html.BeginForm("RejectPayrollEmployee", "UserSalary"))
+            {
+                @*<input type="hidden" name="EmployeeID" value="@employeeId" />*@
+                <input id="modal" type="submit" value="Reject" class="btn btn-info pull-righta" />
+            }
+
+        </div>
+    </div>
+    
+</div>
+<script>
+    $("[data-toggle=popover]").popover();
+</script>

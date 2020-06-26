@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "PaymentHistory";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+
+    var enrId = Session["EnrollID"];
+}
+
+
+
+<style>
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+        .buttonDash:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #57ACE7;
+        }
+</style>
+
+<input type="hidden"
+       value="@enrId" id="eid" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Payment History</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="display:flex;justify-content:space-between">
+                    <div>
+                                               
+                        <select id="dropIPayYear2" style="border: 1px solid grey; border-radius: 7px; padding: 10px;outline:none;"></select>
+
+                        @*<a id="ModifyPay" role="button" disabled class="btn btn-default editor_create" style="margin-left: 15px"><i class="fa fa-plus"></i> Modify</a>*@
+                    </div>
+                    <div style="position: relative">
+                        <button class="btn btn-dark buttonDash" onClick='dashboardbackOnClick()' style="position: absolute; bottom: 0; right: 10px">Back to Dashboard</button>
+                    </div>
+
+
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+
+
+                        <table id="example2" class="table table-striped table-bordered table-hover familytable">
+                            <thead>
+                                <tr>
+
+                                    <th>Source Of Income</th>
+                                    <th>Amount</th>
+                                    <th>Year</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ajax-loader">
+        <img src="~/resources/images/ajax-loader.gif" class="img-responsive" />
+    </div>
+</div>
+
+<div id="paymentHistoryurl" style="display:none" data-request-url="@Url.Action("GetPaymentHistory", "IncomePayment")"></div>
+@*<div id="getPayYearurl" style="display:none" data-request-url="@Url.Action("GetIncomePayYear", "IncomePayment")"></div>*@
+<div id="getPayYearurl2" style="display:none" data-request-url="@Url.Action("GetIncomePayYear", "IncomePayment")"></div>
+
+
+@section Scripts {
+
+    @*<script src="~/resources/js/additionalassessment.js"></script>*@
+    <script src="~/resources/js/PaymentHistory.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+    <script>
+        function dashboardbackOnClick() {
+           // window.location.assign("http://localhost:27035/UserHome");
+            window.location.assign("http://62.173.32.98:Revenuepoint/UserHome");
+        }
+    </script>
+}

@@ -1,0 +1,190 @@
+﻿
+@model List<Akirs.client.DL.SALARYUPLOAD>
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+    .bg-modal {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 500px;
+        height: 100%;
+        background-color: white;
+        border-radius: 4px;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+<div class="table-responsive divad2a">
+    <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+                @*<td><input type="checkbox" id="selectAll"/>    &nbsp;   </td>*@
+                <th> S/N</th>
+
+                <th>EmployeeID</th>
+                <th>EmployeeName</th>
+                <th>AnnualBasic</th>
+                <th>AnnualHousing</th>
+                <th>AnnualTransport</th>
+                <th>AnnualMeal</th>
+                <th>AnnualOthers</th>
+                <th>NHFContribution</th>
+                <th>PAYROLLSTATUS</th>
+                <th>ACTION</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+                        @*<td><input type="checkbox" id=""/>    &nbsp;  </td>*@
+                        <td> @cnt </td>
+
+                        <td> @d.EmployeeID</td>
+                        <td> @d.EmployeeName</td>
+                        <td> @d.AnnualBasic</td>
+                        <td> @d.AnnualHousing</td>
+                        <td> @d.AnnualTransport</td>
+                        <td> @d.AnnualMeal</td>
+                        <td> @d.AnnualOthers</td>
+                        <td> @d.NHFContribution</td>
+                        <td style="text-align:center">@d.PayrollStatus</td>
+                        <td>
+                            <button class="editPopup btn btn-primary">Edit</button>
+                        </td>
+                        @*<td>
+                                @using (Html.BeginForm("ApprovePayrollEmployeeByEmployeeID", "UserSalary"))
+                                {
+                                    <input type="hidden" name="EmployeeID" value="@d.EmployeeID" />
+                                    <input type="submit" value="Approve" class="btn btn-info pull-righta" />
+                                }
+                            </td>*@
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <!-- EDIT MODAL-->
+
+    <div class="bg-modal">
+        @using (Html.BeginForm("DetailsForEdit", "UserSalary", FormMethod.Post))
+        {
+            <div class="modal-content">
+                <div class="form-group">
+                    <label class="control-label">EmployeeID</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.EmployeeName)*@
+                        <input type="text" name="EmployeeID" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Employee Name</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.EmployeeName)*@
+                        <input type="text" name="EmployeeName" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Annual Basic</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.AnnualBasic)*@
+                        <input type="text" name="AnnualBasic" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Annual Transport</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.AnnualTransport)*@
+                        <input type="text" name="AnnualTransport" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Annual Meal</label>
+                    <div>
+                        @*  @Html.EditorFor(m => m.Salary.AnnualMeal)*@
+                        <input type="text" name="AnnualMeal" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label control-label">Annual Others</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.AnnualOthers)*@
+                        <input type="text" name="AnnualOthers" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">NHFContribution</label>
+                    <div>
+                        @*@Html.EditorFor(m => m.Salary.NHFContribution)*@
+                        <input type="text" name="NHFContribution" value="" placeholder="" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Annual Housing<span class="required"> *</span></label>
+                    <div>
+                        <div class="">
+                            @*@Html.EditorFor(m => m.Salary.AnnualHousing)*@
+                            <input type="text" id="AnnualHousing" name="AnnualHousing" value="" class="form-control" />
+                            <input type="hidden" id="ItbID" name="ItbID" />
+                            <input type="hidden" id="EnrollmentID" name="EnrollmentID" value="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Update" class="btn btn-info pull-righta" />
+                    <button id="close" class="btn btn-info">Cancel</button>
+                </div>
+            </div>
+        }
+    </div>
+    
+</div>
+<script>
+    $("[data-toggle=popover]").popover();
+
+
+    //$('#selectAll').click(function (e) {
+    //    var table = $(e.target).closest('table');
+    //    $('td input:checkbox', table).attr('checked', e.target.checked);
+    //});
+</script>
+<script>
+    var listButtons = document.getElementsByClassName("editPopup");
+
+    for (var i = 0; i < listButtons.length; i++) {
+        listButtons[i].addEventListener("click",
+            function () {
+                var modal = document.querySelector(".bg-modal");
+                modal.style.display = "flex";
+            });
+    }
+</script>
+<script>
+    document.querySelector("#close").addEventListener("click",
+        function () {
+            var modal = document.querySelector(".bg-modal");
+            modal.style.display = "none";
+        })
+</script>
+

@@ -1,0 +1,239 @@
+﻿<style>
+    .error {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+</style>
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formFamily", @class = "register-form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <h2>Make <small> payment</small></h2>
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong class="label label-primary">First Name</strong>
+                                <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" placeholder="First Name" tabindex="1" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong class="label label-primary">Last Name</strong>
+                                <input type="text" name="LastName" id="LastName" class="form-control input-lg" placeholder="Last Name" tabindex="2" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Phone Number</strong>
+                        <input type="number" name="Phonenumber" id="Phonenumber" class="form-control input-lg" placeholder="Phone number" tabindex="3" required>
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Email</strong>
+                        <input type="text" name="Email" id="Email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Address</strong>
+                        <input type="text" name="Address" id="Address" class="form-control input-lg" placeholder="Address" tabindex="4">
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Ministry</strong>
+                        <select class="form-control input-lg" name="MinistryCode" id="MinistryCode"></select>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="hidden" id="TaxtypeID" name="TaxtypeID" value="3" />
+                                <strong class="label label-primary">Revenue Head</strong>
+                                <select class="form-control input-lg" name="RevenueCode" id="RevenueCode"></select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong class="label label-primary">Amount</strong>
+                                <input type="number" id="Amount" name="Amount" placeholder="Amount" class="form-control input-lg" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-3 col-md-3">
+                            <span class="button-checkbox">
+                                <button type="button" class="btn" data-color="info" id="agreed">Agree</button>
+                                <input type="checkbox" name="agree" id="agree" class="hidden"  />
+                            </span>
+                        </div>
+                    </div>
+                    
+
+                    @*<div class="row">
+                        <div class="col-xs-4 col-sm-3 col-md-3">
+                            <span class="button-checkbox">
+                                <button type="button" class="btn" data-color="info" tabindex="7">Agree</button>
+                                <input type="checkbox" name="agree" id="agree" class="hidden" value="1">
+                            </span>
+                        </div>
+                    </div>*@
+
+                    <hr class="colorgraph">
+
+                    @*<div class="row">
+                            <div class="col-xs-4 col-sm-3 col-md-3">
+                                <span class="button-checkbox">
+                                    <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                                    <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                                </span>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-9">
+
+                                By clicking <strong class="label label-primary">Agree</strong> <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this portal.
+                            </div>
+                        </div>*@
+
+                    <br />
+                    <div class="row">
+                        @*<em><small><a class="quickteller-checkout-anchor" id="95101" style="text-align:left;">payment button will appear here shortly...</a></small></em>*@
+
+                        @*<button class="btn btn-primary btn-sx" id="makepay" type="button">Make Payment</button>*@
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <button class="btn btn-primary btn-lg" id="verifyy" onclick="verify()" type="button">Verify Payment</button>
+                        </div>
+                        @*<div class="col-xs-12 col-md-6">Already have an account? <a href="@Url.Action("Login","Home")">Sign In</a></div>*@
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<div id="ministryloader" style="display:none" data-request-url="@Url.Action("MinistryList", "EnrollmentType")"></div>
+<div id="revenueloader" style="display:none" data-request-url="@Url.Action("RevenueList", "EnrollmentType")"></div>
+<div id="paymentloader" style="display:none" data-request-url="@Url.Action("MakePay", "EnrollmentType")"></div>
+<script src="~/resources_home/js/jquery.min.js"></script>
+<script src="~/resources_home/js/modernizr.custom.js"></script>
+<script src="~/resources_home/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#agreed').click(function () {
+            var check = $('#agree').prop("checked")
+            //console.log(check);
+            if(check != true)
+            {
+                $("#agree").prop("checked", true);
+            }
+            else {
+                $("#agree").prop("checked", false);
+            }
+           
+        })
+    })
+
+    var QTCheckout = QTCheckout || {};
+    var testMode = true;
+    var baseUrl = "";
+    var fName = document.getElementById("FirstName").value;
+    var lName = document.getElementById("LastName").value;
+    //why multiply Amount by 100?
+    var amt = document.getElementById("Amount").value * 100;
+    var time = new Date();
+    var time = time.getTime();
+    var custid = time.toString();
+    var phoneno = document.getElementById("Phonenumber").value;
+    var email = document.getElementById("Email").value;
+    //console.log('get phone');
+    //console.log(phoneno);
+    var rand = "9999" + Math.floor((Math.random() * 100000000) + 1);
+    QTCheckout.paymentItems = QTCheckout.paymentItems || [];
+    QTCheckout.paymentItems.push({
+        paymentCode: "95101",
+        extraData: {
+            amount: amt,
+            buttonSize: 'medium',
+            customerId: custid,
+            mobileNumber: phoneno,
+            emailAddress: email,
+            redirectUrl: 'http://localhost:8080/PayWithQTPHP1/result.php',
+            requestReference: rand
+        }
+    });
+    if (testMode == true) baseUrl = "https://pwq.sandbox.interswitchng.com/scripts/quickteller-checkout-min.js?v=";
+    else baseUrl = "https://paywith.quickteller.com/scripts/quickteller-checkout-min.js?v=";
+    if (!QTCheckout.qtScript) {
+        var qtScript = document.createElement('script');
+        qtScript.type = 'text/javascript';
+        qtScript.async = true;
+        qtScript.src = baseUrl + new Date().getDay();
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(qtScript, s);
+        QTCheckout.qtScript = qtScript;
+    }
+    else if (QTCheckout.buildPaymentItemsUI) {
+        QTCheckout.buildPaymentItemsUI();
+    }
+
+    //on click of Verify Button
+    const verify = () => {
+        var check2 = $('#agree').prop("checked")
+        if (check2 == false)
+        {
+            alert("Agree to terms and condition "); // Not sure what the alert message should be    
+        }
+
+        else
+        {
+            var details =
+           {
+               amount: document.getElementById("Amount").value,
+               firstName: document.getElementById("FirstName").value,
+               customerid: custid,
+               phone: document.getElementById("Phonenumber").value,
+               emailno: document.getElementById("Email").value,
+               lastname: document.getElementById("LastName").value
+           }
+            //console.log(details);
+            localStorage.setItem('details', JSON.stringify(details));
+            window.location = 'VerifyPay';
+        }
+       
+
+    }
+
+
+</script>
+
+<script src="~/resources_home/js/bootstrap.min.js"></script>
+
+<script src="~/resources/js/dataTables/jquery.dataTables.min.js"></script>
+<script src="~/resources/js/dataTables/dataTables.bootstrap.min.js"></script>
+<script src="~/resources_home/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script src="~/resources_home/plugins/flexslider/flexslider.config.js"></script>
+<script src="~/resources_home/js/jquery.appear.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/resources_home/js/stellar.js"></script>
+<script src="~/resources_home/js/classie.js"></script>
+<script src="~/resources_home/js/uisearch.js"></script>
+<script src="~/resources_home/js/jquery.cubeportfolio.min.js"></script>
+<script src="~/resources_home/js/google-code-prettify/prettify.js"></script>
+<script src="~/resources_home/js/animate.js"></script>
+<script src="~/resources_home/js/custom.js"></script>
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/resources/js/jquery.tabletojson.min.js"></script>
+<script src="~/resources/js/levypay.js"></script>

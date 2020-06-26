@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DF648123-C8BE-4C94-846D-2D5A44E493F2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Akirs.client</RootNamespace>
+    <AssemblyName>Akirs.client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.5.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.22\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.6.22\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.9.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.9.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.9.1\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Json, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Json.4.5.0\lib\netstandard1.0\System.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vanso.SXMP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Vanso.SXMP.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AssessmentController.cs" />
+    <Compile Include="Controllers\basicInfo.cs" />
+    <Compile Include="Controllers\DirectAssessmentController.cs" />
+    <Compile Include="Controllers\EnrollmentController.cs" />
+    <Compile Include="Controllers\EnrollmentTypeController.cs" />
+    <Compile Include="Controllers\FamilyController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomeDeclarationController.cs" />
+    <Compile Include="Controllers\IncomePaymentController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\userpaymentController.cs" />
+    <Compile Include="DL\IncomePayment.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\IncomeSource.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\IncomeSourceType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\NotificationProvider.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_computeAssessment_modification_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_computeAssessment_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RentPrice.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\WHTUPLOAD_temp.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\PayrollStatus.cs" />
+    <Compile Include="Enums\WitholdTaxStatus.cs" />
+    <Compile Include="Models\Implementation\DbFactory.cs" />
+    <Compile Include="Models\Implementation\Disposable.cs" />
+    <Compile Include="Models\Implementation\IDbFactory.cs" />
+    <Compile Include="Models\EnrollmentModel.cs" />
+    <Compile Include="Models\ErrorLogHandler.cs" />
+    <Compile Include="Models\ForgetPassword.cs" />
+    <Compile Include="Models\GetIncomeYearModel.cs" />
+    <Compile Include="Models\HelperClass.cs" />
+    <Compile Include="Models\IncomePaymentModel.cs" />
+    <Compile Include="Models\TransactionLogModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Persistence\Repositories\IncomePaymentRepository.cs" />
+    <Compile Include="Persistence\Repositories\PayrollData.cs" />
+    <Compile Include="Persistence\Repositories\RentPriceRepository.cs" />
+    <Compile Include="Persistence\Repositories\TransactionLogRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserRoleRepository.cs" />
+    <Compile Include="Persistence\Repositories\WhtHistoryRepository.cs" />
+    <Compile Include="repository\IExceptionLogRepository.cs" />
+    <Compile Include="repository\IIncomePaymentModelRepository.cs" />
+    <Compile Include="repository\IIncomePaymentRepository.cs" />
+    <Compile Include="repository\IPayrollData.cs" />
+    <Compile Include="repository\IRentPriceRepository.cs" />
+    <Compile Include="repository\ITransactionLog.cs" />
+    <Compile Include="repository\IUserRole.cs" />
+    <Compile Include="repository\IWhtHistoryRepository.cs" />
+    <Compile Include="utility\SessionExpireAttribute.cs" />
+    <Compile Include="Controllers\UserSalaryController.cs" />
+    <Compile Include="Controllers\SweetController.cs" />
+    <Compile Include="Controllers\UserHomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\WHTController.cs" />
+    <Compile Include="DL\AccountType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\ActivityLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Akirs.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Akirs.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Akirs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Akirs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Akirs.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Application.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AspNetRole.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AspNetUser.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AspNetUserClaim.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AspNetUserLogin.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AssessmentComp.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\AssessmentRecord.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Bank.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankBranch.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankCharge.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankRole.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankTransactionType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\BankUserprofile.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Charge.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\City.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\CompanyData.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Country.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Currency.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\C__MigrationHistory.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\DBAudit.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\EmailMessage.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\EnrollmentLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\ExceptionLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\FamilyDetail.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\gb.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\MaritalStatu.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Membership.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\menucontrol.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\MFBPANMAPPING.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Ministry.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Notification.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\NotificationAlert_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\NotificationLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_BankTransactionType_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\PROC_EnrollmentListByID_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_EnrollmentList_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_GetCompanyName_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_GetNextEnRoll_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_MfbBankCharges_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\proc_Notification_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Proc_UpdateNotification_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Profession.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Profile.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RelationShip.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RemoteBank.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RevenueHead.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Role.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\roleAssignment.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RoleLimit.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\rolemenu2_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\rolemenu_Result.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\RoleReportToLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\SALARYUPLOAD.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\SALARYUPLOADHISTORY.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\Salaryupload_temp.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\SMSMessage.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\State.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\TaxType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\tbl_BankCharges.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\tbl_Roles.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\tbl_userLogin.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\TestImage.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\TransactionLog.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\TransactionType.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\User.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\UserRole.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\UsersInRole.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\WHTUPLOAD.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DL\WHTUPLOADHISTORY.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\EmailerNotification.cs" />
+    <Compile Include="Models\EnrollmentViewModel.cs" />
+    <Compile Include="Models\FamilyModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IncomeSourceModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\SalaryuploadObj.cs" />
+    <Compile Include="Persistence\Repositories\AddNotification.cs" />
+    <Compile Include="Persistence\Repositories\AssessmentRecordRepository.cs" />
+    <Compile Include="Persistence\Repositories\AssessmentRepository.cs" />
+    <Compile Include="Persistence\Repositories\CityRepository.cs" />
+    <Compile Include="Persistence\Repositories\CompanyDataRepository.cs" />
+    <Compile Include="Persistence\Repositories\CompanyNameRepository.cs" />
+    <Compile Include="Persistence\Repositories\EnrollRepository.cs" />
+    <Compile Include="Persistence\Repositories\FamilyDetailsRepository.cs" />
+    <Compile Include="Persistence\Repositories\FamilyRepository.cs" />
+    <Compile Include="Persistence\Repositories\IncomeDeclarationRepository.cs" />
+    <Compile Include="Persistence\Repositories\IncomeSourceModelRepository.cs" />
+    <Compile Include="Persistence\Repositories\IncomeSourceTypeRepository.cs" />
+    <Compile Include="Persistence\Repositories\MaritalStatusRepository.cs" />
+    <Compile Include="Persistence\Repositories\MinistriesRepository.cs" />
+    <Compile Include="Persistence\Repositories\NexEnrollNumberRepository.cs" />
+    <Compile Include="Persistence\Repositories\NotificationLog.cs" />
+    <Compile Include="Persistence\Repositories\NotificationRepository.cs" />
+    <Compile Include="Persistence\Repositories\NotificationUpdateRepository.cs" />
+    <Compile Include="Persistence\Repositories\RelationshipTypeRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\RevenueHeadRepository.cs" />
+    <Compile Include="Persistence\Repositories\RolesRepository.cs" />
+    <Compile Include="Persistence\Repositories\SalaryHistoryRepository.cs" />
+    <Compile Include="Persistence\Repositories\SalaryUploadRepository.cs" />
+    <Compile Include="Persistence\Repositories\StateRepository.cs" />
+    <Compile Include="Persistence\Repositories\TaxTypeRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\Repositories\WHTRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="repository\IAddNotification.cs" />
+    <Compile Include="repository\IAssessmentRecordRepository.cs" />
+    <Compile Include="repository\IAssessmentRepository.cs" />
+    <Compile Include="repository\ICityRepository.cs" />
+    <Compile Include="repository\ICompanyDataRepository.cs" />
+    <Compile Include="repository\ICompanyNameRepository.cs" />
+    <Compile Include="repository\IMaritalStatusRepository.cs" />
+    <Compile Include="repository\IMinistriesRepository.cs" />
+    <Compile Include="repository\INexEnrollNumberRepository.cs" />
+    <Compile Include="repository\INotificationLog.cs" />
+    <Compile Include="repository\INotificationRepository.cs" />
+    <Compile Include="repository\INotificationUpdateRepository.cs" />
+    <Compile Include="repository\IRevenueHeadRepository.cs" />
+    <Compile Include="repository\ISalaryHistoryRepository.cs" />
+    <Compile Include="repository\ISalaryUploadRepository.cs" />
+    <Compile Include="repository\IStateRepository.cs" />
+    <Compile Include="repository\IEnrollRepository.cs" />
+    <Compile Include="repository\IFamilyDetailsRepository.cs" />
+    <Compile Include="repository\IFamilyRepository.cs" />
+    <Compile Include="repository\IIncomeDeclarationRepository.cs" />
+    <Compile Include="repository\IIncomeSourceModelRepository.cs" />
+    <Compile Include="repository\IIncomeSourceTypeRepository.cs" />
+    <Compile Include="repository\IRelationshipTypeRepository.cs" />
+    <Compile Include="repository\IRepository.cs" />
+    <Compile Include="repository\IRolesRepository.cs" />
+    <Compile Include="repository\ITaxTypeRepository.cs" />
+    <Compile Include="repository\IUnitOfWork.cs" />
+    <Compile Include="repository\IUserRepository.cs" />
+    <Compile Include="repository\IWHTRepository.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="utility\smartobject.cs" />
+    <Compile Include="ViewModel\CreatePayeeUserViewModel.cs" />
+    <Compile Include="ViewModel\CreateWitholdTaxViewModel.cs" />
+    <Compile Include="ViewModel\MultipleSalaryUploadViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Vanso.SXMP.dll" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\sweetalert\1024px-OOjs_UI_icon_bell-destructive.svg%28small%29.png" />
+    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
+    <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\sweet-alert.css" />
+    <Content Include="Content\sweetalert\thumbs-up.jpg" />
+    <Content Include="DL\Akirs.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Akirs.edmx</DependentUpon>
+      <LastGenOutput>Akirs.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DL\Akirs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Akirs.edmx</DependentUpon>
+      <LastGenOutput>Akirs.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="resources\css\basic.css" />
+    <Content Include="resources\css\bootstrap-social.css" />
+    <Content Include="resources\css\bootstrap-theme.min.css" />
+    <Content Include="resources\css\bootstrap.min.css" />
+    <Content Include="resources\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="resources\css\dataTables\dataTables.responsive.css" />
+    <Content Include="resources\css\font-awesome.min.css" />
+    <Content Include="resources\css\metisMenu.min.css" />
+    <Content Include="resources\css\morris.css" />
+    <Content Include="resources\css\startmin.css" />
+    <Content Include="resources\css\timeline.css" />
+    <Content Include="resources\fonts\fontawesome-webfont.svg" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="resources\images\ajax-loader.gif" />
+    <Content Include="resources\js\additionalassessment.js" />
+    <Content Include="resources\js\assessment.js" />
+    <Content Include="resources\js\bootstrap.min.js" />
+    <Content Include="resources\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="resources\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="resources\js\directaccess.js" />
+    <Content Include="resources\js\directstepform.js" />
+    <Content Include="resources\js\enrollment.js" />
+    <Content Include="resources\js\familyUser.js" />
+    <Content Include="resources\js\flot-data.js" />
+    <Content Include="resources\js\flot\excanvas.min.js" />
+    <Content Include="resources\js\flot\jquery.colorhelpers.js" />
+    <Content Include="resources\js\flot\jquery.flot.canvas.js" />
+    <Content Include="resources\js\flot\jquery.flot.categories.js" />
+    <Content Include="resources\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="resources\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="resources\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="resources\js\flot\jquery.flot.image.js" />
+    <Content Include="resources\js\flot\jquery.flot.js" />
+    <Content Include="resources\js\flot\jquery.flot.navigate.js" />
+    <Content Include="resources\js\flot\jquery.flot.pie.js" />
+    <Content Include="resources\js\flot\jquery.flot.resize.js" />
+    <Content Include="resources\js\flot\jquery.flot.selection.js" />
+    <Content Include="resources\js\flot\jquery.flot.stack.js" />
+    <Content Include="resources\js\flot\jquery.flot.symbol.js" />
+    <Content Include="resources\js\flot\jquery.flot.threshold.js" />
+    <Content Include="resources\js\flot\jquery.flot.time.js" />
+    <Content Include="resources\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="resources\js\forgetPasss.js" />
+    <Content Include="resources\js\incomesource.js" />
+    <Content Include="resources\js\jquery.min.js" />
+    <Content Include="resources\js\jquery.tabletojson.min.js" />
+    <Content Include="resources\js\levy.js" />
+    <Content Include="resources\js\login.js" />
+    <Content Include="resources\js\metisMenu.min.js" />
+    <Content Include="resources\js\morris-data.js" />
+    <Content Include="resources\js\morris.min.js" />
+    <Content Include="resources\js\payeestep.js" />
+    <Content Include="resources\js\raphael.min.js" />
+    <Content Include="resources\js\resetpass.js" />
+    <Content Include="resources\js\salary.js" />
+    <Content Include="resources\js\startmin.js" />
+    <Content Include="resources\js\family.js" />
+    <Content Include="resources\js\userprofile.js" />
+    <Content Include="resources\js\Users.js" />
+    <Content Include="resources\js\wht.js" />
+    <Content Include="resources\js\wtholdTaxStep.js" />
+    <Content Include="resources_home\bodybg\bg1.css" />
+    <Content Include="resources_home\bodybg\bg10.css" />
+    <Content Include="resources_home\bodybg\bg2.css" />
+    <Content Include="resources_home\bodybg\bg3.css" />
+    <Content Include="resources_home\bodybg\bg4.css" />
+    <Content Include="resources_home\bodybg\bg5.css" />
+    <Content Include="resources_home\bodybg\bg6.css" />
+    <Content Include="resources_home\bodybg\bg7.css" />
+    <Content Include="resources_home\bodybg\bg8.css" />
+    <Content Include="resources_home\bodybg\bg9.css" />
+    <Content Include="resources_home\css\animate.css" />
+    <Content Include="resources_home\css\bootstrap.min.css" />
+    <Content Include="resources_home\css\cubeportfolio.min.css" />
+    <Content Include="resources_home\css\custom-fonts.css" />
+    <Content Include="resources_home\css\flexslider.css" />
+    <Content Include="resources_home\css\font-awesome.css" />
+    <Content Include="resources_home\css\overwrite.css" />
+    <Content Include="resources_home\css\style.css" />
+    <Content Include="resources_home\css\theme.css" />
+    <Content Include="resources_home\fonts\customicon\Icons.svg" />
+    <Content Include="resources_home\fonts\fontawesome-webfont.svg" />
+    <Content Include="resources_home\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="resources_home\fonts\revicons\revicons.svg" />
+    <Content Include="resources_home\img\avatar.png" />
+    <Content Include="resources_home\img\bg_direction_nav.png" />
+    <Content Include="resources_home\img\bodybg\bg1.png" />
+    <Content Include="resources_home\img\bodybg\bg10.png" />
+    <Content Include="resources_home\img\bodybg\bg2.png" />
+    <Content Include="resources_home\img\bodybg\bg3.jpg" />
+    <Content Include="resources_home\img\bodybg\bg4.png" />
+    <Content Include="resources_home\img\bodybg\bg5.png" />
+    <Content Include="resources_home\img\bodybg\bg6.png" />
+    <Content Include="resources_home\img\bodybg\bg7.png" />
+    <Content Include="resources_home\img\bodybg\bg8.jpg" />
+    <Content Include="resources_home\img\bodybg\bg9.png" />
+    <Content Include="resources_home\img\cbp-loading-popup.gif" />
+    <Content Include="resources_home\img\cbp-loading.gif" />
+    <Content Include="resources_home\img\cbp-sprite.png" />
+    <Content Include="resources_home\img\clients\logo1.png" />
+    <Content Include="resources_home\img\clients\logo2.jpg" />
+    <Content Include="resources_home\img\clients\logo2.png" />
+    <Content Include="resources_home\img\clients\logo3.jpg" />
+    <Content Include="resources_home\img\clients\logo3.png" />
+    <Content Include="resources_home\img\clients\logo4.jpg" />
+    <Content Include="resources_home\img\clients\logo4.png" />
+    <Content Include="resources_home\img\clients\logo5.jpg" />
+    <Content Include="resources_home\img\clients\logo5.png" />
+    <Content Include="resources_home\img\clients\logo6.jpg" />
+    <Content Include="resources_home\img\clients\logo6.png" />
+    <Content Include="resources_home\img\dummies\blog\65x65\thumb1.jpg" />
+    <Content Include="resources_home\img\dummies\blog\65x65\thumb2.jpg" />
+    <Content Include="resources_home\img\dummies\blog\65x65\thumb3.jpg" />
+    <Content Include="resources_home\img\dummies\blog\img1.jpg" />
+    <Content Include="resources_home\img\dummies\blog\img2.jpg" />
+    <Content Include="resources_home\img\dummies\blog\img3.jpg" />
+    <Content Include="resources_home\img\dummies\dummy-1.jpg" />
+    <Content Include="resources_home\img\dummies\dummy-1200.jpg" />
+    <Content Include="resources_home\img\dummies\feat-bg.jpg" />
+    <Content Include="resources_home\img\dummy1.jpg" />
+    <Content Include="resources_home\img\glyphicons-halflings-white.png" />
+    <Content Include="resources_home\img\glyphicons-halflings.png" />
+    <Content Include="resources_home\img\logo.gif" />
+    <Content Include="resources_home\img\logo.jpg" />
+    <Content Include="resources_home\img\logo.png" />
+    <Content Include="resources_home\img\nivo-bullets.png" />
+    <Content Include="resources_home\img\parallax\1.jpg" />
+    <Content Include="resources_home\img\parallax\2.jpg" />
+    <Content Include="resources_home\img\parallax\3.jpg" />
+    <Content Include="resources_home\img\parallax\4.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\1.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\2.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\3.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-1.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-2.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-3.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-4.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-5.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\back-6.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\complogo.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\logo.gif" />
+    <Content Include="resources_home\img\slides\flexslider\logo.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\logo2.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\mem1.jpg" />
+    <Content Include="resources_home\img\slides\flexslider\mem2.jpg" />
+    <Content Include="resources_home\img\timer.png" />
+    <Content Include="resources_home\img\works\1.jpg" />
+    <Content Include="resources_home\img\works\10.jpg" />
+    <Content Include="resources_home\img\works\10big.jpg" />
+    <Content Include="resources_home\img\works\11.jpg" />
+    <Content Include="resources_home\img\works\11big.jpg" />
+    <Content Include="resources_home\img\works\12.jpg" />
+    <Content Include="resources_home\img\works\12big.jpg" />
+    <Content Include="resources_home\img\works\1big-1.jpg" />
+    <Content Include="resources_home\img\works\1big-2.jpg" />
+    <Content Include="resources_home\img\works\1big.jpg" />
+    <Content Include="resources_home\img\works\2.jpg" />
+    <Content Include="resources_home\img\works\2big.jpg" />
+    <Content Include="resources_home\img\works\3.jpg" />
+    <Content Include="resources_home\img\works\3big.jpg" />
+    <Content Include="resources_home\img\works\4.jpg" />
+    <Content Include="resources_home\img\works\4big.jpg" />
+    <Content Include="resources_home\img\works\5.jpg" />
+    <Content Include="resources_home\img\works\5big.jpg" />
+    <Content Include="resources_home\img\works\6.jpg" />
+    <Content Include="resources_home\img\works\6big.jpg" />
+    <Content Include="resources_home\img\works\7.jpg" />
+    <Content Include="resources_home\img\works\7big.jpg" />
+    <Content Include="resources_home\img\works\8.jpg" />
+    <Content Include="resources_home\img\works\8big.jpg" />
+    <Content Include="resources_home\img\works\9.jpg" />
+    <Content Include="resources_home\img\works\9big.jpg" />
+    <Content Include="resources_home\js\animate.js" />
+    <Content Include="resources_home\js\bootstrap.min.js" />
+    <Content Include="resources_home\js\classie.js" />
+    <Content Include="resources_home\js\custom.js" />
+    <Content Include="resources_home\js\google-code-prettify\prettify.css" />
+    <Content Include="resources_home\js\google-code-prettify\prettify.js" />
+    <Content Include="resources_home\js\jquery-1.10.2.js" />
+    <Content Include="resources_home\js\jquery.appear.js" />
+    <Content Include="resources_home\js\jquery.cookie.js" />
+    <Content Include="resources_home\js\jquery.countdown.min.js" />
+    <Content Include="resources_home\js\jquery.cubeportfolio.min.js" />
+    <Content Include="resources_home\js\jquery.easing.1.3.js" />
+    <Content Include="resources_home\js\jquery.min.js" />
+    <Content Include="resources_home\js\modernizr.custom.js" />
+    <Content Include="resources_home\js\optionspanel.js" />
+    <Content Include="resources_home\js\stellar.js" />
+    <Content Include="resources_home\js\uisearch.js" />
+    <Content Include="resources_home\js\validate.js" />
+    <Content Include="resources_home\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="resources_home\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="resources_home\plugins\demo\dashboard-demo.js" />
+    <Content Include="resources_home\plugins\demo\flot-demo.js" />
+    <Content Include="resources_home\plugins\demo\morris-demo.js" />
+    <Content Include="resources_home\plugins\flexslider\flexslider.config.js" />
+    <Content Include="resources_home\plugins\flexslider\flexslider.css" />
+    <Content Include="resources_home\plugins\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="resources_home\plugins\flexslider\images\bg_play_pause.png" />
+    <Content Include="resources_home\plugins\flexslider\jquery.flexslider-min.js" />
+    <Content Include="resources_home\plugins\flot\excanvas.min.js" />
+    <Content Include="resources_home\plugins\flot\jquery.flot.js" />
+    <Content Include="resources_home\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="resources_home\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="resources_home\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="resources_home\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="resources_home\plugins\morris\morris.js" />
+    <Content Include="resources_home\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="resources_home\plugins\revslider\extralayers.css" />
+    <Content Include="resources_home\plugins\revslider\jquery.themepunch.revolution.min.js" />
+    <Content Include="resources_home\plugins\revslider\jquery.themepunch.tools.min.js" />
+    <Content Include="resources_home\plugins\revslider\revslider.js" />
+    <Content Include="resources_home\plugins\revslider\rs-settings.css" />
+    <Content Include="resources_home\skins\blue.css" />
+    <Content Include="resources_home\skins\default.css" />
+    <Content Include="resources_home\skins\green.css" />
+    <Content Include="resources_home\skins\kissme.css" />
+    <Content Include="resources_home\skins\lime.css" />
+    <Content Include="resources_home\skins\pink.css" />
+    <Content Include="resources_home\skins\red.css" />
+    <Content Include="resources_home\skins\rose.css" />
+    <Content Include="resources_home\skins\sand.css" />
+    <Content Include="resources_home\skins\yellow.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="resources\fonts\fontawesome-webfont.eot" />
+    <Content Include="resources\fonts\fontawesome-webfont.ttf" />
+    <Content Include="resources\fonts\fontawesome-webfont.woff" />
+    <Content Include="resources\fonts\fontawesome-webfont.woff2" />
+    <Content Include="resources\fonts\FontAwesome.otf" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="DL\Akirs.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Akirs.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DL\Akirs.edmx.diagram">
+      <DependentUpon>Akirs.edmx</DependentUpon>
+    </Content>
+    <Content Include="Content\sweetalert\sweet-alert.less" />
+    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
+    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="resources_home\fonts\customicon\Icons.eot" />
+    <Content Include="resources_home\fonts\customicon\Icons.ttf" />
+    <Content Include="resources_home\fonts\customicon\Icons.woff" />
+    <Content Include="resources_home\fonts\fontawesome-webfont.eot" />
+    <Content Include="resources_home\fonts\fontawesome-webfont.ttf" />
+    <Content Include="resources_home\fonts\fontawesome-webfont.woff" />
+    <Content Include="resources_home\fonts\FontAwesome.otf" />
+    <Content Include="resources_home\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="resources_home\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="resources_home\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="resources_home\fonts\revicons\revicons.eot" />
+    <Content Include="resources_home\fonts\revicons\revicons.ttf" />
+    <Content Include="resources_home\fonts\revicons\revicons.woff" />
+    <Content Include="resources_home\plugins\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="resources_home\plugins\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="resources_home\plugins\flexslider\fonts\flexslider-icon.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="resources\js\_Payee.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\sweetalert.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Template\EmailTemplate.htm" />
+    <Content Include="Template\EmailTemplate.html" />
+    <Content Include="Template\FailedMerchantUpld.html" />
+    <Content Include="Template\InstitutionTemplate.html" />
+    <Content Include="Template\InstitutionTemplate2.html" />
+    <Content Include="Template\MerchantReportTemplate.html" />
+    <Content Include="Template\UploadNotificationTemplate.html" />
+    <Content Include="Template\UserCreationTemplate.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\UserHome\Index.cshtml" />
+    <Content Include="Views\DirectAssessment\Family.cshtml" />
+    <Content Include="Views\Family\Index.cshtml" />
+    <Content Include="Views\IncomeDeclaration\Index.cshtml" />
+    <Content Include="Views\Assessment\Index.cshtml" />
+    <Content Include="Views\WHT\Index.cshtml" />
+    <Content Include="Views\UserSalary\Index.cshtml" />
+    <Content Include="Views\Assessment\AdditionalAssessment.cshtml" />
+    <Content Include="Views\WHT\_wthUpld.cshtml" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
+    <Content Include="Views\UserSalary\_salaryUpld.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\EnrollmentType\Index.cshtml" />
+    <Content Include="Views\EnrollmentType\_Payee.cshtml" />
+    <Content Include="Views\EnrollmentType\_DirectAccess.cshtml" />
+    <Content Include="Views\EnrollmentType\_Levy.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\EnrollmentType\EnrollmentList.cshtml" />
+    <Content Include="Views\EnrollmentType\AddParty.cshtml" />
+    <Content Include="Views\UserSalary\_verifySalary.cshtml" />
+    <Content Include="Views\UserSalary\VerifyList.cshtml" />
+    <Content Include="Views\userpayment\Index.cshtml" />
+    <Content Include="Template\payrolltemp.xlsx" />
+    <Content Include="Template\WithHoldingTax.xlsx" />
+    <Content Include="Views\WHT\VerifyList.cshtml" />
+    <Content Include="Views\WHT\_verifyWht.cshtml" />
+    <Content Include="Views\EnrollmentType\_salaryUpld.cshtml" />
+    <Content Include="Views\EnrollmentType\_wthUpld.cshtml" />
+    <Content Include="Views\EnrollmentType\VerifyPay.cshtml" />
+    <Content Include="Views\Payment\Callback.cshtml" />
+    <Content Include="Views\UserHome\ChangePassword.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
+    <Content Include="Views\Home\ExpiredLink.cshtml" />
+    <Content Include="Views\Payment\Message.cshtml" />
+    <Content Include="Views\Users\ViewUser.cshtml" />
+    <Content Include="Views\Family\UserProfile.cshtml" />
+    <Content Include="Views\Users\PayHistory.cshtml" />
+    <Content Include="Views\Users\ViewProfile.cshtml" />
+    <Content Include="Views\Family\CompanyProfile.cshtml" />
+    <Content Include="Views\Assessment\GetIncomeYear.cshtml" />
+    <Content Include="Views\Assessment\IncomeYears.cshtml" />
+    <Content Include="Views\Assessment\_DirectAssessment.cshtml" />
+    <Content Include="Views\EnrollmentType\_witHoldTax.cshtml" />
+    <Content Include="Views\IncomePayment\PaymentHistory.cshtml" />
+    <Content Include="Views\UserSalary\CreatePayeeUser.cshtml" />
+    <Content Include="Views\UserSalary\GetPayeeUserForDelete.cshtml" />
+    <Content Include="Views\UserSalary\CreateWitholdTaxUser.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="unitofwork\" />
+    <Folder Include="Views\Enrollment\" />
+    <Folder Include="Views\Paye\" />
+    <Folder Include="Views\Register\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27035</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27035/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.9.1\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.9.1\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.9.1\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.9.1\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
