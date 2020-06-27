@@ -677,6 +677,7 @@
     <Content Include="resources\js\morris-data.js" />
     <Content Include="resources\js\morris.min.js" />
     <Content Include="resources\js\payeestep.js" />
+    <Content Include="resources\js\PaymentHistory.js" />
     <Content Include="resources\js\raphael.min.js" />
     <Content Include="resources\js\resetpass.js" />
     <Content Include="resources\js\salary.js" />
