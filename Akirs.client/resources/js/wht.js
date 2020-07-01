@@ -1,26 +1,104 @@
 ﻿$(document).ready(function () {
+    function Translatemonthsindex(monthIndexValue) {
+        var monthsValue = '';
+        switch (monthIndexValue) {
+            case 1:
+                monthsValue = 'JANUARY';
+                break;
+            case 2:
+                monthsValue = 'FEBUARY';
+                break;
+            case 3:
+                monthsValue = 'MARCH';
+                break;
+            case 4:
+                monthsValue = 'APRIL';
+                break;
+            case 5:
+                monthsValue = 'MAY';
+                break;
+            case 6:
+                monthsValue = 'JUNE';
+                break;
+            case 7:
+                monthsValue = 'JULY';
+                break;
+            case 8:
+                monthsValue = 'AUGUST';
+                break;
+            case 9:
+                monthsValue = 'SEPTEMBER';
+                break;
+            case 10:
+                monthsValue = 'OCTOBER';
+                break;
+            case 11:
+                monthsValue = 'NOVEMBER';
+                break;
+            case 12:
+                monthsValue = 'DECEMBER';
+                break;
+        }
+        return monthsValue
+    }
     $.ajax({
-        type: "GET",
-        url: $('#whtverify').data('request-url'),
-        contentType: 'json',
+        url: $('#loadbranchurl').data('request-url'),
         data: null,
+        type: "Get",
+        contentType: "application/json",
         success: function (response) {
-            //loaderSpin2(false);
-            if (response.RespCode == 0) {
+            var exist = false;
 
-                $('#divGrid').html(response.data_html);
-                $('#btnValidateWht').removeAttr('disabled');
+            if (response.data.length > 0) {
+                $("#Description").empty();
+                $("#Description").append("<option value=''>--Select description--</option>");
+                for (var i = 0; i < response.data.length; i++) {
+                    $("#Description").append("<option value='" + response.data[i].Description + "'>" +
+                         response.data[i].Description + "</option>");
 
-            }
-            else {
-                //displayDialogNoty('Notification', response.RespMessage);
+                }
             }
         },
-        error: function (err) {
-            console.log(err);
-            //loaderSpin2(false);
+        failure: function (xhr, status, err) {
+            return null;
         }
     });
+
+ $.ajax({
+            url: $('#loadbranchurl').data('request-url'),
+            data: null,
+            type: "Get",
+            contentType: "application/json",
+            success: function (response) {
+                var exist = false;
+
+                if (response.data.length > 0) {
+                    $("#drpWthMonth").empty();
+                    $("#drpWthMonth").append("<option value=''>--Select Month--</option>");
+                    for (var i = 0; i < response.data.length; i++) {
+                        $("#drpWthMonth").append("<option value='" + response.data[i].Description + "'>" +
+                                response.data[i].drpWthMonth + "</option>");
+
+                    }
+                }
+            },
+            failure: function (xhr, status, err) {
+                return null;
+            }
+});
+
+ $('a.editor_create').click(function () {
+     $('#formWht')[0].reset();
+     validator.resetForm();
+     $('#divStatus').hide();
+     $('#pnlAudit').css('display', 'none');
+     $('#ItbID').val(0);
+     $('#btnSave').val(1);
+     $('#btnSave').html('<i class="fa fa-save"></i> Save');
+     
+     //$('a.editor_reset').show();
+     $('#myModal').modal({ backdrop: 'static', keyboard: false });
+ });
     $(document).on('click', '#btnValidateWht', function (e) {
         e.preventDefault();
 
@@ -59,21 +137,15 @@
         columns: [
             { data: "VendorTINNO" },
             { data: "VendorName" },
-            { data: "TaxRate" },
             { data: "TaxAmount" },
+            { data: "Description" },
+            { data: "TaxRate" },
+            { data: "WHTAmount" },
             {
                 data: null,
                 className: "center_column",
                 render: function (data, type, row) {
-                    var html = '<a class="btn btn-primary btn-xs editor_edit" data-key="' + data.ItbID + '"><i class="fa fa-edit"></i></a>';
-                    return html;
-                }
-            },
-            {
-                data: null,
-                className: "center_column",
-                render: function (data, type, row) {
-                    var html = '<a class="btn btn-primary btn-xs editor_delete" data-key="' + data.ItbID + '"><i class="fa fa-trash"></i></a>';
+                    var html = '<a class="btn btn-primary btn-xs editor_edit" data-key="' + data.ItbID + '"><i class="fa fa-edit"></i></a> <a class="btn btn-danger btn-xs editor_delete" data-key="' + data.ItbID + '"><i class="fa fa-trash"></i></a>';
                     return html;
                 }
             }
@@ -89,6 +161,8 @@
         d.VendorName = model.VendorName;
         d.TaxRate = model.TaxRate;
         d.TaxAmount = model.TaxAmount
+        d.Description = model.Description
+        d.WHTAmount = model.WHTAmount
 
         table2
             .row(rowIdx)

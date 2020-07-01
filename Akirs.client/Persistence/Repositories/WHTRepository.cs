@@ -17,7 +17,7 @@ namespace Akirs.client.Persistence.Repositories
         }
         public IEnumerable<WHTUPLOAD> GetPendingWhtUpload(string EnrollId)
         {
-            var ret = PlutoContext.WHTUPLOADs.Where(p => p.EnrollmentID == EnrollId && p.Status == "P").ToList();
+            var ret = PlutoContext.WHTUPLOADs.Where(p => p.EnrollmentID == EnrollId && p.Status == "PENDING").ToList();
             return ret;
         }
         public IEnumerable<WHTUPLOAD> GetWhtUpload(string EnrollId)

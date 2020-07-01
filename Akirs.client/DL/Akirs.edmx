@@ -1176,11 +1176,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="Last_Modified_Date" Type="datetime" />
           <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
           <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
-          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAuthority" Type="varchar" MaxLength="50" />
+          <Property Name="WHTAmount" Type="decimal" Precision="22" Scale="2" />
         </EntityType>
         <EntityType Name="WHTUPLOAD_temp">
           <Key>
@@ -1201,9 +1204,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.WHTUPLOADHISTORY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="WHTUPLOADHISTORY">
           <Key>
             <PropertyRef Name="ItbID" />
+            <PropertyRef Name="EnrollmentID" />
+            <PropertyRef Name="VendorTINNO" />
+            <PropertyRef Name="VendorName" />
           </Key>
           <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -1214,11 +1222,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="Last_Modified_Date" Type="datetime" />
           <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
           <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
-          <Property Name="Status" Type="varchar" MaxLength="1" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
           <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAuthority" Type="varchar" MaxLength="50" />
+          <Property Name="WHTAmount" Type="decimal" Precision="22" Scale="2" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -1429,7 +1440,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WHTUPLOAD" EntityType="Self.WHTUPLOAD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WHTUPLOAD_temp" EntityType="Self.WHTUPLOAD_temp" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WHTUPLOADHISTORY" EntityType="Self.WHTUPLOADHISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ActivityLog].[Itbid] AS [Itbid], 
@@ -1581,6 +1591,27 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
     [TaxType].[CreateDate] AS [CreateDate], 
     [TaxType].[NoOfEnrollment] AS [NoOfEnrollment]
     FROM [dbo].[TaxType] AS [TaxType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WHTUPLOADHISTORY" EntityType="Self.WHTUPLOADHISTORY" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WHTUPLOADHISTORY].[ItbID] AS [ItbID], 
+    [WHTUPLOADHISTORY].[EnrollmentID] AS [EnrollmentID], 
+    [WHTUPLOADHISTORY].[VendorTINNO] AS [VendorTINNO], 
+    [WHTUPLOADHISTORY].[VendorName] AS [VendorName], 
+    [WHTUPLOADHISTORY].[TaxRate] AS [TaxRate], 
+    [WHTUPLOADHISTORY].[TaxAmount] AS [TaxAmount], 
+    [WHTUPLOADHISTORY].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [WHTUPLOADHISTORY].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [WHTUPLOADHISTORY].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [WHTUPLOADHISTORY].[Status] AS [Status], 
+    [WHTUPLOADHISTORY].[VALIDATIONERRORSTATUS] AS [VALIDATIONERRORSTATUS], 
+    [WHTUPLOADHISTORY].[CreatedBy] AS [CreatedBy], 
+    [WHTUPLOADHISTORY].[CreateDate] AS [CreateDate], 
+    [WHTUPLOADHISTORY].[AuthUserID] AS [AuthUserID], 
+    [WHTUPLOADHISTORY].[Description] AS [Description], 
+    [WHTUPLOADHISTORY].[TaxAuthority] AS [TaxAuthority], 
+    [WHTUPLOADHISTORY].[WHTAmount] AS [WHTAmount]
+    FROM [dbo].[WHTUPLOADHISTORY] AS [WHTUPLOADHISTORY]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2269,25 +2300,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="RoleId" Type="Guid" Nullable="false" />
         </EntityType>
-        <EntityType Name="WHTUPLOAD">
-          <Key>
-            <PropertyRef Name="ItbID" />
-          </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VendorTINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
-          <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
-          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
-          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="ActivityLog">
           <Key>
             <PropertyRef Name="Itbid" />
@@ -2513,7 +2525,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRole" />
-          <EntitySet Name="WHTUPLOADs" EntityType="Self.WHTUPLOAD" />
           <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
           <EntitySet Name="Countries" EntityType="Self.Country" />
           <EntitySet Name="gbs" EntityType="Self.gb" />
@@ -2595,7 +2606,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <EntitySet Name="RentPrices" EntityType="AKIRSTAXModel.RentPrice" />
           <EntitySet Name="EnrollmentLogs" EntityType="AKIRSTAXModel.EnrollmentLog" />
           <EntitySet Name="WHTUPLOAD_temp" EntityType="AKIRSTAXModel.WHTUPLOAD_temp" />
-          <EntitySet Name="WHTUPLOADHISTORies" EntityType="AKIRSTAXModel.WHTUPLOADHISTORY" />
           <EntitySet Name="NotificationProviders" EntityType="AKIRSTAXModel.NotificationProvider" />
           <EntitySet Name="AssessmentRecords" EntityType="AKIRSTAXModel.AssessmentRecord" />
           <EntitySet Name="TransactionLogs" EntityType="AKIRSTAXModel.TransactionLog" />
@@ -2615,6 +2625,8 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <EntitySet Name="IncomePayments" EntityType="AKIRSTAXModel.IncomePayment" />
           <EntitySet Name="SALARYUPLOADs" EntityType="AKIRSTAXModel.SALARYUPLOAD" />
           <EntitySet Name="SALARYUPLOAD_HISTORY" EntityType="AKIRSTAXModel.SALARYUPLOAD_HISTORY" />
+          <EntitySet Name="WHTUPLOADs" EntityType="AKIRSTAXModel.WHTUPLOAD" />
+          <EntitySet Name="WHTUPLOADHISTORies" EntityType="AKIRSTAXModel.WHTUPLOADHISTORY" />
         </EntityContainer>
         <ComplexType Name="proc_BankTransactionType_Result">
           <Property Type="String" Name="TransactionCode" Nullable="true" MaxLength="3" />
@@ -2924,25 +2936,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="WHTUPLOADHISTORY">
-          <Key>
-            <PropertyRef Name="ItbID" />
-          </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
-          <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
-          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
-          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="NotificationProvider">
           <Key>
             <PropertyRef Name="itbid" />
@@ -3220,6 +3213,53 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="UploadMonthIndex" Type="Int16" />
           <Property Name="UploadYear" Type="Int32" />
           <Property Name="IndexCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="WHTUPLOAD">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAuthority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WHTAmount" Type="Decimal" Precision="22" Scale="2" />
+        </EntityType>
+        <EntityType Name="WHTUPLOADHISTORY">
+          <Key>
+            <PropertyRef Name="ItbID" />
+            <PropertyRef Name="EnrollmentID" />
+            <PropertyRef Name="VendorTINNO" />
+            <PropertyRef Name="VendorName" />
+          </Key>
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAuthority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WHTAmount" Type="Decimal" Precision="22" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3904,26 +3944,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WHTUPLOADs">
-            <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOAD">
-              <MappingFragment StoreEntitySet="WHTUPLOAD">
-                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
-                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
-                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
-                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
-                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ActivityLogs">
             <EntityTypeMapping TypeName="AKIRSTAXModel.ActivityLog">
               <MappingFragment StoreEntitySet="ActivityLog">
@@ -4395,26 +4415,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WHTUPLOADHISTORies">
-            <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOADHISTORY">
-              <MappingFragment StoreEntitySet="WHTUPLOADHISTORY">
-                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
-                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
-                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
-                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
-                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="NotificationProviders">
             <EntityTypeMapping TypeName="AKIRSTAXModel.NotificationProvider">
               <MappingFragment StoreEntitySet="NotificationProvider">
@@ -4705,6 +4705,52 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
                 <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
                 <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WHTUPLOADs">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOAD">
+              <MappingFragment StoreEntitySet="WHTUPLOAD">
+                <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
+                <ScalarProperty Name="TaxAuthority" ColumnName="TaxAuthority" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WHTUPLOADHISTORies">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOADHISTORY">
+              <MappingFragment StoreEntitySet="WHTUPLOADHISTORY">
+                <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
+                <ScalarProperty Name="TaxAuthority" ColumnName="TaxAuthority" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
                 <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
                 <ScalarProperty Name="ItbID" ColumnName="ItbID" />
               </MappingFragment>

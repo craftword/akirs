@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="27e2ceb92a4348e984e02721b9cc69fa" Name="Diagram1" ZoomLevel="54">
+      <Diagram DiagramId="27e2ceb92a4348e984e02721b9cc69fa" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="AKIRSTAXModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.AccountType" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.Application" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
@@ -47,7 +47,6 @@
         <EntityTypeShape EntityType="AKIRSTAXModel.UserRole" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.User" Width="1.5" PointX="10" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.UsersInRole" Width="1.5" PointX="22.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AKIRSTAXModel.WHTUPLOAD" Width="1.5" PointX="22.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.ActivityLog" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.Country" Width="1.5" PointX="22.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AKIRSTAXModel.gb" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
@@ -71,7 +70,6 @@
         <EntityTypeShape EntityType="AKIRSTAXModel.RentPrice" Width="1.5" PointX="26.375" PointY="0.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.EnrollmentLog" Width="1.5" PointX="19.375" PointY="26.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.WHTUPLOAD_temp" Width="1.5" PointX="0.75" PointY="25.75" />
-        <EntityTypeShape EntityType="AKIRSTAXModel.WHTUPLOADHISTORY" Width="1.5" PointX="27.75" PointY="3.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.NotificationProvider" Width="1.5" PointX="21.375" PointY="26.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.AssessmentRecord" Width="1.5" PointX="7.375" PointY="25.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.TransactionLog" Width="1.5" PointX="9.375" PointY="19.75" />
@@ -80,6 +78,8 @@
         <EntityTypeShape EntityType="AKIRSTAXModel.IncomePayment" Width="1.5" PointX="13.375" PointY="27.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.SALARYUPLOAD" Width="1.5" PointX="27.375" PointY="20.75" />
         <EntityTypeShape EntityType="AKIRSTAXModel.SALARYUPLOAD_HISTORY" Width="1.5" PointX="23.375" PointY="27.75" />
+        <EntityTypeShape EntityType="AKIRSTAXModel.WHTUPLOAD" Width="1.5" PointX="27.375" PointY="3.75" />
+        <EntityTypeShape EntityType="AKIRSTAXModel.WHTUPLOADHISTORY" Width="1.5" PointX="27.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

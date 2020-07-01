@@ -119,8 +119,6 @@ public partial class AKIRSTAXEntities : DbContext
 
     public virtual DbSet<UsersInRole> UsersInRoles { get; set; }
 
-    public virtual DbSet<WHTUPLOAD> WHTUPLOADs { get; set; }
-
     public virtual DbSet<ActivityLog> ActivityLogs { get; set; }
 
     public virtual DbSet<Country> Countries { get; set; }
@@ -153,8 +151,6 @@ public partial class AKIRSTAXEntities : DbContext
 
     public virtual DbSet<WHTUPLOAD_temp> WHTUPLOAD_temp { get; set; }
 
-    public virtual DbSet<WHTUPLOADHISTORY> WHTUPLOADHISTORies { get; set; }
-
     public virtual DbSet<NotificationProvider> NotificationProviders { get; set; }
 
     public virtual DbSet<AssessmentRecord> AssessmentRecords { get; set; }
@@ -170,6 +166,10 @@ public partial class AKIRSTAXEntities : DbContext
     public virtual DbSet<SALARYUPLOAD> SALARYUPLOADs { get; set; }
 
     public virtual DbSet<SALARYUPLOAD_HISTORY> SALARYUPLOAD_HISTORY { get; set; }
+
+    public virtual DbSet<WHTUPLOAD> WHTUPLOADs { get; set; }
+
+    public virtual DbSet<WHTUPLOADHISTORY> WHTUPLOADHISTORies { get; set; }
 
 
     public virtual ObjectResult<proc_BankTransactionType_Result> proc_BankTransactionType(Nullable<int> bankid)

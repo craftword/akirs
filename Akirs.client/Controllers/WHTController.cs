@@ -188,46 +188,41 @@ namespace Akirs.client.Controllers
 
 
                         List<WHTUPLOAD> saveuplList = new List<WHTUPLOAD>();
-                        using (var package = new ExcelPackage(file.InputStream))
+                        var returnSaved = false;
+                        using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
                         {
-                            var currentSheet = package.Workbook.Worksheets;
-                            var workSheet = currentSheet.First();
-                            var noOfCol = workSheet.Dimension.End.Column;
-                            var noOfRow = workSheet.Dimension.End.Row;
-
-                            for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                            using (var package = new ExcelPackage(file.InputStream))
                             {
-                                var saveupl = new WHTUPLOAD();
-                                saveupl.EnrollmentID = Session["EnrollID"].ToString();
-                                saveupl.VendorTINNO = workSheet.Cells[rowIterator, 1].Value.ToString();
-                                saveupl.VendorName = workSheet.Cells[rowIterator, 2].Value.ToString();
-                                saveupl.TaxRate = decimal.Parse(workSheet.Cells[rowIterator, 3].Value.ToString());
-                                saveupl.TaxAmount = decimal.Parse(workSheet.Cells[rowIterator, 4].Value.ToString());
+                                var currentSheet = package.Workbook.Worksheets;
+                                var workSheet = currentSheet.First();
+                                var noOfCol = workSheet.Dimension.End.Column;
+                                var noOfRow = workSheet.Dimension.End.Row;
 
-                                saveupl.VALIDATIONERRORSTATUS = true;
-                                saveuplList.Add(saveupl);
-                                //repoSalarytemp.Insert(saveupl);
+                                for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                                {
+                                    var saveupl = new WHTUPLOAD();
+                                    saveupl.EnrollmentID = Session["EnrollID"].ToString();
+                                    saveupl.VendorTINNO = workSheet.Cells[rowIterator, 1].Value.ToString();
+                                    saveupl.VendorName = workSheet.Cells[rowIterator, 2].Value.ToString();
+                                    //saveupl.TaxRate = decimal.Parse(workSheet.Cells[rowIterator, 3].Value.ToString());
+                                    saveupl.TaxAmount = decimal.Parse(workSheet.Cells[rowIterator, 3].Value.ToString());
+
+                                    saveupl.VALIDATIONERRORSTATUS = true;
+                                    saveuplList.Add(saveupl);
+                                    unitOfWork.WhtUpload.Add(saveupl);
+                                    //repoSalarytemp.Insert(saveupl);
+
+                                }
 
                             }
+                            returnSaved = unitOfWork.Complete() > 0 ? true : false;
                         }
-                        //var dataList = ExcelReader.GetDataToList(path, addRecord); /// ExxcellReaderClosedXml.GetDataToList(path, addRecord);
-                        //int cnt = 0;
-                        Session["Salary"] = saveuplList;
 
-                        int cnt = saveuplList.Count();
-                        if (cnt > 0)
+                        if (returnSaved)
                         {
-
-                            try
-                            {
-                                //repoSalarytemp.Save();
-                            }
-                            catch (Exception ex)
-                            {
-
-                            }
                             var html = PartialView("_wthUpld", saveuplList).RenderToString();
-                            return Json(new { data_html = html, RespCode = 0, RespMessage = "Please Upload Using .xlsx file" });
+                            return Json(new { data_html = html, RespCode = 0, RespMessage = "Upload Sucessfull" });
+
                         }
                         else
                         {

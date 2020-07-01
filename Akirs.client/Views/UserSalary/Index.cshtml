@@ -33,18 +33,6 @@
                 <div class="panel-body ">
                     <div class="col-lg-12">
                         <div style="display:flex; justify-content: space-between">
-                            @*<ul class="nav nav-pills">
-                                    <li class="nav-item active">
-                                        <a class="nav-link " id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
-                                           aria-selected="true">Upload</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
-                                           aria-selected="false">
-                                            Edit Uploaded
-                                        </a>
-                                    </li>
-                                </ul>*@
                             <input type='button' value='Back to Dashboard' class="btn btn-dark buttonDash" onClick='dashboardbackOnClick()' />
                         </div>
 
@@ -58,7 +46,6 @@
                                         @Html.Hidden("hidEnrollId")
                                         <button id="btnUpload" class="btn btn-default pull-righta"><i class="fa-upload fa"></i>Upload</button>
                                         <button id="btnModifyRecord" class="btn btn-default pull-righta" style="display:none"><i class="fa-save fa"></i>Modify</button>
-                                        @*<button id="btnValidate" class="btn btn-info pull-righta" disabled><i class="fa-cog fa"></i> Validate/Save</button>*@
                                         <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/payrolltemp.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Payroll Upload Template</a>
 
                                     }

@@ -46,6 +46,12 @@ public partial class WHTUPLOAD
 
     public string AuthUserID { get; set; }
 
+    public string Description { get; set; }
+
+    public string TaxAuthority { get; set; }
+
+    public Nullable<decimal> WHTAmount { get; set; }
+
 }
 
 }
