@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+    .buttonDash:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #57ACE7;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            
+        </div>
+    </div>
+
+    <div class="row" style="margin:10px">
+        <div class="col-lg-12">
+            <div class="alert alert-dismissible fade in noty" role="alert" style="display:none">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                    <span aria-hidden="true">×</span>
+
+                </button>
+                <span class="notyMsg">
+
+                </span>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>  <i class="fa fa-list" style="color:#57ACE7;"></i>With holding tax Upload</h1>
+                </div>
+                <div class="panel-body ">
+                    <div class="col-lg-12">
+                        
+
+                       
+                        <ul class="nav nav-pills" style="display:flex;justify-content:space-between">
+                            <li class="nav-item active">
+                                <a class="nav-link " id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
+                                   aria-selected="true">Upload</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+                                   aria-selected="false">
+                                Edit Uploaded</a>
+                            </li>
+                            <input type='button' value='Back to Dashboard' class="btn btn-dark buttonDash" style="margin-left:600px" onClick='dashboardbackOnClick()' />
+                        </ul>
+                       
+                        <div class="tab-content clearfix" >
+                            <div class="tab-pane active" id="home-md">
+                                <div style="background-color:#F4F4F4;margin-bottom:10px;padding:10px">
+                                    @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("upldfile", "", new { @style = "display:inline", type = "file" })
+                                        @Html.Hidden("hidEnrollId")
+                                        <button id="btnUpload" class="btn btn-default pull-righta"><i class="fa-upload fa"></i> Upload</button>
+                                        <button id="btnValidate" class="btn btn-info pull-righta" disabled><i class="fa-cog fa"></i> Validate/Save</button>
+                                         <input type="hidden" id="EnrollmentID" name="EnrollmentID" value="@ViewBag.EnrollID" />
+                                              <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/WithHoldingTax.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Payroll Upload Template</a>
+                                           <div class="clearfix"></div>
+
+                                    }
+                                </div>
+                                <div id="divGrid">
+                                    <div class="table-responsive divad2a">
+                                        <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th> S/N</th>
+                                                    <th>
+                                                        VALIDATION STATUS
+                                                    </th>
+                                                    <th>Vendor TINNO</th>
+                                                    <th>Vendor Name</th>
+                                                    <th>Tax Rate</th>
+                                                    <th>Tax Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile-md" >
+                                <div id="divGrid">
+                                    <div class="table-responsive divad2a">
+                                        <table id="example123" class="table table-striped datatable table-condensed table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Vendor TINNO</th>
+                                                    <th>Vendor Name</th>
+                                                    <th>Tax Rate</th>
+                                                    <th>Tax Amount</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" style="width:450px">
+                                        <div class="modal-content">
+                                            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formFamily" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <div class="modal_loader loader2" style="display:none">
+                                                        <i class="fa fa-spinner fa-spin fa-1x"></i>
+                                                    </div>
+                                                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-plus"></i> Add/Edit Witholding Tax</h4>
+
+
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal">
+                                                        <div class="alert alert-dismissible fade in notyModal" role="alert" style="display:none">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                                                                <span aria-hidden="true">×</span>
+
+                                                            </button>
+                                                            <span class="notyModalMsg">
+
+                                                            </span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">VendorTINNO<span class="required"> *</span></label>
+                                                            <div class="col-md-8">
+                                                                <div class="">
+                                                                    <input type="text" id="VendorTINNO" name="VendorTINNO" placeholder="" class="form-control" />
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">VendorName</label>
+                                                            <div class="col-md-8">
+                                                                <input type="text" id="VendorName" name="VendorName" placeholder="" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">TaxAmount</label>
+                                                            <div class="col-md-8">
+                                                                <input type="text" id="TaxAmount" name="TaxAmount" placeholder="" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-4 control-label">TaxRate<span class="required"> *</span></label>
+                                                            <div class="col-md-8">
+                                                                <div class="">
+                                                                    <input type="text" id="TaxRate" name="TaxRate" placeholder="" class="form-control" />
+                                                                    <input type="hidden" id="ItbID" name="ItbID" />
+                                                                    <input type="hidden" id="EnrollmentID" name="EnrollmentID" value="RU935" />
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="clearfix"> </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary btn_disable" id="btnSave" value="1"><i class="fa fa-save"></i>Edit</button>
+
+                                                </div>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>
+<div id="whtvalidate" style="display:none" data-request-url="@Url.Action("Validate", "Wht")"></div>
+<div id="whtupload" style="display:none" data-request-url="@Url.Action("UploadFiles", "Wht")"></div>
+<div id="downloadtemp" style="display:none" data-request-url="@Url.Action("GetPaymentSampleTemplate", "Wht")"></div>
+<div id="whtlist" style="display:none" data-request-url="@Url.Action("WhtList", "Wht")"></div>
+<div id="whtdetails" style="display:none" data-request-url="@Url.Action("ViewDetail", "Wht")"></div>
+<div id="whtdeletedetails" style="display:none" data-request-url="@Url.Action("DeleteDetail", "Wht")"></div>
+<div id="whtcreate" style="display:none" data-request-url="@Url.Action("Create", "Wht")"></div>
+@section Scripts {
+    <script src="~/resources/js/wht.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#example1').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+<script>
+        function dashboardbackOnClick() {
+           // window.location.assign("http://localhost:27035/UserHome");
+            window.location.assign("http://62.173.32.98:Revenuepoint/UserHome");
+        }
+</script>
+}

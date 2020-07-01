@@ -1,0 +1,1613 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AKIRSTAXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AcctTypeCode" Type="nvarchar" MaxLength="4" />
+    <Property Name="AcctTypeDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.ActivityLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="Itbid" />
+    </Key>
+    <Property Name="Itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankId" Type="int" />
+    <Property Name="Acct_no" Type="varchar" MaxLength="20" />
+    <Property Name="Trans_Ref_no" Type="varchar" MaxLength="200" />
+    <Property Name="RequestTime" Type="datetime" />
+    <Property Name="ResponseTime" Type="datetime" />
+    <Property Name="PAN" Type="varchar" MaxLength="20" />
+    <Property Name="ISOType" Type="int" />
+    <Property Name="IPAddress" Type="nvarchar" MaxLength="20" />
+    <Property Name="PortNo" Type="int" />
+    <Property Name="ResponseCode" Type="int" />
+    <Property Name="AvailableBal" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" MaxLength="235" Nullable="false" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="ForcePassword" Type="bit" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="LoggedOn" Type="bit" Nullable="false" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="DeptName" Type="nvarchar" MaxLength="150" />
+    <Property Name="DataNetwork" Type="nvarchar" MaxLength="150" />
+    <Property Name="PasswordExpiryDate" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar(max)" />
+    <Property Name="LastPasswordChangeDate" Type="datetime" />
+    <Property Name="CreateUserId" Type="nvarchar" MaxLength="100" />
+    <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+    <Property Name="EnforcePasswordChangeDays" Type="int" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="DeptCode" Type="int" />
+    <Property Name="InstitutionId" Type="int" />
+    <Property Name="InstitutionName" Type="nvarchar(max)" />
+    <Property Name="RoleName" Type="nvarchar(max)" />
+    <Property Name="Supervisor" Type="nvarchar(max)" />
+    <Property Name="EnrollmentID" Type="varchar" MaxLength="50" />
+    <Property Name="EnforcePasswordChange" Type="char" MaxLength="1" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="AssessmentComp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GrossIncome_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="MinTax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="FPA_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PensionRate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level1Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level1Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Level2Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level2Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Level3Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level3Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Level4Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level4Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Level5Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level5Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Level6Tax_rate" Type="decimal" Precision="8" Scale="2" />
+    <Property Name="Level6Tax_Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AssessmentRecords">
+    <Key>
+      <PropertyRef Name="Itbid" />
+    </Key>
+    <Property Name="enrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Income" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="GrossIncome" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="ConsolidateAllowance" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="TotalFPA" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="TaxableIncome" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="MinimumTax" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C7PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C11PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C15PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C19PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C21PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="C24PercON" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="TaxableLiab" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="TaxableLiabMonth" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="LogisticTest1" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="LogisticTest2" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="NetTax" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Itbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="counter" Type="int" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="500" />
+    <Property Name="NontaxableIncome" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="IncomePaid" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="IncomeDifference" Type="decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="BankBranch">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BranchName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StateCode" Type="int" />
+    <Property Name="CityCode" Type="int" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsMain" Type="bit" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankCharges">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="ChargeCode" Type="int" Nullable="false" />
+    <Property Name="ChargeBasis" Type="int" Nullable="false" />
+    <Property Name="ChargeToCustomer" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="BankCommission" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="MainBankCommission" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankRoles">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Roleid" Type="int" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Banks">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="ProviderID" Type="varchar" MaxLength="10" />
+    <Property Name="BankName" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="CBNCode" Type="varchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="StateCode" Type="int" />
+    <Property Name="CityCode" Type="int" />
+    <Property Name="ContactPerson" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="BankType" Type="int" Nullable="false" />
+    <Property Name="Weburl" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="WebserviceUrl" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="WebSecurityID" Type="nvarchar" MaxLength="50" />
+    <Property Name="WebSecurityPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="ZenInterfaceAcct" Type="varchar" MaxLength="20" />
+    <Property Name="ZenSettlementAccount" Type="nchar" MaxLength="20" />
+    <Property Name="MfbCoreSettlementAcct" Type="varchar" MaxLength="20" />
+    <Property Name="AccountLimit" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="ZenSetAcctType" Type="nvarchar" MaxLength="4" />
+    <Property Name="ZenIntAcctType" Type="nvarchar" MaxLength="4" />
+    <Property Name="MfbAcctType" Type="nvarchar" MaxLength="4" />
+    <Property Name="ATM_TYPE" Type="int" />
+    <Property Name="AtmConnectionType" Type="int" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+    <Property Name="PortNo" Type="varchar" MaxLength="100" />
+    <Property Name="PAN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BankTransactionType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="DafaultNarration" Type="nvarchar" MaxLength="100" />
+    <Property Name="ZenSettlementAcct" Type="varchar" MaxLength="20" />
+    <Property Name="MfbSettlementAcct" Type="varchar" MaxLength="20" />
+    <Property Name="ZenAcctType" Type="varchar" MaxLength="4" />
+    <Property Name="MfbAcctType" Type="varchar" MaxLength="4" />
+    <Property Name="DailyTranxLimit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CumDailyTranxLimit" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SelectedFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="BankType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" Nullable="false" />
+    <Property Name="BankTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankUserprofile">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="BranchCode" Type="varchar" MaxLength="10" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" />
+    <Property Name="CoreBankUserID" Type="varchar" MaxLength="20" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" />
+    <Property Name="Firstname" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Telephone" Type="varchar" MaxLength="50" />
+    <Property Name="LastLogin" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsFirstLogin" Type="bit" Nullable="false" />
+    <Property Name="FailedLogins" Type="int" Nullable="false" />
+    <Property Name="IsApproved" Type="bit" />
+    <Property Name="ApprovedBy" Type="bigint" />
+    <Property Name="DateApproved" Type="datetime" />
+    <Property Name="IsTokenRequired" Type="bit" />
+    <Property Name="LimitAmount" Type="money" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TillAccountNo" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Charges">
+    <Key>
+      <PropertyRef Name="ChargeCode" />
+    </Key>
+    <Property Name="ChargeCode" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChargeDesc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="itbiD" />
+    </Key>
+    <Property Name="itbiD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CityName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="StateCode" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyData">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TIN_NO" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TINVerificationstatus" Type="varchar" MaxLength="1" />
+    <Property Name="TaxtypeID" Type="int" Nullable="false" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="CompanyPhonenumber" Type="varchar" MaxLength="20" />
+    <Property Name="CompanyAltNumber" Type="varchar" MaxLength="20" />
+    <Property Name="CompanyEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyAltEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyRegNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyStartDate" Type="datetime" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ItbId" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="CountryName" />
+    </Key>
+    <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="CountryCodeNo" Type="varchar" MaxLength="3" />
+    <Property Name="UserId" Type="varchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrencyCode" Type="nchar" MaxLength="10" />
+    <Property Name="CurrencyName" Type="varchar" MaxLength="250" />
+    <Property Name="CurrencySymbol" Type="nchar" MaxLength="10" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DBAudit">
+    <Key>
+      <PropertyRef Name="auditlogid" />
+    </Key>
+    <Property Name="auditlogid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="userid" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="eventdateutc" Type="datetime" Nullable="false" />
+    <Property Name="eventtype" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="tablename" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="recordid" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="columnname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="originalvalue" Type="nvarchar(max)" />
+    <Property Name="newvalue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="EmailMessage">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailContent" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="emailPlatform" Type="varchar" MaxLength="100" />
+    <Property Name="EmailStatus" Type="varchar" MaxLength="1" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="HasAttachment" Type="bit" />
+    <Property Name="Attachment" Type="varbinary" MaxLength="1" />
+    <Property Name="FromAddress" Type="varchar" MaxLength="100" />
+    <Property Name="emailSubject" Type="varchar" MaxLength="100" />
+    <Property Name="bankfiid" Type="varchar" MaxLength="5" />
+    <Property Name="nostrial" Type="int" />
+  </EntityType>
+  <EntityType Name="EnrollmentLog">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TaxtypeID" Type="int" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Middlename" Type="nvarchar" MaxLength="100" />
+    <Property Name="Lastname" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phonenumber" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" />
+    <Property Name="CountryID" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="ProfessionID" Type="int" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="Companyname" Type="nvarchar" MaxLength="200" />
+    <Property Name="MaritalStatus" Type="char" MaxLength="1" />
+    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="Position" Type="nvarchar" MaxLength="100" />
+    <Property Name="Numberofchildren" Type="int" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+    <Property Name="AMOUNTDUE" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="LASTPAYAMOUNT" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="LASTPAYDATE" Type="datetime" />
+    <Property Name="NETTAX" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="StateCode" Type="char" MaxLength="2" />
+    <Property Name="CityCode" Type="varchar" MaxLength="100" />
+    <Property Name="AddressType" Type="int" />
+    <Property Name="LGACode" Type="varchar" MaxLength="5" />
+    <Property Name="RentRangeId" Type="int" />
+  </EntityType>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionId" />
+    </Key>
+    <Property Name="ExceptionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ExceptionMessage" Type="nvarchar" MaxLength="2000" />
+    <Property Name="ExceptionDate" Type="datetime" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="FamilyDetail">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Age" Type="int" />
+    <Property Name="RelationshipType" Type="int" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="SchoolAttended" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsStudent" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.gb' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="gb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="passport" Type="image" />
+  </EntityType>
+  <EntityType Name="IncomePayment">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SourceOfIncomeID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="20" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="NHFFlag" Type="int" />
+    <Property Name="PensionFlag" Type="int" />
+    <Property Name="IncomeYear" Type="varchar" MaxLength="50" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="AmountPaid" Type="decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="IncomeSource">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SourceOfIncomeID" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="22" Scale="2" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="NHFFlag" Type="int" />
+    <Property Name="PensionFlag" Type="int" />
+    <Property Name="IncomeYear" Type="varchar" MaxLength="50" />
+    <Property Name="IsNew" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="IncomeSourceType">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceOfIncome" Type="nvarchar" MaxLength="200" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.MaritalStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MaritalStatus">
+    <Key>
+      <PropertyRef Name="ItbId" />
+    </Key>
+    <Property Name="ItbId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="char" MaxLength="1" />
+    <Property Name="Description" Type="varchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="Memberships">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowsStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="menucontrol">
+    <Key>
+      <PropertyRef Name="menuId" />
+    </Key>
+    <Property Name="menuId" Type="int" Nullable="false" />
+    <Property Name="menuName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="100" />
+    <Property Name="parent" Type="int" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="flag" Type="bit" />
+    <Property Name="description" Type="varchar" MaxLength="100" />
+    <Property Name="tablename" Type="varchar" MaxLength="60" />
+    <Property Name="ResourceKey" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.MFBPANMAPPING' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MFBPANMAPPING">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bankid" Type="int" />
+    <Property Name="PAN_Digit" Type="bigint" />
+    <Property Name="createdate" Type="datetime" />
+    <Property Name="userid" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="PANPosition" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.Ministry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Ministry">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MinistryCode" Type="varchar" MaxLength="20" />
+    <Property Name="MinistryDesc" Type="nvarchar" MaxLength="100" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.Notification' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProviderID" Type="int" />
+    <Property Name="NotificationType" Type="varchar" MaxLength="50" />
+    <Property Name="NotificationDefaultMsg" Type="varchar" MaxLength="200" />
+    <Property Name="RequireTemplate" Type="int" />
+    <Property Name="NotificationTemplate" Type="nvarchar(max)" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.NotificationLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationType" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="SMSAddress" Type="varchar" MaxLength="100" />
+    <Property Name="NotificationMsg" Type="nvarchar(max)" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NotificationProvider">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationClass" Type="varchar" MaxLength="10" />
+    <Property Name="ProviderName" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="100" />
+    <Property Name="NotificationPassword" Type="nvarchar" MaxLength="100" />
+    <Property Name="host" Type="nvarchar" MaxLength="10" />
+    <Property Name="portId" Type="int" />
+    <Property Name="ApiUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="KeyId" Type="nvarchar" MaxLength="100" />
+    <Property Name="Defaultflag" Type="int" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.Profession' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProfessionName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="PropertyValueStrings" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="PropertyValueBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.RelationShip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RelationShip">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RelationshipName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RemoteBank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoutingNo" Type="varchar" MaxLength="20" />
+    <Property Name="BankName" Type="varchar" MaxLength="150" />
+    <Property Name="NoOfDays" Type="int" />
+    <Property Name="Bankshortname" Type="varchar" MaxLength="50" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="status" Type="char" MaxLength="1" />
+    <Property Name="userid" Type="varchar" MaxLength="30" />
+    <Property Name="authorisedby" Type="varchar" MaxLength="30" />
+    <Property Name="authid" Type="varchar" MaxLength="20" />
+    <Property Name="CBNCode" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="RentPrice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RentRange" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.RevenueHead' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RevenueHead">
+    <Key>
+      <PropertyRef Name="ItbID" />
+      <PropertyRef Name="MinistryCode" />
+      <PropertyRef Name="RevenueCode" />
+      <PropertyRef Name="RevenueHead" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MinistryCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="RevenueCode" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RevenueHead" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="roleAssignment">
+    <Key>
+      <PropertyRef Name="roleAssgId" />
+    </Key>
+    <Property Name="roleAssgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleId" Type="int" Nullable="false" />
+    <Property Name="menuId" Type="int" Nullable="false" />
+    <Property Name="userId" Type="varchar" MaxLength="20" />
+    <Property Name="dateCreated" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="canInsert" Type="int" />
+    <Property Name="canDelete" Type="int" />
+    <Property Name="canUpdate" Type="int" />
+    <Property Name="canauth" Type="int" />
+    <Property Name="authId" Type="int" />
+    <Property Name="company" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleLimit">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="bigint" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" />
+    <Property Name="LimitAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="RoleReportToLog">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleId" Type="bigint" Nullable="false" />
+    <Property Name="reportToRoleId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOAD">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnnualBasic" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="PayrollStatus" Type="varchar(max)" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+    <Property Name="Counter" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Pension" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="NextUploadDate" Type="datetime" />
+    <Property Name="UploadMonthIndex" Type="smallint" />
+    <Property Name="UploadYear" Type="int" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOAD_HISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnnualBasic" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="PayrollStatus" Type="varchar(max)" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+    <Property Name="Counter" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Pension" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="NextUploadDate" Type="datetime" />
+    <Property Name="UploadMonthIndex" Type="smallint" />
+    <Property Name="UploadYear" Type="int" />
+    <Property Name="IndexCount" Type="int" />
+  </EntityType>
+  <EntityType Name="Salaryupload_temp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnnualBasic" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="VALIDATIONERRORMESSAGE" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+    <Property Name="Pension" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOADHISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmployeeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AnnualBasic" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="SMSMessage">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SMSContent" Type="nvarchar(max)" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="20" />
+    <Property Name="SenderID" Type="varchar" MaxLength="20" />
+    <Property Name="SMSStatus" Type="varchar" MaxLength="1" />
+    <Property Name="EntryDate" Type="datetime" />
+    <Property Name="bankfiid" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateCode" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="StateName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TaxType">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Taxtypename" Type="nvarchar" MaxLength="100" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="NoOfEnrollment" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_BankCharges">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="MFBChargeBasis" Type="int" Nullable="false" />
+    <Property Name="MFBChargeToCustomer" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="MFBNetAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="ZenithChargeBasis" Type="int" Nullable="false" />
+    <Property Name="ZenithChargeToCustomer" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="ZenithNetAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="nchar" MaxLength="1" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Roles">
+    <Key>
+      <PropertyRef Name="Roleid" />
+    </Key>
+    <Property Name="Roleid" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IsMainRole" Type="bit" Nullable="false" />
+    <Property Name="ReportToFlag" Type="bit" />
+    <Property Name="CanPost" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_userLogin">
+    <Key>
+      <PropertyRef Name="RowGuid" />
+    </Key>
+    <Property Name="RowGuid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="userId" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="loginDate" Type="datetime" Nullable="false" />
+    <Property Name="logoutDate" Type="datetime" />
+    <Property Name="ipAddress" Type="varchar" MaxLength="30" />
+    <Property Name="macAddress" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="TestImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Passport" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TransactionLog">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+    <Property Name="Chargecode" Type="int" />
+    <Property Name="TransactionFee" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="200" />
+    <Property Name="BenAcctBalance" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="FromBank" Type="varchar" MaxLength="50" />
+    <Property Name="ToBank" Type="varchar" MaxLength="50" />
+    <Property Name="TransactionReference" Type="varchar" MaxLength="50" />
+    <Property Name="FromAccountNumber" Type="varchar" MaxLength="20" />
+    <Property Name="ToAccountNumber" Type="varchar" MaxLength="20" />
+    <Property Name="Responsecode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResponseDescription" Type="nvarchar(max)" />
+    <Property Name="DebitLegStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreditLegStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="DebitLegResponseCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DebitLegResponseDescription" Type="nvarchar(max)" />
+    <Property Name="CreditLegResponseCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreditLegResponseDescription" Type="nvarchar(max)" />
+    <Property Name="Naration" Type="nvarchar(max)" />
+    <Property Name="iSessionID" Type="varchar" MaxLength="50" />
+    <Property Name="ReversalResponse" Type="varchar" MaxLength="3" />
+    <Property Name="ReversalComment" Type="varchar(max)" />
+    <Property Name="TransferSessionID" Type="varchar" MaxLength="50" />
+    <Property Name="MfbBankID" Type="bigint" Nullable="false" />
+    <Property Name="ZenBankId" Type="bigint" Nullable="false" />
+    <Property Name="FromProviderID" Type="varchar" MaxLength="10" />
+    <Property Name="ToProviderID" Type="varchar" MaxLength="10" />
+    <Property Name="FromBranch" Type="varchar" MaxLength="10" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" />
+    <Property Name="TillAccountNo" Type="varchar" MaxLength="20" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="RequestStartTime" Type="time" Precision="7" />
+    <Property Name="RequestEndTime" Type="time" Precision="7" />
+    <Property Name="ChequeNo" Type="varchar" MaxLength="50" />
+    <Property Name="ChequeAcctNo" Type="varchar" MaxLength="20" />
+    <Property Name="ChequeType" Type="char" MaxLength="1" />
+    <Property Name="RejectionComment" Type="nvarchar(max)" />
+    <Property Name="CustAcctNo" Type="varchar" MaxLength="20" />
+    <Property Name="LimitStatus" Type="smallint" />
+    <Property Name="NoOfDays" Type="int" Nullable="false" />
+    <Property Name="ReturnUserId" Type="varchar" MaxLength="20" />
+    <Property Name="ReturnChequeFlag" Type="bit" />
+    <Property Name="ReturnChequeReason" Type="nchar" MaxLength="300" />
+    <Property Name="MfbPtid" Type="nvarchar" MaxLength="10" />
+    <Property Name="ZenPtid" Type="nvarchar" MaxLength="10" />
+    <Property Name="NoOfExtension" Type="smallint" />
+    <Property Name="BookBalance" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="PhoenixRefNo" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="TransactionName" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Roleid" Type="int" Nullable="false" />
+    <Property Name="BankID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" />
+    <Property Name="Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="AdminUserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WHTUPLOAD">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorTINNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TaxRate" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="WHTUPLOAD_temp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorTINNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TaxRate" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="WHTUPLOADHISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorTINNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VendorName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="TaxRate" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="datetime" />
+    <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+    <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="1" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Memberships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Memberships" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserApplication">
+    <End Role="Applications" Type="Self.Applications" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="NotificationAlert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="proc_BankTransactionType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bankid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="proc_computeAssessment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="enrollmentID" Type="varchar" Mode="In" />
+    <Parameter Name="yearValue" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_computeAssessment_modification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="enrollmentID" Type="varchar" Mode="In" />
+    <Parameter Name="yearValue" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_CustomerInfoByAccountNo2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="accountnumber" Type="varchar" Mode="In" />
+    <Parameter Name="bankfiid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="proc_EnrollmentList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PROC_EnrollmentListByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnrollmentID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_GetCompanyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="companyname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="proc_GetNextEnRoll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="proc_getPayYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="enrollmentID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_MfbBankCharges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BankID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="proc_Notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NotificationType" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="phoneno" Type="varchar" Mode="In" />
+    <Parameter Name="notificationmsg" Type="varchar" Mode="In" />
+    <Parameter Name="userid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_UpdateNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Itbid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rolemenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="coyid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="rolemenu2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="roleid" Type="int" Mode="In" />
+    <Parameter Name="coyid" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="AKIRSTAXModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AccountType" EntityType="Self.AccountType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssessmentComp" EntityType="Self.AssessmentComp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AssessmentRecords" EntityType="Self.AssessmentRecords" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankBranch" EntityType="Self.BankBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankCharges" EntityType="Self.BankCharges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankRoles" EntityType="Self.BankRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Banks" EntityType="Self.Banks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankTransactionType" EntityType="Self.BankTransactionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankType" EntityType="Self.BankType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankUserprofile" EntityType="Self.BankUserprofile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Charges" EntityType="Self.Charges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyData" EntityType="Self.CompanyData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DBAudit" EntityType="Self.DBAudit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailMessage" EntityType="Self.EmailMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnrollmentLog" EntityType="Self.EnrollmentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExceptionLog" EntityType="Self.ExceptionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FamilyDetail" EntityType="Self.FamilyDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomePayment" EntityType="Self.IncomePayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeSource" EntityType="Self.IncomeSource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeSourceType" EntityType="Self.IncomeSourceType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Memberships" EntityType="Self.Memberships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="menucontrol" EntityType="Self.menucontrol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationProvider" EntityType="Self.NotificationProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RemoteBank" EntityType="Self.RemoteBank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentPrice" EntityType="Self.RentPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roleAssignment" EntityType="Self.roleAssignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleLimit" EntityType="Self.RoleLimit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleReportToLog" EntityType="Self.RoleReportToLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALARYUPLOAD" EntityType="Self.SALARYUPLOAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALARYUPLOAD_HISTORY" EntityType="Self.SALARYUPLOAD_HISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Salaryupload_temp" EntityType="Self.Salaryupload_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SALARYUPLOADHISTORY" EntityType="Self.SALARYUPLOADHISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMSMessage" EntityType="Self.SMSMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BankCharges" EntityType="Self.tbl_BankCharges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Roles" EntityType="Self.tbl_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_userLogin" EntityType="Self.tbl_userLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TestImage" EntityType="Self.TestImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionLog" EntityType="Self.TransactionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WHTUPLOAD" EntityType="Self.WHTUPLOAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WHTUPLOAD_temp" EntityType="Self.WHTUPLOAD_temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WHTUPLOADHISTORY" EntityType="Self.WHTUPLOADHISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ActivityLog].[Itbid] AS [Itbid], 
+    [ActivityLog].[BankId] AS [BankId], 
+    [ActivityLog].[Acct_no] AS [Acct_no], 
+    [ActivityLog].[Trans_Ref_no] AS [Trans_Ref_no], 
+    [ActivityLog].[RequestTime] AS [RequestTime], 
+    [ActivityLog].[ResponseTime] AS [ResponseTime], 
+    [ActivityLog].[PAN] AS [PAN], 
+    [ActivityLog].[ISOType] AS [ISOType], 
+    [ActivityLog].[IPAddress] AS [IPAddress], 
+    [ActivityLog].[PortNo] AS [PortNo], 
+    [ActivityLog].[ResponseCode] AS [ResponseCode], 
+    [ActivityLog].[AvailableBal] AS [AvailableBal]
+    FROM [dbo].[ActivityLog] AS [ActivityLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Country].[ItbId] AS [ItbId], 
+    [Country].[CountryCode] AS [CountryCode], 
+    [Country].[CountryName] AS [CountryName], 
+    [Country].[CountryCodeNo] AS [CountryCodeNo], 
+    [Country].[UserId] AS [UserId], 
+    [Country].[CreateDate] AS [CreateDate], 
+    [Country].[Status] AS [Status]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="gb" EntityType="Self.gb" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [gb].[id] AS [id], 
+    [gb].[passport] AS [passport]
+    FROM [dbo].[gb] AS [gb]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatus" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MaritalStatus].[ItbId] AS [ItbId], 
+    [MaritalStatus].[Code] AS [Code], 
+    [MaritalStatus].[Description] AS [Description]
+    FROM [dbo].[MaritalStatus] AS [MaritalStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="MFBPANMAPPING" EntityType="Self.MFBPANMAPPING" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MFBPANMAPPING].[itbid] AS [itbid], 
+    [MFBPANMAPPING].[bankid] AS [bankid], 
+    [MFBPANMAPPING].[PAN_Digit] AS [PAN_Digit], 
+    [MFBPANMAPPING].[createdate] AS [createdate], 
+    [MFBPANMAPPING].[userid] AS [userid], 
+    [MFBPANMAPPING].[status] AS [status], 
+    [MFBPANMAPPING].[PANPosition] AS [PANPosition]
+    FROM [dbo].[MFBPANMAPPING] AS [MFBPANMAPPING]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Ministry" EntityType="Self.Ministry" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Ministry].[ItbID] AS [ItbID], 
+    [Ministry].[MinistryCode] AS [MinistryCode], 
+    [Ministry].[MinistryDesc] AS [MinistryDesc], 
+    [Ministry].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [Ministry].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [Ministry].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [Ministry].[Status] AS [Status], 
+    [Ministry].[CreatedBy] AS [CreatedBy], 
+    [Ministry].[CreateDate] AS [CreateDate], 
+    [Ministry].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[Ministry] AS [Ministry]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Notification" EntityType="Self.Notification" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Notification].[itbid] AS [itbid], 
+    [Notification].[ProviderID] AS [ProviderID], 
+    [Notification].[NotificationType] AS [NotificationType], 
+    [Notification].[NotificationDefaultMsg] AS [NotificationDefaultMsg], 
+    [Notification].[RequireTemplate] AS [RequireTemplate], 
+    [Notification].[NotificationTemplate] AS [NotificationTemplate], 
+    [Notification].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [Notification].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [Notification].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [Notification].[Status] AS [Status], 
+    [Notification].[CreatedBy] AS [CreatedBy], 
+    [Notification].[CreateDate] AS [CreateDate], 
+    [Notification].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[Notification] AS [Notification]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [NotificationLog].[itbid] AS [itbid], 
+    [NotificationLog].[NotificationType] AS [NotificationType], 
+    [NotificationLog].[EmailAddress] AS [EmailAddress], 
+    [NotificationLog].[SMSAddress] AS [SMSAddress], 
+    [NotificationLog].[NotificationMsg] AS [NotificationMsg], 
+    [NotificationLog].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [NotificationLog].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [NotificationLog].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [NotificationLog].[Status] AS [Status], 
+    [NotificationLog].[CreatedBy] AS [CreatedBy], 
+    [NotificationLog].[CreateDate] AS [CreateDate], 
+    [NotificationLog].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[NotificationLog] AS [NotificationLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Profession" EntityType="Self.Profession" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Profession].[ItbID] AS [ItbID], 
+    [Profession].[ProfessionName] AS [ProfessionName], 
+    [Profession].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [Profession].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [Profession].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [Profession].[Status] AS [Status], 
+    [Profession].[CreatedBy] AS [CreatedBy], 
+    [Profession].[CreateDate] AS [CreateDate], 
+    [Profession].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[Profession] AS [Profession]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RelationShip" EntityType="Self.RelationShip" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RelationShip].[ItbID] AS [ItbID], 
+    [RelationShip].[RelationshipName] AS [RelationshipName], 
+    [RelationShip].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [RelationShip].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [RelationShip].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [RelationShip].[Status] AS [Status], 
+    [RelationShip].[CreatedBy] AS [CreatedBy], 
+    [RelationShip].[CreateDate] AS [CreateDate], 
+    [RelationShip].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[RelationShip] AS [RelationShip]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RevenueHead" EntityType="Self.RevenueHead" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RevenueHead].[ItbID] AS [ItbID], 
+    [RevenueHead].[MinistryCode] AS [MinistryCode], 
+    [RevenueHead].[RevenueCode] AS [RevenueCode], 
+    [RevenueHead].[RevenueHead] AS [RevenueHead], 
+    [RevenueHead].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [RevenueHead].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [RevenueHead].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [RevenueHead].[Status] AS [Status], 
+    [RevenueHead].[CreatedBy] AS [CreatedBy], 
+    [RevenueHead].[CreateDate] AS [CreateDate], 
+    [RevenueHead].[AuthUserID] AS [AuthUserID]
+    FROM [dbo].[RevenueHead] AS [RevenueHead]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TaxType" EntityType="Self.TaxType" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TaxType].[ItbID] AS [ItbID], 
+    [TaxType].[Taxtypename] AS [Taxtypename], 
+    [TaxType].[Last_Modified_Date] AS [Last_Modified_Date], 
+    [TaxType].[Last_Modified_Authid] AS [Last_Modified_Authid], 
+    [TaxType].[Last_Modified_Uid] AS [Last_Modified_Uid], 
+    [TaxType].[Status] AS [Status], 
+    [TaxType].[CreatedBy] AS [CreatedBy], 
+    [TaxType].[CreateDate] AS [CreateDate], 
+    [TaxType].[NoOfEnrollment] AS [NoOfEnrollment]
+    FROM [dbo].[TaxType] AS [TaxType]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipApplication" Association="Self.MembershipApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipUser" Association="Self.MembershipUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="RoleApplication" Association="Self.RoleApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserApplication" Association="Self.UserApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

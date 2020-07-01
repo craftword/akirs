@@ -1,0 +1,210 @@
+﻿    
+@{
+    ViewBag.Title = "VerifyPay";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .error {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+</style>
+<section id="content"> 
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formFamily", @class = "register-form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <h2>Make  <small> payment</small></h2>
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong class="label label-primary">First Name</strong>
+                                <input type="text" name="FirstName" id="FirstName" class="form-control input-lg" readonly tabindex="1">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <strong class="label label-primary">Last Name</strong>
+                                <input type="text" name="LastName" id="LastName" class="form-control input-lg" readonly tabindex="2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Phone Number</strong>
+                        <input type="number" name="Phonenumber" id="Phonenumber" class="form-control input-lg" readonly  tabindex="3">
+                    </div>
+                    <div class="form-group">
+                        <strong class="label label-primary">Amount</strong>
+                        <input type="text" id="Amount" name="Amount" readonly  class="form-control input-lg" />
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                        <em><small><a class="quickteller-checkout-anchor" id="04364401" style="text-align:left;">payment button will appear here shortly...</a></small></em>
+                        </div>
+                        @*<button class="btn btn-primary btn-sx" id="makepay" type="button">Make Payment</button>
+                        <button class="btn btn-primary btn-sx" id="verifyy" onclick="verify()" type="button">Verify Payment</button>*@
+                        
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+</section>
+
+<div id="ministryloader" style="display:none" data-request-url="@Url.Action("MinistryList", "EnrollmentType")"></div>
+<div id="revenueloader" style="display:none" data-request-url="@Url.Action("RevenueList", "EnrollmentType")"></div>
+<div id="paymentloader" style="display:none" data-request-url="@Url.Action("MakePay", "EnrollmentType")"></div>
+<div id="createtransaction" style="display:none" data-request-url="@Url.Action("CreateTransactionLog", "EnrollmentType")"></div>
+<div id="getUser" style="display:none" data-request-url="@Url.Action("checkUserData", "Assessment")"></div>
+
+
+<script src="~/resources_home/js/jquery.min.js"></script>
+<script src="~/resources_home/js/modernizr.custom.js"></script>
+<script src="~/resources_home/js/jquery.easing.1.3.js"></script>
+
+<script type="text/javascript" >
+    $(function () {
+        //$.ajax({
+        //    url: "https://api.exchangeratesapi.io/latest",
+        //    type: "GET",
+        //    contentType: "application/javascript",
+        //    success: function (data) {
+        //        console, log(data);
+        //    }
+        //})
+
+    })
+   
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'NGR',
+        minimumFractionDigits: 2
+    })
+
+   // var haha = 15000;
+   // var lol = formatter.format(haha);
+    //console.log(lol)
+
+    var pay_det = JSON.parse(localStorage.getItem('details'));
+    console.log(pay_det);
+    var newAmt = formatter.format(pay_det.amount);
+    //console.log(newAmt);
+
+   
+
+    $('#Amount').val(newAmt);
+    $('#FirstName').val(pay_det.firstName);
+    $('#Phonenumber').val(pay_det.phone);
+    $('#LastName').val(pay_det.lastName);
+
+   
+
+    var formatAmount = formatter.format(pay_det.amount);
+    //console.log(lool)
+
+    var transaction = {};
+    transaction.Amount = pay_det.amount;
+
+    transaction.AccountName = pay_det.firstName;
+
+
+    var QTCheckout = QTCheckout || {};
+    var testMode = false;
+    var baseUrl = "";
+
+    var rand = "6164" + Math.floor((Math.random() * 100000000) + 1);
+    QTCheckout.paymentItems = QTCheckout.paymentItems || [];
+    QTCheckout.paymentItems.push({
+       paymentCode: '04364401',
+       //paymentCode: '95101',
+        extraData: {
+            amount: pay_det.amount * 100,
+            buttonSize: 'medium',
+            customerId: pay_det.firstName,
+            mobileNumber: pay_det.phone,
+            emailAddress: pay_det.emailno, 
+            //redirectUrl:'http://62.173.32.98/Revenuepoint/Payment/Callback',
+            //redirectUrl: 'http://localhost:27035/Payment/Message',
+            requestReference: rand,
+        }
+    });
+  
+    
+    if (testMode == true) baseUrl = "https://pwq.sandbox.interswitchng.com/scripts/quickteller-checkout-min.js?v=";
+    else baseUrl = "https://paywith.quickteller.com/scripts/quickteller-checkout-min.js?v=";
+    if (!QTCheckout.qtScript) {
+        var qtScript = document.createElement('script');
+            qtScript.type = 'text/javascript';
+        qtScript.async = true;
+        qtScript.src = baseUrl + new Date().getDay();
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(qtScript, s);
+        QTCheckout.qtScript = qtScript;
+    }
+    else if (QTCheckout.buildPaymentItemsUI) {
+        QTCheckout.buildPaymentItemsUI();
+    }
+        console.log(transaction)
+    $.ajax({
+        url: $('#createtransaction').data('request-url'),//'IncomeDeclaration/ViewDetail/' + editLink,
+        data:JSON.stringify(transaction),
+        type: "POST",
+        contentType: "application/json",
+        success: function (response) {
+           console.log(response)
+        },
+        failure: function (xhr, status, err) {
+            $('.ajax-loader').css("visibility", "hidden");
+        },
+        beforeSend: function () {
+            $('.ajax-loader').css("visibility", "visible");
+        },
+        complete: function () {
+            $('.ajax-loader').css("visibility", "hidden");
+        }
+    })
+
+
+
+</script>
+
+
+
+
+<script src="~/resources_home/js/bootstrap.min.js"></script>
+
+<script src="~/resources/js/dataTables/jquery.dataTables.min.js"></script>
+<script src="~/resources/js/dataTables/dataTables.bootstrap.min.js"></script>
+<script src="~/resources_home/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script src="~/resources_home/plugins/flexslider/flexslider.config.js"></script>
+<script src="~/resources_home/js/jquery.appear.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/resources_home/js/stellar.js"></script>
+<script src="~/resources_home/js/classie.js"></script>
+<script src="~/resources_home/js/uisearch.js"></script>
+<script src="~/resources_home/js/jquery.cubeportfolio.min.js"></script>
+<script src="~/resources_home/js/google-code-prettify/prettify.js"></script>
+<script src="~/resources_home/js/animate.js"></script>
+<script src="~/resources_home/js/custom.js"></script>
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/resources/js/jquery.tabletojson.min.js"></script>
+<script src="~/resources/js/levypay.js"></script>

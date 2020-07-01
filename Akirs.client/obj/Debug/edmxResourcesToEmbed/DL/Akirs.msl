@@ -1,0 +1,1488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AKIRSTAXModelStoreContainer" CdmEntityContainer="AKIRSTAXEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AccountType">
+        <MappingFragment StoreEntitySet="AccountType">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="AcctTypeCode" ColumnName="AcctTypeCode" />
+          <ScalarProperty Name="AcctTypeDescription" ColumnName="AcctTypeDescription" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Application">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentComps">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AssessmentComp">
+        <MappingFragment StoreEntitySet="AssessmentComp">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="GrossIncome_rate" ColumnName="GrossIncome_rate" />
+          <ScalarProperty Name="MinTax_rate" ColumnName="MinTax_rate" />
+          <ScalarProperty Name="FPA_Amount" ColumnName="FPA_Amount" />
+          <ScalarProperty Name="PensionRate" ColumnName="PensionRate" />
+          <ScalarProperty Name="Level1Tax_rate" ColumnName="Level1Tax_rate" />
+          <ScalarProperty Name="Level1Tax_Amount" ColumnName="Level1Tax_Amount" />
+          <ScalarProperty Name="Level2Tax_rate" ColumnName="Level2Tax_rate" />
+          <ScalarProperty Name="Level2Tax_Amount" ColumnName="Level2Tax_Amount" />
+          <ScalarProperty Name="Level3Tax_rate" ColumnName="Level3Tax_rate" />
+          <ScalarProperty Name="Level3Tax_Amount" ColumnName="Level3Tax_Amount" />
+          <ScalarProperty Name="Level4Tax_rate" ColumnName="Level4Tax_rate" />
+          <ScalarProperty Name="Level4Tax_Amount" ColumnName="Level4Tax_Amount" />
+          <ScalarProperty Name="Level5Tax_rate" ColumnName="Level5Tax_rate" />
+          <ScalarProperty Name="Level5Tax_Amount" ColumnName="Level5Tax_Amount" />
+          <ScalarProperty Name="Level6Tax_rate" ColumnName="Level6Tax_rate" />
+          <ScalarProperty Name="Level6Tax_Amount" ColumnName="Level6Tax_Amount" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankBranches">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankBranch">
+        <MappingFragment StoreEntitySet="BankBranch">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankCharges">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankCharge">
+        <MappingFragment StoreEntitySet="BankCharges">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+          <ScalarProperty Name="ChargeBasis" ColumnName="ChargeBasis" />
+          <ScalarProperty Name="ChargeToCustomer" ColumnName="ChargeToCustomer" />
+          <ScalarProperty Name="BankCommission" ColumnName="BankCommission" />
+          <ScalarProperty Name="MainBankCommission" ColumnName="MainBankCommission" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankRoles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankRole">
+        <MappingFragment StoreEntitySet="BankRoles">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Bank">
+        <MappingFragment StoreEntitySet="Banks">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CBNCode" ColumnName="CBNCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="BankType" ColumnName="BankType" />
+          <ScalarProperty Name="Weburl" ColumnName="Weburl" />
+          <ScalarProperty Name="WebserviceUrl" ColumnName="WebserviceUrl" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="WebSecurityID" ColumnName="WebSecurityID" />
+          <ScalarProperty Name="WebSecurityPassword" ColumnName="WebSecurityPassword" />
+          <ScalarProperty Name="ZenInterfaceAcct" ColumnName="ZenInterfaceAcct" />
+          <ScalarProperty Name="ZenSettlementAccount" ColumnName="ZenSettlementAccount" />
+          <ScalarProperty Name="MfbCoreSettlementAcct" ColumnName="MfbCoreSettlementAcct" />
+          <ScalarProperty Name="AccountLimit" ColumnName="AccountLimit" />
+          <ScalarProperty Name="ZenSetAcctType" ColumnName="ZenSetAcctType" />
+          <ScalarProperty Name="ZenIntAcctType" ColumnName="ZenIntAcctType" />
+          <ScalarProperty Name="MfbAcctType" ColumnName="MfbAcctType" />
+          <ScalarProperty Name="ATM_TYPE" ColumnName="ATM_TYPE" />
+          <ScalarProperty Name="AtmConnectionType" ColumnName="AtmConnectionType" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="PortNo" ColumnName="PortNo" />
+          <ScalarProperty Name="PAN" ColumnName="PAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankTransactionTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankTransactionType">
+        <MappingFragment StoreEntitySet="BankTransactionType">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="DafaultNarration" ColumnName="DafaultNarration" />
+          <ScalarProperty Name="ZenSettlementAcct" ColumnName="ZenSettlementAcct" />
+          <ScalarProperty Name="MfbSettlementAcct" ColumnName="MfbSettlementAcct" />
+          <ScalarProperty Name="ZenAcctType" ColumnName="ZenAcctType" />
+          <ScalarProperty Name="MfbAcctType" ColumnName="MfbAcctType" />
+          <ScalarProperty Name="DailyTranxLimit" ColumnName="DailyTranxLimit" />
+          <ScalarProperty Name="CumDailyTranxLimit" ColumnName="CumDailyTranxLimit" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="SelectedFlag" ColumnName="SelectedFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankType">
+        <MappingFragment StoreEntitySet="BankType">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="BankTypeName" ColumnName="BankTypeName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankUserprofiles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.BankUserprofile">
+        <MappingFragment StoreEntitySet="BankUserprofile">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CoreBankUserID" ColumnName="CoreBankUserID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsFirstLogin" ColumnName="IsFirstLogin" />
+          <ScalarProperty Name="FailedLogins" ColumnName="FailedLogins" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+          <ScalarProperty Name="IsTokenRequired" ColumnName="IsTokenRequired" />
+          <ScalarProperty Name="LimitAmount" ColumnName="LimitAmount" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="TillAccountNo" ColumnName="TillAccountNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Charges">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Charge">
+        <MappingFragment StoreEntitySet="Charges">
+          <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+          <ScalarProperty Name="ChargeDesc" ColumnName="ChargeDesc" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="itbiD" ColumnName="itbiD" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyDatas">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.CompanyData">
+        <MappingFragment StoreEntitySet="CompanyData">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="TIN_NO" ColumnName="TIN_NO" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="TINVerificationstatus" ColumnName="TINVerificationstatus" />
+          <ScalarProperty Name="TaxtypeID" ColumnName="TaxtypeID" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CompanyPhonenumber" ColumnName="CompanyPhonenumber" />
+          <ScalarProperty Name="CompanyAltNumber" ColumnName="CompanyAltNumber" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+          <ScalarProperty Name="CompanyAltEmail" ColumnName="CompanyAltEmail" />
+          <ScalarProperty Name="CompanyRegNo" ColumnName="CompanyRegNo" />
+          <ScalarProperty Name="CompanyStartDate" ColumnName="CompanyStartDate" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+          <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DBAudits">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.DBAudit">
+        <MappingFragment StoreEntitySet="DBAudit">
+          <ScalarProperty Name="auditlogid" ColumnName="auditlogid" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="eventdateutc" ColumnName="eventdateutc" />
+          <ScalarProperty Name="eventtype" ColumnName="eventtype" />
+          <ScalarProperty Name="tablename" ColumnName="tablename" />
+          <ScalarProperty Name="recordid" ColumnName="recordid" />
+          <ScalarProperty Name="columnname" ColumnName="columnname" />
+          <ScalarProperty Name="originalvalue" ColumnName="originalvalue" />
+          <ScalarProperty Name="newvalue" ColumnName="newvalue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailMessages">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.EmailMessage">
+        <MappingFragment StoreEntitySet="EmailMessage">
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+          <ScalarProperty Name="EmailContent" ColumnName="EmailContent" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="emailPlatform" ColumnName="emailPlatform" />
+          <ScalarProperty Name="EmailStatus" ColumnName="EmailStatus" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="HasAttachment" ColumnName="HasAttachment" />
+          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+          <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+          <ScalarProperty Name="emailSubject" ColumnName="emailSubject" />
+          <ScalarProperty Name="bankfiid" ColumnName="bankfiid" />
+          <ScalarProperty Name="nostrial" ColumnName="nostrial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExceptionLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.ExceptionLog">
+        <MappingFragment StoreEntitySet="ExceptionLog">
+          <ScalarProperty Name="ExceptionId" ColumnName="ExceptionId" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="ExceptionDate" ColumnName="ExceptionDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyDetails">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.FamilyDetail">
+        <MappingFragment StoreEntitySet="FamilyDetail">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="RelationshipType" ColumnName="RelationshipType" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="SchoolAttended" ColumnName="SchoolAttended" />
+          <ScalarProperty Name="IsStudent" ColumnName="IsStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memberships">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Membership">
+        <MappingFragment StoreEntitySet="Memberships">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowsStart" ColumnName="FailedPasswordAnswerAttemptWindowsStart" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menucontrols">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.menucontrol">
+        <MappingFragment StoreEntitySet="menucontrol">
+          <ScalarProperty Name="menuId" ColumnName="menuId" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="tablename" ColumnName="tablename" />
+          <ScalarProperty Name="ResourceKey" ColumnName="ResourceKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PropertyNames" ColumnName="PropertyNames" />
+          <ScalarProperty Name="PropertyValueStrings" ColumnName="PropertyValueStrings" />
+          <ScalarProperty Name="PropertyValueBinary" ColumnName="PropertyValueBinary" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RemoteBanks">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RemoteBank">
+        <MappingFragment StoreEntitySet="RemoteBank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="RoutingNo" ColumnName="RoutingNo" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+          <ScalarProperty Name="Bankshortname" ColumnName="Bankshortname" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="authorisedby" ColumnName="authorisedby" />
+          <ScalarProperty Name="authid" ColumnName="authid" />
+          <ScalarProperty Name="CBNCode" ColumnName="CBNCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roleAssignments">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.roleAssignment">
+        <MappingFragment StoreEntitySet="roleAssignment">
+          <ScalarProperty Name="roleAssgId" ColumnName="roleAssgId" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="menuId" ColumnName="menuId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="canInsert" ColumnName="canInsert" />
+          <ScalarProperty Name="canDelete" ColumnName="canDelete" />
+          <ScalarProperty Name="canUpdate" ColumnName="canUpdate" />
+          <ScalarProperty Name="canauth" ColumnName="canauth" />
+          <ScalarProperty Name="authId" ColumnName="authId" />
+          <ScalarProperty Name="company" ColumnName="company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleLimits">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RoleLimit">
+        <MappingFragment StoreEntitySet="RoleLimit">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="LimitAmount" ColumnName="LimitAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleReportToLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RoleReportToLog">
+        <MappingFragment StoreEntitySet="RoleReportToLog">
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="reportToRoleId" ColumnName="reportToRoleId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salaryupload_temp">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Salaryupload_temp">
+        <MappingFragment StoreEntitySet="Salaryupload_temp">
+          <ScalarProperty Name="Others" ColumnName="Others" />
+          <ScalarProperty Name="NHIS" ColumnName="NHIS" />
+          <ScalarProperty Name="Premium" ColumnName="Premium" />
+          <ScalarProperty Name="Pension" ColumnName="Pension" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+          <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+          <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+          <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+          <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+          <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+          <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="VALIDATIONERRORMESSAGE" ColumnName="VALIDATIONERRORMESSAGE" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARYUPLOADHISTORies">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOADHISTORY">
+        <MappingFragment StoreEntitySet="SALARYUPLOADHISTORY">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+          <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+          <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+          <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+          <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+          <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+          <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSMessages">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.SMSMessage">
+        <MappingFragment StoreEntitySet="SMSMessage">
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+          <ScalarProperty Name="SMSContent" ColumnName="SMSContent" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+          <ScalarProperty Name="SMSStatus" ColumnName="SMSStatus" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="bankfiid" ColumnName="bankfiid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BankCharges">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.tbl_BankCharges">
+        <MappingFragment StoreEntitySet="tbl_BankCharges">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="MFBChargeBasis" ColumnName="MFBChargeBasis" />
+          <ScalarProperty Name="MFBChargeToCustomer" ColumnName="MFBChargeToCustomer" />
+          <ScalarProperty Name="MFBNetAmount" ColumnName="MFBNetAmount" />
+          <ScalarProperty Name="ZenithChargeBasis" ColumnName="ZenithChargeBasis" />
+          <ScalarProperty Name="ZenithChargeToCustomer" ColumnName="ZenithChargeToCustomer" />
+          <ScalarProperty Name="ZenithNetAmount" ColumnName="ZenithNetAmount" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Roles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.tbl_Roles">
+        <MappingFragment StoreEntitySet="tbl_Roles">
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="IsMainRole" ColumnName="IsMainRole" />
+          <ScalarProperty Name="ReportToFlag" ColumnName="ReportToFlag" />
+          <ScalarProperty Name="CanPost" ColumnName="CanPost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_userLogin">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.tbl_userLogin">
+        <MappingFragment StoreEntitySet="tbl_userLogin">
+          <ScalarProperty Name="RowGuid" ColumnName="RowGuid" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="loginDate" ColumnName="loginDate" />
+          <ScalarProperty Name="logoutDate" ColumnName="logoutDate" />
+          <ScalarProperty Name="ipAddress" ColumnName="ipAddress" />
+          <ScalarProperty Name="macAddress" ColumnName="macAddress" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TestImages">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.TestImage">
+        <MappingFragment StoreEntitySet="TestImage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Passport" ColumnName="Passport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionType">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="AdminUserID" ColumnName="AdminUserID" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersInRoles">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.UsersInRole">
+        <MappingFragment StoreEntitySet="UsersInRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WHTUPLOADs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOAD">
+        <MappingFragment StoreEntitySet="WHTUPLOAD">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.ActivityLog">
+        <MappingFragment StoreEntitySet="ActivityLog">
+          <ScalarProperty Name="Itbid" ColumnName="Itbid" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="Acct_no" ColumnName="Acct_no" />
+          <ScalarProperty Name="Trans_Ref_no" ColumnName="Trans_Ref_no" />
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="ResponseTime" ColumnName="ResponseTime" />
+          <ScalarProperty Name="PAN" ColumnName="PAN" />
+          <ScalarProperty Name="ISOType" ColumnName="ISOType" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="PortNo" ColumnName="PortNo" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+          <ScalarProperty Name="AvailableBal" ColumnName="AvailableBal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryCodeNo" ColumnName="CountryCodeNo" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gbs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.gb">
+        <MappingFragment StoreEntitySet="gb">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="passport" ColumnName="passport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaritalStatus">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.MaritalStatu">
+        <MappingFragment StoreEntitySet="MaritalStatus">
+          <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MFBPANMAPPINGs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.MFBPANMAPPING">
+        <MappingFragment StoreEntitySet="MFBPANMAPPING">
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+          <ScalarProperty Name="bankid" ColumnName="bankid" />
+          <ScalarProperty Name="PAN_Digit" ColumnName="PAN_Digit" />
+          <ScalarProperty Name="createdate" ColumnName="createdate" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="PANPosition" ColumnName="PANPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ministries">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Ministry">
+        <MappingFragment StoreEntitySet="Ministry">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+          <ScalarProperty Name="MinistryDesc" ColumnName="MinistryDesc" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Profession">
+        <MappingFragment StoreEntitySet="Profession">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="ProfessionName" ColumnName="ProfessionName" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelationShips">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RelationShip">
+        <MappingFragment StoreEntitySet="RelationShip">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="RelationshipName" ColumnName="RelationshipName" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RevenueHeads">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RevenueHead">
+        <MappingFragment StoreEntitySet="RevenueHead">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="MinistryCode" ColumnName="MinistryCode" />
+          <ScalarProperty Name="RevenueCode" ColumnName="RevenueCode" />
+          <ScalarProperty Name="RevenueHead1" ColumnName="RevenueHead" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.TaxType">
+        <MappingFragment StoreEntitySet="TaxType">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="Taxtypename" ColumnName="Taxtypename" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="NoOfEnrollment" ColumnName="NoOfEnrollment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_BankTransactionType" FunctionName="AKIRSTAXModel.Store.proc_BankTransactionType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_BankTransactionType_Result">
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+          <ScalarProperty Name="ZenSettlementAcct" ColumnName="ZenSettlementAcct" />
+          <ScalarProperty Name="ZenAcctType" ColumnName="ZenAcctType" />
+          <ScalarProperty Name="MfbAcctType" ColumnName="MfbAcctType" />
+          <ScalarProperty Name="MfbSettlementAcct" ColumnName="MfbSettlementAcct" />
+          <ScalarProperty Name="DafaultNarration" ColumnName="DafaultNarration" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="SelectedFlag" ColumnName="SelectedFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_CustomerInfoByAccountNo2" FunctionName="AKIRSTAXModel.Store.proc_CustomerInfoByAccountNo2" />
+    <FunctionImportMapping FunctionImportName="proc_EnrollmentList" FunctionName="AKIRSTAXModel.Store.proc_EnrollmentList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_EnrollmentList_Result">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="TaxtypeID" ColumnName="TaxtypeID" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Numberofchildren" ColumnName="Numberofchildren" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="Taxtypename" ColumnName="Taxtypename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PROC_EnrollmentListByID" FunctionName="AKIRSTAXModel.Store.PROC_EnrollmentListByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.PROC_EnrollmentListByID_Result">
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="TaxtypeID" ColumnName="TaxtypeID" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TIN_NO" ColumnName="TIN_NO" />
+          <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Numberofchildren" ColumnName="Numberofchildren" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="Taxtypename" ColumnName="Taxtypename" />
+          <ScalarProperty Name="AMOUNTDUE" ColumnName="AMOUNTDUE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="LASTPAYAMOUNT" ColumnName="LASTPAYAMOUNT" />
+          <ScalarProperty Name="LASTPAYDATE" ColumnName="LASTPAYDATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_MfbBankCharges" FunctionName="AKIRSTAXModel.Store.proc_MfbBankCharges">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_MfbBankCharges_Result">
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="TransactionName" ColumnName="TransactionName" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="MFBChargeBasis" ColumnName="MFBChargeBasis" />
+          <ScalarProperty Name="MFBNetAmount" ColumnName="MFBNetAmount" />
+          <ScalarProperty Name="MFBChargeToCustomer" ColumnName="MFBChargeToCustomer" />
+          <ScalarProperty Name="ZenithChargeBasis" ColumnName="ZenithChargeBasis" />
+          <ScalarProperty Name="ZenithNetAmount" ColumnName="ZenithNetAmount" />
+          <ScalarProperty Name="ZenithChargeToCustomer" ColumnName="ZenithChargeToCustomer" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="rolemenu" FunctionName="AKIRSTAXModel.Store.rolemenu">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.rolemenu_Result">
+          <ScalarProperty Name="roleAssigId" ColumnName="roleAssigId" />
+          <ScalarProperty Name="menuid" ColumnName="menuid" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="canInsert" ColumnName="canInsert" />
+          <ScalarProperty Name="canAuth" ColumnName="canAuth" />
+          <ScalarProperty Name="canDelete" ColumnName="canDelete" />
+          <ScalarProperty Name="canUpdate" ColumnName="canUpdate" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="itbId" ColumnName="itbId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="rolemenu2" FunctionName="AKIRSTAXModel.Store.rolemenu2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.rolemenu2_Result">
+          <ScalarProperty Name="roleAssigId" ColumnName="roleAssigId" />
+          <ScalarProperty Name="menuid" ColumnName="menuid" />
+          <ScalarProperty Name="menuName" ColumnName="menuName" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="canInsert" ColumnName="canInsert" />
+          <ScalarProperty Name="canAuth" ColumnName="canAuth" />
+          <ScalarProperty Name="canDelete" ColumnName="canDelete" />
+          <ScalarProperty Name="canUpdate" ColumnName="canUpdate" />
+          <ScalarProperty Name="flag" ColumnName="flag" />
+          <ScalarProperty Name="itbId" ColumnName="itbId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_GetCompanyName" FunctionName="AKIRSTAXModel.Store.proc_GetCompanyName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_GetCompanyName_Result">
+          <ScalarProperty Name="noofcomp" ColumnName="noofcomp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_GetNextEnRoll" FunctionName="AKIRSTAXModel.Store.proc_GetNextEnRoll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_GetNextEnRoll_Result">
+          <ScalarProperty Name="NextEnrollmentID" ColumnName="NextEnrollmentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="EnforcePasswordChange" ColumnName="EnforcePasswordChange" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="EnforcePasswordChangeDays" ColumnName="EnforcePasswordChangeDays" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ItbId" ColumnName="ItbId" />
+          <ScalarProperty Name="CreateUserId" ColumnName="CreateUserId" />
+          <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PasswordExpiryDate" ColumnName="PasswordExpiryDate" />
+          <ScalarProperty Name="DataNetwork" ColumnName="DataNetwork" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="LoggedOn" ColumnName="LoggedOn" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="ForcePassword" ColumnName="ForcePassword" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="AKIRSTAXModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="NotificationTemplate" ColumnName="NotificationTemplate" />
+          <ScalarProperty Name="RequireTemplate" ColumnName="RequireTemplate" />
+          <ScalarProperty Name="NotificationDefaultMsg" ColumnName="NotificationDefaultMsg" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.NotificationLog">
+        <MappingFragment StoreEntitySet="NotificationLog">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="NotificationMsg" ColumnName="NotificationMsg" />
+          <ScalarProperty Name="SMSAddress" ColumnName="SMSAddress" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="NotificationType" ColumnName="NotificationType" />
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="NotificationAlert" FunctionName="AKIRSTAXModel.Store.NotificationAlert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.NotificationAlert_Result">
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+          <ScalarProperty Name="notificationType" ColumnName="notificationType" />
+          <ScalarProperty Name="Notificationclass" ColumnName="Notificationclass" />
+          <ScalarProperty Name="emailaddress" ColumnName="emailaddress" />
+          <ScalarProperty Name="smsaddress" ColumnName="smsaddress" />
+          <ScalarProperty Name="notificationmsg" ColumnName="notificationmsg" />
+          <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+          <ScalarProperty Name="notificationdefaultmsg" ColumnName="notificationdefaultmsg" />
+          <ScalarProperty Name="requireTemplate" ColumnName="requireTemplate" />
+          <ScalarProperty Name="notificationTemplate" ColumnName="notificationTemplate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_Notification" FunctionName="AKIRSTAXModel.Store.proc_Notification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_Notification_Result">
+          <ScalarProperty Name="result" ColumnName="result" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_UpdateNotification" FunctionName="AKIRSTAXModel.Store.Proc_UpdateNotification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.Proc_UpdateNotification_Result">
+          <ScalarProperty Name="nErrorCode" ColumnName="nErrorCode" />
+          <ScalarProperty Name="sErrorText" ColumnName="sErrorText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="RentPrices">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.RentPrice">
+        <MappingFragment StoreEntitySet="RentPrice">
+          <ScalarProperty Name="RentRange" ColumnName="RentRange" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.EnrollmentLog">
+        <MappingFragment StoreEntitySet="EnrollmentLog">
+          <ScalarProperty Name="RentRangeId" ColumnName="RentRangeId" />
+          <ScalarProperty Name="LGACode" ColumnName="LGACode" />
+          <ScalarProperty Name="AddressType" ColumnName="AddressType" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="NETTAX" ColumnName="NETTAX" />
+          <ScalarProperty Name="LASTPAYDATE" ColumnName="LASTPAYDATE" />
+          <ScalarProperty Name="LASTPAYAMOUNT" ColumnName="LASTPAYAMOUNT" />
+          <ScalarProperty Name="AMOUNTDUE" ColumnName="AMOUNTDUE" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Numberofchildren" ColumnName="Numberofchildren" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+          <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="TaxtypeID" ColumnName="TaxtypeID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WHTUPLOAD_temp">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOAD_temp">
+        <MappingFragment StoreEntitySet="WHTUPLOAD_temp">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WHTUPLOADHISTORies">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.WHTUPLOADHISTORY">
+        <MappingFragment StoreEntitySet="WHTUPLOADHISTORY">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorTINNO" ColumnName="VendorTINNO" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationProviders">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.NotificationProvider">
+        <MappingFragment StoreEntitySet="NotificationProvider">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Defaultflag" ColumnName="Defaultflag" />
+          <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+          <ScalarProperty Name="ApiUrl" ColumnName="ApiUrl" />
+          <ScalarProperty Name="portId" ColumnName="portId" />
+          <ScalarProperty Name="host" ColumnName="host" />
+          <ScalarProperty Name="NotificationPassword" ColumnName="NotificationPassword" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+          <ScalarProperty Name="NotificationClass" ColumnName="NotificationClass" />
+          <ScalarProperty Name="itbid" ColumnName="itbid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentRecords">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.AssessmentRecord">
+        <MappingFragment StoreEntitySet="AssessmentRecords">
+          <ScalarProperty Name="IncomeDifference" ColumnName="IncomeDifference" />
+          <ScalarProperty Name="IncomePaid" ColumnName="IncomePaid" />
+          <ScalarProperty Name="NontaxableIncome" ColumnName="NontaxableIncome" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="Itbid" ColumnName="Itbid" />
+          <ScalarProperty Name="NetTax" ColumnName="NetTax" />
+          <ScalarProperty Name="LogisticTest2" ColumnName="LogisticTest2" />
+          <ScalarProperty Name="LogisticTest1" ColumnName="LogisticTest1" />
+          <ScalarProperty Name="TaxableLiabMonth" ColumnName="TaxableLiabMonth" />
+          <ScalarProperty Name="TaxableLiab" ColumnName="TaxableLiab" />
+          <ScalarProperty Name="C24PercON" ColumnName="C24PercON" />
+          <ScalarProperty Name="C21PercON" ColumnName="C21PercON" />
+          <ScalarProperty Name="C19PercON" ColumnName="C19PercON" />
+          <ScalarProperty Name="C15PercON" ColumnName="C15PercON" />
+          <ScalarProperty Name="C11PercON" ColumnName="C11PercON" />
+          <ScalarProperty Name="C7PercON" ColumnName="C7PercON" />
+          <ScalarProperty Name="MinimumTax" ColumnName="MinimumTax" />
+          <ScalarProperty Name="TaxableIncome" ColumnName="TaxableIncome" />
+          <ScalarProperty Name="TotalFPA" ColumnName="TotalFPA" />
+          <ScalarProperty Name="ConsolidateAllowance" ColumnName="ConsolidateAllowance" />
+          <ScalarProperty Name="GrossIncome" ColumnName="GrossIncome" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="enrollmentID" ColumnName="enrollmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionLogs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.TransactionLog">
+        <MappingFragment StoreEntitySet="TransactionLog">
+          <ScalarProperty Name="PhoenixRefNo" ColumnName="PhoenixRefNo" />
+          <ScalarProperty Name="BookBalance" ColumnName="BookBalance" />
+          <ScalarProperty Name="NoOfExtension" ColumnName="NoOfExtension" />
+          <ScalarProperty Name="ZenPtid" ColumnName="ZenPtid" />
+          <ScalarProperty Name="MfbPtid" ColumnName="MfbPtid" />
+          <ScalarProperty Name="ReturnChequeReason" ColumnName="ReturnChequeReason" />
+          <ScalarProperty Name="ReturnChequeFlag" ColumnName="ReturnChequeFlag" />
+          <ScalarProperty Name="ReturnUserId" ColumnName="ReturnUserId" />
+          <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+          <ScalarProperty Name="LimitStatus" ColumnName="LimitStatus" />
+          <ScalarProperty Name="CustAcctNo" ColumnName="CustAcctNo" />
+          <ScalarProperty Name="RejectionComment" ColumnName="RejectionComment" />
+          <ScalarProperty Name="ChequeType" ColumnName="ChequeType" />
+          <ScalarProperty Name="ChequeAcctNo" ColumnName="ChequeAcctNo" />
+          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="RequestEndTime" ColumnName="RequestEndTime" />
+          <ScalarProperty Name="RequestStartTime" ColumnName="RequestStartTime" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="TillAccountNo" ColumnName="TillAccountNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FromBranch" ColumnName="FromBranch" />
+          <ScalarProperty Name="ToProviderID" ColumnName="ToProviderID" />
+          <ScalarProperty Name="FromProviderID" ColumnName="FromProviderID" />
+          <ScalarProperty Name="ZenBankId" ColumnName="ZenBankId" />
+          <ScalarProperty Name="MfbBankID" ColumnName="MfbBankID" />
+          <ScalarProperty Name="TransferSessionID" ColumnName="TransferSessionID" />
+          <ScalarProperty Name="ReversalComment" ColumnName="ReversalComment" />
+          <ScalarProperty Name="ReversalResponse" ColumnName="ReversalResponse" />
+          <ScalarProperty Name="iSessionID" ColumnName="iSessionID" />
+          <ScalarProperty Name="Naration" ColumnName="Naration" />
+          <ScalarProperty Name="CreditLegResponseDescription" ColumnName="CreditLegResponseDescription" />
+          <ScalarProperty Name="CreditLegResponseCode" ColumnName="CreditLegResponseCode" />
+          <ScalarProperty Name="DebitLegResponseDescription" ColumnName="DebitLegResponseDescription" />
+          <ScalarProperty Name="DebitLegResponseCode" ColumnName="DebitLegResponseCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreditLegStatus" ColumnName="CreditLegStatus" />
+          <ScalarProperty Name="DebitLegStatus" ColumnName="DebitLegStatus" />
+          <ScalarProperty Name="ResponseDescription" ColumnName="ResponseDescription" />
+          <ScalarProperty Name="Responsecode" ColumnName="Responsecode" />
+          <ScalarProperty Name="ToAccountNumber" ColumnName="ToAccountNumber" />
+          <ScalarProperty Name="FromAccountNumber" ColumnName="FromAccountNumber" />
+          <ScalarProperty Name="TransactionReference" ColumnName="TransactionReference" />
+          <ScalarProperty Name="ToBank" ColumnName="ToBank" />
+          <ScalarProperty Name="FromBank" ColumnName="FromBank" />
+          <ScalarProperty Name="BenAcctBalance" ColumnName="BenAcctBalance" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="TransactionFee" ColumnName="TransactionFee" />
+          <ScalarProperty Name="Chargecode" ColumnName="Chargecode" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionCode" ColumnName="TransactionCode" />
+          <ScalarProperty Name="itbID" ColumnName="itbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomeSourceTypes">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.IncomeSourceType">
+        <MappingFragment StoreEntitySet="IncomeSourceType">
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="SourceOfIncome" ColumnName="SourceOfIncome" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_getPayYear" FunctionName="AKIRSTAXModel.Store.proc_getPayYear" />
+    <FunctionImportMapping FunctionImportName="proc_computeAssessment" FunctionName="AKIRSTAXModel.Store.proc_computeAssessment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_computeAssessment_Result">
+          <ScalarProperty Name="enrollmentID" ColumnName="enrollmentID" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="GrossIncome" ColumnName="GrossIncome" />
+          <ScalarProperty Name="ConsolidateAllowance" ColumnName="ConsolidateAllowance" />
+          <ScalarProperty Name="TotalFPA" ColumnName="TotalFPA" />
+          <ScalarProperty Name="TaxableIncome" ColumnName="TaxableIncome" />
+          <ScalarProperty Name="MinimumTax" ColumnName="MinimumTax" />
+          <ScalarProperty Name="C7PercON" ColumnName="C7PercON" />
+          <ScalarProperty Name="C11PercON" ColumnName="C11PercON" />
+          <ScalarProperty Name="C15PercON" ColumnName="C15PercON" />
+          <ScalarProperty Name="C19PercON" ColumnName="C19PercON" />
+          <ScalarProperty Name="C21PercON" ColumnName="C21PercON" />
+          <ScalarProperty Name="C24PercON" ColumnName="C24PercON" />
+          <ScalarProperty Name="TaxableLiab" ColumnName="TaxableLiab" />
+          <ScalarProperty Name="TaxableLiabMonth" ColumnName="TaxableLiabMonth" />
+          <ScalarProperty Name="LogisticTest1" ColumnName="LogisticTest1" />
+          <ScalarProperty Name="LogisticTest2" ColumnName="LogisticTest2" />
+          <ScalarProperty Name="NetTax" ColumnName="NetTax" />
+          <ScalarProperty Name="Itbid" ColumnName="Itbid" />
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="NontaxableIncome" ColumnName="NontaxableIncome" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_computeAssessment_modification" FunctionName="AKIRSTAXModel.Store.proc_computeAssessment_modification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_computeAssessment_modification_Result">
+          <ScalarProperty Name="enrollmentID" ColumnName="enrollmentID" />
+          <ScalarProperty Name="Income" ColumnName="Income" />
+          <ScalarProperty Name="GrossIncome" ColumnName="GrossIncome" />
+          <ScalarProperty Name="ConsolidateAllowance" ColumnName="ConsolidateAllowance" />
+          <ScalarProperty Name="TotalFPA" ColumnName="TotalFPA" />
+          <ScalarProperty Name="TaxableIncome" ColumnName="TaxableIncome" />
+          <ScalarProperty Name="MinimumTax" ColumnName="MinimumTax" />
+          <ScalarProperty Name="C7PercON" ColumnName="C7PercON" />
+          <ScalarProperty Name="C11PercON" ColumnName="C11PercON" />
+          <ScalarProperty Name="C15PercON" ColumnName="C15PercON" />
+          <ScalarProperty Name="C19PercON" ColumnName="C19PercON" />
+          <ScalarProperty Name="C21PercON" ColumnName="C21PercON" />
+          <ScalarProperty Name="C24PercON" ColumnName="C24PercON" />
+          <ScalarProperty Name="TaxableLiab" ColumnName="TaxableLiab" />
+          <ScalarProperty Name="TaxableLiabMonth" ColumnName="TaxableLiabMonth" />
+          <ScalarProperty Name="LogisticTest1" ColumnName="LogisticTest1" />
+          <ScalarProperty Name="LogisticTest2" ColumnName="LogisticTest2" />
+          <ScalarProperty Name="NetTax" ColumnName="NetTax" />
+          <ScalarProperty Name="Itbid" ColumnName="Itbid" />
+          <ScalarProperty Name="counter" ColumnName="counter" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="NontaxableIncome" ColumnName="NontaxableIncome" />
+          <ScalarProperty Name="IncomePaid" ColumnName="IncomePaid" />
+          <ScalarProperty Name="IncomeDifference" ColumnName="IncomeDifference" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="IncomeSources">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.IncomeSource">
+        <MappingFragment StoreEntitySet="IncomeSource">
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
+          <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
+          <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncomePayments">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.IncomePayment">
+        <MappingFragment StoreEntitySet="IncomePayment">
+          <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
+          <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
+          <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARYUPLOADs">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOAD">
+        <MappingFragment StoreEntitySet="SALARYUPLOAD">
+          <ScalarProperty Name="UploadYear" ColumnName="UploadYear" />
+          <ScalarProperty Name="UploadMonthIndex" ColumnName="UploadMonthIndex" />
+          <ScalarProperty Name="NextUploadDate" ColumnName="NextUploadDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+          <ScalarProperty Name="NHIS" ColumnName="NHIS" />
+          <ScalarProperty Name="Premium" ColumnName="Premium" />
+          <ScalarProperty Name="Pension" ColumnName="Pension" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="PayrollStatus" ColumnName="PayrollStatus" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+          <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+          <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+          <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+          <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+          <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+          <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALARYUPLOAD_HISTORY">
+      <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOAD_HISTORY">
+        <MappingFragment StoreEntitySet="SALARYUPLOAD_HISTORY">
+          <ScalarProperty Name="IndexCount" ColumnName="IndexCount" />
+          <ScalarProperty Name="UploadYear" ColumnName="UploadYear" />
+          <ScalarProperty Name="UploadMonthIndex" ColumnName="UploadMonthIndex" />
+          <ScalarProperty Name="NextUploadDate" ColumnName="NextUploadDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Others" ColumnName="Others" />
+          <ScalarProperty Name="NHIS" ColumnName="NHIS" />
+          <ScalarProperty Name="Premium" ColumnName="Premium" />
+          <ScalarProperty Name="Pension" ColumnName="Pension" />
+          <ScalarProperty Name="Counter" ColumnName="Counter" />
+          <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+          <ScalarProperty Name="PayrollStatus" ColumnName="PayrollStatus" />
+          <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+          <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+          <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+          <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+          <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+          <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+          <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+          <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+          <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+          <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+          <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,103 @@
+﻿
+
+@model Akirs.client.Models.AssessmentModelPayee
+
+<div class="col-lg-12">
+
+    <div class="panel panel-default">
+        @{ decimal taxpayable = 0;}
+        @foreach (var item in Model.AssessmentRecord)
+            {
+                taxpayable = taxpayable + item.NetTax;
+            <div class="panel-heading text-center">
+
+                <i class="fa fa-money"></i>Assessment Information
+            </div>
+            <div class="payee_assessment">
+                <div class="panel-body">
+
+                    <div class="form-horizontal row">
+
+                        <div class="form-group col-md-6">
+
+                            <div style="padding-left:15px; display:flex;">
+
+                                <label>EnrollmentID:</label>
+                                <div class="col-sm-10">
+
+                                    <span id="lblEnrollId">@item.enrollmentID</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="form-group col-md-6" style="display:flex; justify-content:flex-end;">
+
+                                <label>First Name:</label>
+                                <div class="col-sm-10">
+
+                                    <span id="lblfullname">@item.EmployeeName</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading" style="text-align:center !important">
+
+                        Assesment Details
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="col-lg-6">
+
+                            <div role="form">
+
+                                <div class="form-group">
+
+                                    <label>Total Income :</label>
+                                    <label id="txtincome">@Model.FormattedAmount(item.Income)</label>
+                                </div>
+                                <div class="form-group">
+
+                                    <label>20% Gross Income: </label>
+                                    <label id="txtgrossincome">@Model.FormattedAmount(item.GrossIncome)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div role="form">
+
+                                <div class="form-group">
+
+                                    <label>Total FPA: </label>
+                                    <label id="txttotalpfa">@Model.FormattedAmount(item.TotalFPA)</label>
+                                </div>
+                                <div class="form-group">
+
+                                    <label>Consolidated Allowance: </label>
+                                    <label>@Model.FormattedAmount(item.ConsolidateAllowance)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+
+                                <label>Taxable Income: </label>
+                                <label>@Model.FormattedAmount(item.TaxableIncome)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="form-group text-center">
+    <label style="color: #00f">Tax Payable: </label><span id="netid" style="color: #00f">@Model.FormattedAmount(taxpayable)</span>
+
+</div>
+

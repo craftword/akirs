@@ -1,0 +1,255 @@
+﻿@model Akirs.client.ViewModel.MultipleSalaryUploadViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+        </div>
+    </div>
+    <div class="row" style="margin:10px">
+        <div class="col-lg-12">
+            <div class="alert alert-dismissible fade in noty" role="alert" style="display:none">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <span class="notyMsg">
+                </span>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1>  <i class="fa fa-list" style="color:#57ACE7;"></i>Payroll Upload</h1>
+                    @{
+                        var message = TempData["AlertMessage"] ?? string.Empty;
+                    }
+                </div>
+                <div class="panel-body ">
+                    <div class="col-lg-12">
+                        <div style="display:flex; justify-content: space-between">
+                            @*<ul class="nav nav-pills">
+                                    <li class="nav-item active">
+                                        <a class="nav-link " id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
+                                           aria-selected="true">Upload</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+                                           aria-selected="false">
+                                            Edit Uploaded
+                                        </a>
+                                    </li>
+                                </ul>*@
+                            <input type='button' value='Back to Dashboard' class="btn btn-dark buttonDash" onClick='dashboardbackOnClick()' />
+                        </div>
+
+                        <div class="tab-content clearfix">
+                            <div class="tab-pane active" id="home-md">
+                                <div style="display:flex;justify-content:space-between;background-color:#F4F4F4;margin-bottom:10px;padding:10px">
+                                    @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("upldfile", "", new { @style = "display:inline", type = "file" })
+                                        @Html.Hidden("hidEnrollId")
+                                        <button id="btnUpload" class="btn btn-default pull-righta"><i class="fa-upload fa"></i>Upload</button>
+                                        <button id="btnModifyRecord" class="btn btn-default pull-righta" style="display:none"><i class="fa-save fa"></i>Modify</button>
+                                        @*<button id="btnValidate" class="btn btn-info pull-righta" disabled><i class="fa-cog fa"></i> Validate/Save</button>*@
+                                        <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/payrolltemp.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Payroll Upload Template</a>
+
+                                    }
+                                </div>
+                                <br />
+                                <br />
+                                <select class="form-control" id="drpSalaryMonth">
+                                    
+                                    
+                                </select>
+                                <br/>
+                                <br />
+                                <div id="divGrid" style="display:none">
+                                    <div class="table-responsive divad2a">
+                                        <table id="salaryuploadtable" class="table table-striped datatable table-condensed table-bordered ">
+                                            <thead>
+                                                <tr>
+                                                    
+                                                    <th>EmployeeName</th>
+                                                    <th>AnnualBasic</th>
+                                                    <th>AnnualHousing</th>
+                                                    <th>AnnualTransport</th>
+                                                    <th>AnnualMeal</th>
+                                                    <th>AnnualOthers</th>
+                                                    <th>NHFContribution</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div id="divGrid2" style="display:none">
+                                    @*<div class="table-responsive divad2a">
+                                        <table id="salaryuploadtable2" class="table table-striped datatable table-condensed table-bordered ">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>EmployeeID</th>
+                                                    <th>EmployeeName</th>
+                                                    <th>AnnualBasic</th>
+                                                    <th>AnnualHousing</th>
+                                                    <th>AnnualTransport</th>
+                                                    <th>AnnualMeal</th>
+                                                    <th>AnnualOthers</th>
+                                                    <th>NHFContribution</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>*@
+                                </div>
+                                @*<div class="col-lg-1">
+                                    <input id="btnSend_approval" type="button" value="Send For Approval" disabled="disabled" class="btn btn-info pull-righta" />
+
+                                </div>*@
+                            </div>
+
+                            <!-- EDIT MODAL SendPayeeForApproval-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Section-->
+          
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:450px">
+        <div class="modal-content">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formsalary" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal_loader loader2" style="display:none">
+                        <i class="fa fa-spinner fa-spin fa-1x"></i>
+                    </div>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-plus"></i>Edit Salary</h4>
+
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="alert alert-dismissible fade in notyModal" role="alert" style="display:none">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                                <span aria-hidden="true">×</span>
+
+                            </button>
+                            <span class="notyModalMsg">
+
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Employee Name<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="EmployeeName" name="EmployeeName" placeholder="" readonly class="form-control" />
+                                </div>
+                                <input type="hidden" id="ItbID" name="ItbID" />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Annual Basic<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualBasic" name="AnnualBasic" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Annual Housing<span class="required"> </span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualHousing" name="AnnualHousing" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Transport<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualTransport" name="AnnualTransport" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Meal<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualMeal" name="AnnualMeal" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Others<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualOthers" name="AnnualOthers" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">NHF Contribution<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="NHFContribution" name="NHFContribution" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn_disable" id="btnEdit" ><i class="fa fa-save"></i>Edit</button>
+
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+<div id="salaryvalidate" style="display:none" data-request-url="@Url.Action("Validate", "UserSalary")"></div>
+<div id="salaryupload" style="display:none" data-request-url="@Url.Action("UploadFiles", "UserSalary")"></div>
+<div id="downloadtemp" style="display:none" data-request-url="@Url.Action("GetPaymentSampleTemplate", "UserSalary")"></div>
+<div id="salarydefaultlist" style="display:none" data-request-url="@Url.Action("GetdefaultRecord", "UserSalary")"></div>
+<div id="completemodification" style="display:none" data-request-url="@Url.Action("CompleteModification", "UserSalary")"></div>
+
+<div id="usersalaryviewdetails" style="display:none" data-request-url="@Url.Action("ViewDetail", "UserSalary")"></div>
+<div id="usersalaryviewdeletedetails" style="display:none" data-request-url="@Url.Action("DeleteDetail", "UserSalary")"></div>
+<div id="usersalarycreate" style="display:none" data-request-url="@Url.Action("Create", "UserSalary")"></div>
+<div id="salarymonths" style="display:none" data-request-url="@Url.Action("SalaryMonth", "UserSalary")"></div>
+<div id="salarysendforapproval" style="display:none" data-request-url="@Url.Action("SendPayeeForApproval", "UserSalary")"></div>
+@section Scripts{
+    <script src="~/resources/js/salary.js"></script>
+    }

@@ -1,0 +1,1605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AKIRSTAXModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="AcctTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="AcctTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="String" MaxLength="235" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Memberships" Relationship="Self.MembershipApplication" FromRole="Applications" ToRole="Memberships" />
+    <NavigationProperty Name="Roles" Relationship="Self.RoleApplication" FromRole="Applications" ToRole="Roles" />
+    <NavigationProperty Name="Users" Relationship="Self.UserApplication" FromRole="Applications" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="AKIRSTAXModel.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="AKIRSTAXModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="AKIRSTAXModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+  </EntityType>
+  <EntityType Name="AssessmentComp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="GrossIncome_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="MinTax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="FPA_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PensionRate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level1Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level1Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Level2Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level2Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Level3Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level3Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Level4Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level4Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Level5Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level5Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Level6Tax_rate" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="Level6Tax_Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BankBranch">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateCode" Type="Int32" />
+    <Property Name="CityCode" Type="Int32" />
+    <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsMain" Type="Boolean" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankCharge">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ChargeCode" Type="Int32" Nullable="false" />
+    <Property Name="ChargeBasis" Type="Int32" Nullable="false" />
+    <Property Name="ChargeToCustomer" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="BankCommission" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="MainBankCommission" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankRole">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Roleid" Type="Int32" Nullable="false" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="ProviderID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CBNCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StateCode" Type="Int32" />
+    <Property Name="CityCode" Type="Int32" />
+    <Property Name="ContactPerson" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BankType" Type="Int32" Nullable="false" />
+    <Property Name="Weburl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WebserviceUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WebSecurityID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WebSecurityPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZenInterfaceAcct" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZenSettlementAccount" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="MfbCoreSettlementAcct" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AccountLimit" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="ZenSetAcctType" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ZenIntAcctType" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="MfbAcctType" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="ATM_TYPE" Type="Int32" />
+    <Property Name="AtmConnectionType" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PortNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BankTransactionType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="DafaultNarration" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ZenSettlementAcct" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MfbSettlementAcct" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZenAcctType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="MfbAcctType" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="DailyTranxLimit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="CumDailyTranxLimit" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SelectedFlag" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="BankType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" />
+    <Property Name="BankTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BankUserprofile">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CoreBankUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsFirstLogin" Type="Boolean" Nullable="false" />
+    <Property Name="FailedLogins" Type="Int32" Nullable="false" />
+    <Property Name="IsApproved" Type="Boolean" />
+    <Property Name="ApprovedBy" Type="Int64" />
+    <Property Name="DateApproved" Type="DateTime" Precision="3" />
+    <Property Name="IsTokenRequired" Type="Boolean" />
+    <Property Name="LimitAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TillAccountNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Charge">
+    <Key>
+      <PropertyRef Name="ChargeCode" />
+    </Key>
+    <Property Name="ChargeCode" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="ChargeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="itbiD" />
+    </Key>
+    <Property Name="itbiD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="CityCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CompanyData">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TIN_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TINVerificationstatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="TaxtypeID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyPhonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyAltNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAltEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyRegNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyStartDate" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="CurrencyName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CurrencySymbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DBAudit">
+    <Key>
+      <PropertyRef Name="auditlogid" />
+    </Key>
+    <Property Name="auditlogid" Type="Guid" Nullable="false" />
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="eventdateutc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="eventtype" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="tablename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="recordid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="columnname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="originalvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="newvalue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmailMessage">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EmailContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="emailPlatform" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmailStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="HasAttachment" Type="Boolean" />
+    <Property Name="Attachment" Type="Binary" MaxLength="1" FixedLength="false" />
+    <Property Name="FromAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="emailSubject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bankfiid" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nostrial" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ExceptionLog">
+    <Key>
+      <PropertyRef Name="ExceptionId" />
+    </Key>
+    <Property Name="ExceptionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionDate" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FamilyDetail">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="RelationshipType" Type="Int32" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="SchoolAttended" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsStudent" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowsStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="Self.MembershipApplication" FromRole="Memberships" ToRole="Applications" />
+    <NavigationProperty Name="User" Relationship="Self.MembershipUser" FromRole="Memberships" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="menucontrol">
+    <Key>
+      <PropertyRef Name="menuId" />
+    </Key>
+    <Property Name="menuId" Type="Int32" Nullable="false" />
+    <Property Name="menuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="parent" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="flag" Type="Boolean" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tablename" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ResourceKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="PropertyNames" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PropertyValueStrings" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PropertyValueBinary" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RemoteBank">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RoutingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfDays" Type="Int32" />
+    <Property Name="Bankshortname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="userid" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="authorisedby" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="authid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CBNCode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="roleAssignment">
+    <Key>
+      <PropertyRef Name="roleAssgId" />
+    </Key>
+    <Property Name="roleAssgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="roleId" Type="Int32" Nullable="false" />
+    <Property Name="menuId" Type="Int32" Nullable="false" />
+    <Property Name="userId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="dateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="canInsert" Type="Int32" />
+    <Property Name="canDelete" Type="Int32" />
+    <Property Name="canUpdate" Type="Int32" />
+    <Property Name="canauth" Type="Int32" />
+    <Property Name="authId" Type="Int32" />
+    <Property Name="company" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RoleLimit">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RoleId" Type="Int64" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="LimitAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RoleReportToLog">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="roleId" Type="Int64" Nullable="false" />
+    <Property Name="reportToRoleId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="Self.RoleApplication" FromRole="Roles" ToRole="Applications" />
+  </EntityType>
+  <EntityType Name="Salaryupload_temp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnnualBasic" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="VALIDATIONERRORMESSAGE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pension" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="Decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOADHISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnnualBasic" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SMSMessage">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="SMSContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SenderID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SMSStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" Precision="3" />
+    <Property Name="bankfiid" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_BankCharges">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MFBChargeBasis" Type="Int32" Nullable="false" />
+    <Property Name="MFBChargeToCustomer" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="MFBNetAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="ZenithChargeBasis" Type="Int32" Nullable="false" />
+    <Property Name="ZenithChargeToCustomer" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="ZenithNetAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Roles">
+    <Key>
+      <PropertyRef Name="Roleid" />
+    </Key>
+    <Property Name="Roleid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsMainRole" Type="Boolean" Nullable="false" />
+    <Property Name="ReportToFlag" Type="Boolean" />
+    <Property Name="CanPost" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_userLogin">
+    <Key>
+      <PropertyRef Name="RowGuid" />
+    </Key>
+    <Property Name="RowGuid" Type="Guid" Nullable="false" />
+    <Property Name="userId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="loginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="logoutDate" Type="DateTime" Precision="3" />
+    <Property Name="ipAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="macAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TestImage">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Passport" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TransactionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Roleid" Type="Int32" Nullable="false" />
+    <Property Name="BankID" Type="Int64" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Application" Relationship="Self.UserApplication" FromRole="Users" ToRole="Applications" />
+    <NavigationProperty Name="Membership" Relationship="Self.MembershipUser" FromRole="Users" ToRole="Memberships" />
+  </EntityType>
+  <EntityType Name="UsersInRole">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="RoleId" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WHTUPLOAD">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VendorTINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ActivityLog">
+    <Key>
+      <PropertyRef Name="Itbid" />
+    </Key>
+    <Property Name="Itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="BankId" Type="Int32" />
+    <Property Name="Acct_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Trans_Ref_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RequestTime" Type="DateTime" Precision="3" />
+    <Property Name="ResponseTime" Type="DateTime" Precision="3" />
+    <Property Name="PAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ISOType" Type="Int32" />
+    <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PortNo" Type="Int32" />
+    <Property Name="ResponseCode" Type="Int32" />
+    <Property Name="AvailableBal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ItbId" />
+      <PropertyRef Name="CountryCode" />
+      <PropertyRef Name="CountryName" />
+    </Key>
+    <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryCodeNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="gb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="passport" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="MaritalStatu">
+    <Key>
+      <PropertyRef Name="ItbId" />
+    </Key>
+    <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Code" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MFBPANMAPPING">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="bankid" Type="Int32" />
+    <Property Name="PAN_Digit" Type="Int64" />
+    <Property Name="createdate" Type="DateTime" Precision="3" />
+    <Property Name="userid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PANPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Ministry">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="MinistryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MinistryDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="ProfessionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RelationShip">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RelationshipName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RevenueHead">
+    <Key>
+      <PropertyRef Name="ItbID" />
+      <PropertyRef Name="MinistryCode" />
+      <PropertyRef Name="RevenueCode" />
+      <PropertyRef Name="RevenueHead1" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="MinistryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RevenueHead1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TaxType">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Taxtypename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="NoOfEnrollment" Type="Int32" />
+  </EntityType>
+  <Association Name="MembershipApplication">
+    <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Membership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleApplication">
+    <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserApplication">
+    <End Role="Applications" Type="Self.Application" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipUser">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Memberships" Type="Self.Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AKIRSTAXEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
+    <EntitySet Name="Applications" EntityType="Self.Application" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AssessmentComps" EntityType="Self.AssessmentComp" />
+    <EntitySet Name="BankBranches" EntityType="Self.BankBranch" />
+    <EntitySet Name="BankCharges" EntityType="Self.BankCharge" />
+    <EntitySet Name="BankRoles" EntityType="Self.BankRole" />
+    <EntitySet Name="Banks" EntityType="Self.Bank" />
+    <EntitySet Name="BankTransactionTypes" EntityType="Self.BankTransactionType" />
+    <EntitySet Name="BankTypes" EntityType="Self.BankType" />
+    <EntitySet Name="BankUserprofiles" EntityType="Self.BankUserprofile" />
+    <EntitySet Name="Charges" EntityType="Self.Charge" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="CompanyDatas" EntityType="Self.CompanyData" />
+    <EntitySet Name="Currencies" EntityType="Self.Currency" />
+    <EntitySet Name="DBAudits" EntityType="Self.DBAudit" />
+    <EntitySet Name="EmailMessages" EntityType="Self.EmailMessage" />
+    <EntitySet Name="ExceptionLogs" EntityType="Self.ExceptionLog" />
+    <EntitySet Name="FamilyDetails" EntityType="Self.FamilyDetail" />
+    <EntitySet Name="Memberships" EntityType="Self.Membership" />
+    <EntitySet Name="menucontrols" EntityType="Self.menucontrol" />
+    <EntitySet Name="Profiles" EntityType="Self.Profile" />
+    <EntitySet Name="RemoteBanks" EntityType="Self.RemoteBank" />
+    <EntitySet Name="roleAssignments" EntityType="Self.roleAssignment" />
+    <EntitySet Name="RoleLimits" EntityType="Self.RoleLimit" />
+    <EntitySet Name="RoleReportToLogs" EntityType="Self.RoleReportToLog" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Salaryupload_temp" EntityType="Self.Salaryupload_temp" />
+    <EntitySet Name="SALARYUPLOADHISTORies" EntityType="Self.SALARYUPLOADHISTORY" />
+    <EntitySet Name="SMSMessages" EntityType="Self.SMSMessage" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <EntitySet Name="tbl_BankCharges" EntityType="Self.tbl_BankCharges" />
+    <EntitySet Name="tbl_Roles" EntityType="Self.tbl_Roles" />
+    <EntitySet Name="tbl_userLogin" EntityType="Self.tbl_userLogin" />
+    <EntitySet Name="TestImages" EntityType="Self.TestImage" />
+    <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRole" />
+    <EntitySet Name="WHTUPLOADs" EntityType="Self.WHTUPLOAD" />
+    <EntitySet Name="ActivityLogs" EntityType="Self.ActivityLog" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="gbs" EntityType="Self.gb" />
+    <EntitySet Name="MaritalStatus" EntityType="Self.MaritalStatu" />
+    <EntitySet Name="MFBPANMAPPINGs" EntityType="Self.MFBPANMAPPING" />
+    <EntitySet Name="Ministries" EntityType="Self.Ministry" />
+    <EntitySet Name="Professions" EntityType="Self.Profession" />
+    <EntitySet Name="RelationShips" EntityType="Self.RelationShip" />
+    <EntitySet Name="RevenueHeads" EntityType="Self.RevenueHead" />
+    <EntitySet Name="TaxTypes" EntityType="Self.TaxType" />
+    <AssociationSet Name="MembershipApplication" Association="Self.MembershipApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="RoleApplication" Association="Self.RoleApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserApplication" Association="Self.UserApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipUser" Association="Self.MembershipUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <FunctionImport Name="proc_BankTransactionType" ReturnType="Collection(AKIRSTAXModel.proc_BankTransactionType_Result)">
+      <Parameter Name="bankid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="proc_CustomerInfoByAccountNo2">
+      <Parameter Name="accountnumber" Mode="In" Type="String" />
+      <Parameter Name="bankfiid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="proc_EnrollmentList" ReturnType="Collection(AKIRSTAXModel.proc_EnrollmentList_Result)" />
+    <FunctionImport Name="PROC_EnrollmentListByID" ReturnType="Collection(AKIRSTAXModel.PROC_EnrollmentListByID_Result)">
+      <Parameter Name="EnrollmentID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_MfbBankCharges" ReturnType="Collection(AKIRSTAXModel.proc_MfbBankCharges_Result)">
+      <Parameter Name="BankID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="rolemenu" ReturnType="Collection(AKIRSTAXModel.rolemenu_Result)">
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="coyid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="rolemenu2" ReturnType="Collection(AKIRSTAXModel.rolemenu2_Result)">
+      <Parameter Name="roleid" Mode="In" Type="Int32" />
+      <Parameter Name="coyid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="proc_GetCompanyName" ReturnType="Collection(AKIRSTAXModel.proc_GetCompanyName_Result)">
+      <Parameter Name="companyname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_GetNextEnRoll" ReturnType="Collection(AKIRSTAXModel.proc_GetNextEnRoll_Result)" />
+    <EntitySet Name="AspNetUsers" EntityType="AKIRSTAXModel.AspNetUser" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="AKIRSTAXModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="AKIRSTAXModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="AKIRSTAXModel.AspNetUserRoles">
+      <End Role="AspNetRole" EntitySet="AspNetRoles" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Notifications" EntityType="AKIRSTAXModel.Notification" />
+    <EntitySet Name="NotificationLogs" EntityType="AKIRSTAXModel.NotificationLog" />
+    <FunctionImport Name="NotificationAlert" ReturnType="Collection(AKIRSTAXModel.NotificationAlert_Result)" />
+    <FunctionImport Name="proc_Notification" ReturnType="Collection(AKIRSTAXModel.proc_Notification_Result)">
+      <Parameter Name="NotificationType" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="phoneno" Mode="In" Type="String" />
+      <Parameter Name="notificationmsg" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_UpdateNotification" ReturnType="Collection(AKIRSTAXModel.Proc_UpdateNotification_Result)">
+      <Parameter Name="Itbid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="RentPrices" EntityType="AKIRSTAXModel.RentPrice" />
+    <EntitySet Name="EnrollmentLogs" EntityType="AKIRSTAXModel.EnrollmentLog" />
+    <EntitySet Name="WHTUPLOAD_temp" EntityType="AKIRSTAXModel.WHTUPLOAD_temp" />
+    <EntitySet Name="WHTUPLOADHISTORies" EntityType="AKIRSTAXModel.WHTUPLOADHISTORY" />
+    <EntitySet Name="NotificationProviders" EntityType="AKIRSTAXModel.NotificationProvider" />
+    <EntitySet Name="AssessmentRecords" EntityType="AKIRSTAXModel.AssessmentRecord" />
+    <EntitySet Name="TransactionLogs" EntityType="AKIRSTAXModel.TransactionLog" />
+    <EntitySet Name="IncomeSourceTypes" EntityType="AKIRSTAXModel.IncomeSourceType" />
+    <FunctionImport Name="proc_getPayYear" ReturnType="Collection(String)">
+      <Parameter Name="enrollmentID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_computeAssessment" ReturnType="Collection(AKIRSTAXModel.proc_computeAssessment_Result)">
+      <Parameter Name="enrollmentID" Mode="In" Type="String" />
+      <Parameter Name="yearValue" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_computeAssessment_modification" ReturnType="Collection(AKIRSTAXModel.proc_computeAssessment_modification_Result)">
+      <Parameter Name="enrollmentID" Mode="In" Type="String" />
+      <Parameter Name="yearValue" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="IncomeSources" EntityType="AKIRSTAXModel.IncomeSource" />
+    <EntitySet Name="IncomePayments" EntityType="AKIRSTAXModel.IncomePayment" />
+    <EntitySet Name="SALARYUPLOADs" EntityType="AKIRSTAXModel.SALARYUPLOAD" />
+    <EntitySet Name="SALARYUPLOAD_HISTORY" EntityType="AKIRSTAXModel.SALARYUPLOAD_HISTORY" />
+  </EntityContainer>
+  <ComplexType Name="proc_BankTransactionType_Result">
+    <Property Type="String" Name="TransactionCode" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="TransactionName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Createdate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+    <Property Type="Int64" Name="itbID" Nullable="false" />
+    <Property Type="String" Name="ZenSettlementAcct" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="ZenAcctType" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MfbAcctType" Nullable="true" MaxLength="4" />
+    <Property Type="String" Name="MfbSettlementAcct" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="DafaultNarration" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="BankID" Nullable="false" />
+    <Property Type="Boolean" Name="SelectedFlag" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="proc_EnrollmentList_Result">
+    <Property Type="Int32" Name="ItbID" Nullable="false" />
+    <Property Type="String" Name="EnrollmentID" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="TaxtypeID" Nullable="false" />
+    <Property Type="String" Name="Firstname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Middlename" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Lastname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Phonenumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="CountryID" Nullable="false" MaxLength="3" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+    <Property Type="Int32" Name="ProfessionID" Nullable="false" />
+    <Property Type="Int32" Name="CompanyID" Nullable="false" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="Numberofchildren" Nullable="true" />
+    <Property Type="DateTime" Name="Last_Modified_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Last_Modified_Authid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Last_Modified_Uid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AuthUserID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Taxtypename" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="PROC_EnrollmentListByID_Result">
+    <Property Type="Int32" Name="ItbID" Nullable="false" />
+    <Property Type="String" Name="EnrollmentID" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="TaxtypeID" Nullable="false" />
+    <Property Type="String" Name="Firstname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Middlename" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Lastname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="TIN_NO" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Phonenumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="FULLNAME" Nullable="true" MaxLength="302" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="CountryID" Nullable="false" MaxLength="3" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+    <Property Type="Int32" Name="ProfessionID" Nullable="false" />
+    <Property Type="Int32" Name="CompanyID" Nullable="false" />
+    <Property Type="String" Name="MaritalStatus" Nullable="true" MaxLength="1" />
+    <Property Type="Int32" Name="Numberofchildren" Nullable="true" />
+    <Property Type="DateTime" Name="Last_Modified_Date" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Last_Modified_Authid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Last_Modified_Uid" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="AuthUserID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Taxtypename" Nullable="true" MaxLength="100" />
+    <Property Type="Decimal" Name="AMOUNTDUE" Nullable="true" Precision="23" Scale="2" />
+    <Property Type="String" Name="STATUS" Nullable="false" MaxLength="7" />
+    <Property Type="Decimal" Name="LASTPAYAMOUNT" Nullable="true" Precision="22" Scale="2" />
+    <Property Type="DateTime" Name="LASTPAYDATE" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="proc_MfbBankCharges_Result">
+    <Property Type="String" Name="TransactionCode" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="TransactionName" Nullable="true" MaxLength="50" />
+    <Property Type="Int64" Name="BankID" Nullable="true" />
+    <Property Type="Int32" Name="MFBChargeBasis" Nullable="true" />
+    <Property Type="Decimal" Name="MFBNetAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="MFBChargeToCustomer" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Int32" Name="ZenithChargeBasis" Nullable="true" />
+    <Property Type="Decimal" Name="ZenithNetAmount" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ZenithChargeToCustomer" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="rolemenu_Result">
+    <Property Type="Boolean" Name="roleAssigId" Nullable="true" />
+    <Property Type="Int32" Name="menuid" Nullable="false" />
+    <Property Type="String" Name="menuName" Nullable="true" MaxLength="203" />
+    <Property Type="String" Name="url" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="canInsert" Nullable="true" />
+    <Property Type="Boolean" Name="canAuth" Nullable="true" />
+    <Property Type="Boolean" Name="canDelete" Nullable="true" />
+    <Property Type="Boolean" Name="canUpdate" Nullable="true" />
+    <Property Type="Boolean" Name="flag" Nullable="true" />
+    <Property Type="Int32" Name="itbId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="rolemenu2_Result">
+    <Property Type="Boolean" Name="roleAssigId" Nullable="true" />
+    <Property Type="Int32" Name="menuid" Nullable="false" />
+    <Property Type="String" Name="menuName" Nullable="true" MaxLength="203" />
+    <Property Type="String" Name="url" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="canInsert" Nullable="true" />
+    <Property Type="Boolean" Name="canAuth" Nullable="true" />
+    <Property Type="Boolean" Name="canDelete" Nullable="true" />
+    <Property Type="Boolean" Name="canUpdate" Nullable="true" />
+    <Property Type="Boolean" Name="flag" Nullable="true" />
+    <Property Type="Int32" Name="itbId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="proc_GetCompanyName_Result">
+    <Property Type="Int32" Name="noofcomp" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="proc_GetNextEnRoll_Result">
+    <Property Type="Int32" Name="NextEnrollmentID" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="ForcePassword" Type="Boolean" Nullable="false" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="LoggedOn" Type="Boolean" Nullable="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DeptName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DataNetwork" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="EnforcePasswordChangeDays" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeptCode" Type="Int32" />
+    <Property Name="InstitutionId" Type="Int32" />
+    <Property Name="InstitutionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RoleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Supervisor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EnforcePasswordChange" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="AKIRSTAXModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="AKIRSTAXModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+    <NavigationProperty Name="AspNetRoles" Relationship="AKIRSTAXModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="AKIRSTAXModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AKIRSTAXModel.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="AKIRSTAXModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="AKIRSTAXModel.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="AKIRSTAXModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+    <End Type="AKIRSTAXModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="ProviderID" Type="Int32" />
+    <Property Name="NotificationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationDefaultMsg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="RequireTemplate" Type="Int32" />
+    <Property Name="NotificationTemplate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="NotificationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SMSAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NotificationMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="NotificationAlert_Result">
+    <Property Type="Int64" Name="itbid" Nullable="false" />
+    <Property Type="String" Name="notificationType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Notificationclass" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="emailaddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="smsaddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="notificationmsg" Nullable="true" />
+    <Property Type="Int32" Name="ProviderID" Nullable="true" />
+    <Property Type="String" Name="notificationdefaultmsg" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="requireTemplate" Nullable="true" />
+    <Property Type="String" Name="notificationTemplate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="proc_Notification_Result">
+    <Property Type="Int32" Name="result" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Proc_UpdateNotification_Result">
+    <Property Type="Int32" Name="nErrorCode" Nullable="false" />
+    <Property Type="String" Name="sErrorText" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="RentPrice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RentRange" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EnrollmentLog">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TaxtypeID" Type="Int32" Nullable="false" />
+    <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Middlename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="ProfessionID" Type="Int32" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="Companyname" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Numberofchildren" Type="Int32" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AMOUNTDUE" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="LASTPAYAMOUNT" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="LASTPAYDATE" Type="DateTime" Precision="3" />
+    <Property Name="NETTAX" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CityCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressType" Type="Int32" />
+    <Property Name="LGACode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RentRangeId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WHTUPLOAD_temp">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WHTUPLOADHISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TaxRate" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="TaxAmount" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NotificationProvider">
+    <Key>
+      <PropertyRef Name="itbid" />
+    </Key>
+    <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="NotificationClass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="host" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="portId" Type="Int32" />
+    <Property Name="ApiUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KeyId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Defaultflag" Type="Int32" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AssessmentRecord">
+    <Key>
+      <PropertyRef Name="Itbid" />
+    </Key>
+    <Property Name="enrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Income" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="GrossIncome" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="ConsolidateAllowance" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="TotalFPA" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="TaxableIncome" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="MinimumTax" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C7PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C11PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C15PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C19PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C21PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="C24PercON" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="TaxableLiab" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="TaxableLiabMonth" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="LogisticTest1" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="LogisticTest2" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="NetTax" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="Itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="counter" Type="Int32" />
+    <Property Name="EmployeeName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NontaxableIncome" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="IncomePaid" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="IncomeDifference" Type="Decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="TransactionLog">
+    <Key>
+      <PropertyRef Name="itbID" />
+    </Key>
+    <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
+    <Property Name="Chargecode" Type="Int32" />
+    <Property Name="TransactionFee" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="AccountName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BenAcctBalance" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="FromBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ToBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FromAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ToAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Responsecode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResponseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebitLegStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreditLegStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DebitLegResponseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DebitLegResponseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreditLegResponseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreditLegResponseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Naration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="iSessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReversalResponse" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ReversalComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TransferSessionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MfbBankID" Type="Int64" Nullable="false" />
+    <Property Name="ZenBankId" Type="Int64" Nullable="false" />
+    <Property Name="FromProviderID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ToProviderID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FromBranch" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TillAccountNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="RequestStartTime" Type="Time" Precision="7" />
+    <Property Name="RequestEndTime" Type="Time" Precision="7" />
+    <Property Name="ChequeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChequeAcctNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ChequeType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RejectionComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustAcctNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LimitStatus" Type="Int16" />
+    <Property Name="NoOfDays" Type="Int32" Nullable="false" />
+    <Property Name="ReturnUserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ReturnChequeFlag" Type="Boolean" />
+    <Property Name="ReturnChequeReason" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
+    <Property Name="MfbPtid" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ZenPtid" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NoOfExtension" Type="Int16" />
+    <Property Name="BookBalance" Type="Decimal" Precision="19" Scale="2" />
+    <Property Name="PhoenixRefNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IncomeSourceType">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="SourceOfIncome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="proc_computeAssessment_Result">
+    <Property Type="String" Name="enrollmentID" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Income" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="GrossIncome" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="ConsolidateAllowance" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TotalFPA" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableIncome" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="MinimumTax" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C7PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C11PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C15PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C19PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C21PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C24PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableLiab" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableLiabMonth" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="LogisticTest1" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="LogisticTest2" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="NetTax" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Int32" Name="Itbid" Nullable="false" />
+    <Property Type="Int32" Name="counter" Nullable="true" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="NontaxableIncome" Nullable="true" Precision="22" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="proc_computeAssessment_modification_Result">
+    <Property Type="String" Name="enrollmentID" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Income" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="GrossIncome" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="ConsolidateAllowance" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TotalFPA" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableIncome" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="MinimumTax" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C7PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C11PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C15PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C19PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C21PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="C24PercON" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableLiab" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="TaxableLiabMonth" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="LogisticTest1" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="LogisticTest2" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="NetTax" Nullable="false" Precision="22" Scale="2" />
+    <Property Type="Int32" Name="Itbid" Nullable="false" />
+    <Property Type="Int32" Name="counter" Nullable="true" />
+    <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="500" />
+    <Property Type="Decimal" Name="NontaxableIncome" Nullable="true" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="IncomePaid" Nullable="true" Precision="22" Scale="2" />
+    <Property Type="Decimal" Name="IncomeDifference" Nullable="true" Precision="22" Scale="2" />
+  </ComplexType>
+  <EntityType Name="IncomeSource">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="NHFFlag" Type="Int32" />
+    <Property Name="PensionFlag" Type="Int32" />
+    <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsNew" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IncomePayment">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="NHFFlag" Type="Int32" />
+    <Property Name="PensionFlag" Type="Int32" />
+    <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="22" Scale="2" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOAD">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AnnualBasic" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PayrollStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Counter" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Pension" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="NextUploadDate" Type="DateTime" Precision="3" />
+    <Property Name="UploadMonthIndex" Type="Int16" />
+    <Property Name="UploadYear" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SALARYUPLOAD_HISTORY">
+    <Key>
+      <PropertyRef Name="ItbID" />
+    </Key>
+    <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AnnualBasic" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualHousing" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualTransport" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualMeal" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="AnnualOthers" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="GrossPay" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHFContribution" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+    <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PayrollStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Counter" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Pension" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Premium" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="NHIS" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="Others" Type="Decimal" Precision="22" Scale="2" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="NextUploadDate" Type="DateTime" Precision="3" />
+    <Property Name="UploadMonthIndex" Type="Int16" />
+    <Property Name="UploadYear" Type="Int32" />
+    <Property Name="IndexCount" Type="Int32" />
+  </EntityType>
+</Schema>

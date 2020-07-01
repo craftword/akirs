@@ -1,0 +1,79 @@
+﻿
+@model List<Akirs.client.DL.SALARYUPLOAD>
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+    .bg-modal {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 500px;
+        height: 100%;
+        background-color: white;
+        border-radius: 4px;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+<div class="table-responsive divad2a">
+    <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+                @*<td><input type="checkbox" id="selectAll"/>    &nbsp;   </td>*@
+                <th> S/N</th>
+                <th>EmployeeID</th>
+                <th>EmployeeName</th>
+                <th>AnnualBasic</th>
+                <th>AnnualHousing</th>
+                <th>AnnualTransport</th>
+                <th>AnnualMeal</th>
+                <th>AnnualOthers</th>
+                <th>NHFContribution</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+                        @*<td><input type="checkbox" id=""/>    &nbsp;  </td>*@
+                        <td> @cnt </td>
+
+                        <td> @d.EmployeeID</td>
+                        <td> @d.EmployeeName</td>
+                        <td> @d.AnnualBasic</td>
+                        <td> @d.AnnualHousing</td>
+                        <td> @d.AnnualTransport</td>
+                        <td> @d.AnnualMeal</td>
+                        <td> @d.AnnualOthers</td>
+                        <td> @d.NHFContribution</td>
+             
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <!-- EDIT MODAL-->
+
+    
+    
+</div>
+
+

@@ -1,0 +1,1256 @@
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\csc.exe
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\vbc.exe
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Akirs.client.dll.config
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Akirs.client.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Akirs.client.pdb
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\EntityFramework.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Hangfire.Core.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Owin.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Helpers.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Mvc.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Optimization.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Razor.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\WebGrease.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Hangfire.Core.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Helpers.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Mvc.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Optimization.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.Razor.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\EntityFramework.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+C:\apps\AKIRS\ARIRSClient\Akirs.client\obj\Release\Akirs.client.dll
+C:\apps\AKIRS\ARIRSClient\Akirs.client\obj\Release\Akirs.client.pdb
+C:\apps\AKIRS\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\csc.exe
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Akirs.client.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Akirs.client.pdb
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\EntityFramework.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Owin.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\RestSharp.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Json.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\WebGrease.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\RestSharp.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\EntityFramework.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\Ikechukwu\Desktop\ARIRSClient\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\csc.exe
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Akirs.client.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Akirs.client.pdb
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\EntityFramework.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Owin.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\RestSharp.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Json.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\WebGrease.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\RestSharp.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\EntityFramework.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\Ikechukwu\Documents\Korra\ARIRSClient\ARIRSClient\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\csc.exe
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Akirs.client.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Akirs.client.pdb
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\EntityFramework.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Owin.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\RestSharp.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Json.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\WebGrease.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\RestSharp.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\EntityFramework.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\LENOVO\Desktop\Project\ARIRSClient\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\csc.exe
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Akirs.client.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Akirs.client.pdb
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\EntityFramework.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Owin.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\RestSharp.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Json.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\WebGrease.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\RestSharp.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\EntityFramework.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\LENOVO\Videos\ARIRSClient\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\csc.exe
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Akirs.client.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Akirs.client.pdb
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\EntityFramework.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Owin.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\RestSharp.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Json.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\WebGrease.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\RestSharp.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\EntityFramework.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\obj\Release\Akirs.client.csprojAssemblyReference.cache
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\obj\Release\Akirs.client.csproj.CopyComplete
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\SBSC\Source\Repos\Akirs\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\csc.exe
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Akirs.client.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Akirs.client.pdb
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\EntityFramework.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Owin.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\RestSharp.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Json.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\WebGrease.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\RestSharp.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\EntityFramework.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\LENOVO\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\csc.exe
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Akirs.client.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Akirs.client.pdb
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\EntityFramework.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Owin.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\RestSharp.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Json.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\WebGrease.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\RestSharp.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\EntityFramework.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\obj\Release\Akirs.client.csprojAssemblyReference.cache
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\obj\Release\Akirs.client.csproj.CopyComplete
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\shonk\source\repos\akirs\AkirsNew\Akirs\Akirs.client\obj\Release\Akirs.client.pdb
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\csc.exe
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\vbc.exe
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe
+G:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+G:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.dll.config
+G:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.pdb
+G:\Akirss (4)\Akirss\Akirs.client\bin\Antlr3.Runtime.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.SqlServer.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.Core.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.SqlServer.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Web.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Newtonsoft.Json.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Owin.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\RestSharp.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Json.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Helpers.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Mvc.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Optimization.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Razor.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\WebGrease.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.Core.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.SqlServer.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Web.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Newtonsoft.Json.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\RestSharp.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Helpers.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Mvc.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Optimization.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Razor.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Antlr3.Runtime.pdb
+G:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.SqlServer.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\Akirss (4)\Akirss\Akirs.client\bin\es\Hangfire.Core.resources.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+G:\Akirss (4)\Akirss\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+G:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csprojAssemblyReference.cache
+G:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+G:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CopyComplete
+G:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.dll
+G:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.pdb
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\csc.exe
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\vbc.exe
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe
+E:\Akirss (4)\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+E:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.dll.config
+E:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Akirs.client.pdb
+E:\Akirss (4)\Akirss\Akirs.client\bin\Antlr3.Runtime.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.SqlServer.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.Core.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.SqlServer.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Web.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Newtonsoft.Json.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Owin.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\RestSharp.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Json.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Helpers.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Mvc.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Optimization.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Razor.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\WebGrease.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.Core.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Hangfire.SqlServer.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.Web.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Newtonsoft.Json.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\RestSharp.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Helpers.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Mvc.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Optimization.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.Razor.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Antlr3.Runtime.pdb
+E:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\EntityFramework.SqlServer.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Akirss (4)\Akirss\Akirs.client\bin\es\Hangfire.Core.resources.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+E:\Akirss (4)\Akirss\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+E:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csprojAssemblyReference.cache
+E:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+E:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CopyComplete
+E:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.dll
+E:\Akirss (4)\Akirss\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\csc.exe
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Akirs.client.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Akirs.client.pdb
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\EntityFramework.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Owin.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\RestSharp.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Json.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\WebGrease.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\RestSharp.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\EntityFramework.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.csprojAssemblyReference.cache
+C:\Users\shonk\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CoreCompileInputs.cache
+C:\Users\shonk\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.csproj.CopyComplete
+C:\Users\shonk\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\shonk\Desktop\Akirss\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\csc.exe
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Akirs.client.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Akirs.client.pdb
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\EntityFramework.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Owin.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\RestSharp.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Json.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\WebGrease.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\RestSharp.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\EntityFramework.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\obj\Release\Akirs.client.pdb
+C:\Users\KCY IETECH\Desktop\Akirs-master\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\csc.exe
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\vbc.exe
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\VBCSCompiler.exe
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Akirs.client.dll.config
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Akirs.client.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Akirs.client.pdb
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Antlr3.Runtime.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\EntityFramework.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\EntityFramework.SqlServer.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Hangfire.Core.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Hangfire.SqlServer.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.Web.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.ApplicationInsights.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Newtonsoft.Json.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Owin.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\RestSharp.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Json.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Helpers.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Mvc.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Optimization.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Razor.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.Deployment.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.Razor.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\WebGrease.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Hangfire.Core.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Hangfire.SqlServer.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.PerfCounterCollector.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.Web.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.ApplicationInsights.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Newtonsoft.Json.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\RestSharp.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Helpers.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Mvc.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Optimization.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.Razor.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.Deployment.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\System.Web.WebPages.Razor.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Antlr3.Runtime.pdb
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\EntityFramework.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\EntityFramework.SqlServer.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\es\Hangfire.Core.resources.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\zh\Hangfire.Core.resources.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\bin\zh-TW\Hangfire.Core.resources.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\obj\Release\Akirs.client.csprojResolveAssemblyReference.cache
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\obj\Release\Akirs.client.dll
+C:\Users\IETECH\Documents\Akirs-master\Akirs.client\obj\Release\Akirs.client.pdb

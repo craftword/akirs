@@ -1,0 +1,45 @@
+﻿
+@model List<Akirs.client.DL.WHTUPLOAD>
+<style>
+    #example1 td {
+        white-space: nowrap;
+        /*font-size:11px*/
+    }
+
+    .popover {
+        max-width: 500px !important;
+    }
+</style>
+<div class="table-responsive divad2a">
+    <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+        <thead>
+            <tr>
+                <th>Vendor TINNO</th>
+                <th>Vendor Name</th>
+                <th>Tax Rate</th>
+                <th>Tax Amount</th>
+                <th>Action?</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var cnt = 0;
+                foreach (var d in Model)
+                {
+                    cnt++;
+                    <tr>
+                        <td> @d.VendorTINNO</td>
+                        <td> @d.VendorName</td>
+                        <td> @d.TaxRate</td>
+                        <td> @d.TaxAmount</td>
+                        <td><a class="btn btn-primary btn-xs editor_edit"><i class="fa fa-eye"></i></a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $("[data-toggle=popover]").popover();
+</script>
+

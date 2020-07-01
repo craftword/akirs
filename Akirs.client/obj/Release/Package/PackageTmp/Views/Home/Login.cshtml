@@ -1,0 +1,134 @@
+﻿@using Akirs.client.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .error {
+        color: #ff0000;
+        font-size: 9px;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .inputTxtError {
+        border: 1px solid #ff0000;
+        color: #0e0e0e;
+    }
+</style>
+ 
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                
+                    @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formLogin",@class="register-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    <h2>Sign in <small>manage your account</small></h2>
+                    <hr class="colorgraph">
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-lg" , placeholder = "Client Id", tabindex = "4" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(model => model.Password, new { @id = "exampleInputPassword1", @class = "form-control input-lg", placeholder = "Password", tabindex = "4" })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        
+                    </div>
+
+                    <div style=" display: flex; justify-content:space-between">
+                        <div>
+                            <span class="button-checkbox">
+                                <button type="button" class="btn" data-color="info" tabindex="7">Remember me</button>
+                                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                            </span>
+                        </div>
+
+                        <div>
+                            <a href="@Url.Action("ForgotPassword","Home")" id="fgtpassword">Forgot Password?</a>
+                            @*<input type="button" id="fgtpassword" value="Login" class="btn btn-primary btn-lg" tabindex="7">*@
+                        </div>
+                    </div>
+
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6"><input type="button" id="btnSave" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                        @*<div class="col-xs-12 col-md-6">Don't have an account? <a href="register.html">Register</a></div>*@
+                    </div>
+                   }
+      
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:500px">
+            <div class="modal-content">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formFamilyChangepassword" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <div class="modal_loader loader2" style="display:none">
+                            <i class="fa fa-spinner fa-spin fa-1x"></i>
+                        </div>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-plus"></i>Change password</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="form-horizontal">
+                            <div class="alert alert-dismissible fade in notyModal" role="alert" style="display:none">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                                    <span aria-hidden="true">×</span>
+
+                                </button>
+                                <span class="notyModalMsg">
+
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">New Password<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    <div class="">
+                                        <input type="password" id="ChangePassword" name="ChangePassword" placeholder="" class="form-control" />
+                                    </div>
+
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Confirm New Password</label>
+                                <div class="col-md-8">
+                                    <input type="hidden" name="Itbid" id="Itbid" />
+                                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id="btnchange" ><i class="fa fa-save"></i>Change password</button>
+
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<div id="changpwd" style="display:none" data-request-url="@Url.Action("ChangePassword", "Home")"></div>
+<div id="login_url" style="display:none" data-request-url="@Url.Action("Login", "Home")"></div>
+<div id="home_url" style="display:none" data-request-url="@Url.Action("Index", "UserHome")"></div>
+@section Scripts {
+
+    <script src="~/resources/js/login.js"></script>
+}
+

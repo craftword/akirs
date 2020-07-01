@@ -1,0 +1,58 @@
+﻿@model List<Akirs.client.DL.AspNetUser>
+@{
+    ViewBag.Title = "GetPayeeUserForDelete";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @{
+            var message = TempData["AlertMessage"] ?? string.Empty;
+        }
+        <div>
+            <div class="col-lg-10 col-md-12 col-sm-12 fonts" style="padding: 50px 50px 50px 50px;">
+                <div style="justify-content: center;">
+                    <h3><strong>Create Payee User</strong></h3>
+                    <h4><strong>User Information</strong></h4>
+                    <!--<div class="dot"><span style="color: wheat;">1</span></div>-->
+                </div>
+
+                <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+                    <thead>
+                        <tr>
+                            @*<td><input type="checkbox" id="selectAll"/>    &nbsp;   </td>*@
+                            
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>E-mail Address</th>
+                            <th>Payee Role</th>
+                            <th>ACTION</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{foreach (var d in Model)
+                            {
+                                                <tr>
+                                                    @*<td><input type="checkbox" id=""/>    &nbsp;  </td>*@
+                                                    <td>@d.FullName</td>
+
+                                                    <td>@d.PhoneNumber</td>
+                                                    <td id="emailAddress">@d.Email</td>
+                                                    <td>@d.RoleName</td>
+                                                    <td>
+                                                        @using (Html.BeginForm("DeletePayeeUser", "UserSalary"))
+                                                          {
+                                                            <input type="hidden" name="Email" value= @d.Email />
+                                                            <input type="submit" value="Delete" class="btn btn-info pull-righta" />
+                                                         }
+                                                    </td>
+                                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

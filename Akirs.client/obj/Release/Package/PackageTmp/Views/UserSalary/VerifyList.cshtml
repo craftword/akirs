@@ -1,0 +1,128 @@
+﻿@model List<Akirs.client.DL.SALARYUPLOAD>
+@{
+    ViewBag.Title = "VerifyList";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+        .buttonDash:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #57ACE7;
+        }
+    .bg-modal {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        width: 400px;
+        height: 250px;
+        background-color: white;
+        border-radius: 4px;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Verify Salary Upload</h1>
+            @{
+                var message = TempData["AlertMessage"] ?? string.Empty;
+            }
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-list" style="color:#57ACE7;"></i>Verify Salary Upload
+                </div>
+                <div class="panel-body ">
+                    <div class="col-lg-122">
+                        <div style="background-color:#F4F4F4;margin-bottom:10px;padding:10px">
+                            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.Hidden("hidEnrollId")
+                                <div style="display: flex; justify-content: space-between">
+                                    @*<button id="btnValidateSalary" class="btn btn-info pull-righta" onclick="IncomeAssessment(@enr)"><i class="fa-check fa"></i> Approve</button>*@
+
+                                    <input type='button' value='Back to Dashboard' class="btn btn-dark buttonDash" onClick='dashboardbackOnClick()' />
+
+                                    @*<button id="btnPay" class="btn btn-info pull-righta" style="margin-left:295px"  onclick="verify2()"><i class="fa-check fa"></i> PAY</button>
+                    <div class="clearfix"></div>*@
+                                </div>
+                                <div class="clearfix"></div>
+
+                            }
+                        </div>
+
+                        <div id="divGrid">
+                            <div class="table-responsive divad2a">
+                                <table id="example123" class="table table-striped datatable table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th>EmployeeID</th>
+                                            <th>EmployeeName</th>
+                                            <th>AnnualBasic</th>
+                                            <th>AnnualHousing</th>
+                                            <th>AnnualTransport</th>
+                                            <th>AnnualMeal</th>
+                                            <th>AnnualOthers</th>
+                                            <th>NHFContribution</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div>
+                                &emsp;
+                                <input id="btnApproveSalary" type="button" value="Approve" class="btn btn-info" />
+                                <input id="btnSkip" type="button" value="Skip" class="btn btn-danger" />
+                                
+                            </div>
+
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="salaryverify" style="display:none" data-request-url="@Url.Action("ApprovePayrollEmployee", "UserSalary")"></div>
+<div id="assessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetails", "EnrollmentType")"></div>
+<div id="userdetails" style="display:none" data-request-url="@Url.Action("GetUserById", "UserSalary")"></div>
+<div id="skipayee" style="display:none" data-request-url="@Url.Action("SkipPay", "UserSalary")"></div>
+<div id="verifyy" style="display:none" data-request-url="@Url.Action("VerifyPay", "EnrollmentType",null,Request.Url.Scheme)"></div>
+<div id="usersalarylist" style="display:none" data-request-url="@Url.Action("SalList", "UserSalary")"></div>
+
+@section Scripts {
+
+   <script src="~/resources/js/payeesalary.js"></script>
+
+    
+}

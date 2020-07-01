@@ -1,0 +1,314 @@
+﻿        @model IEnumerable<Akirs.client.DL.TaxType>
+@{
+    ViewBag.Title = "Home Page";
+}
+<!--Custom Styling by Seun-->
+    <style>
+        .wells:hover {
+            border-color: red;
+            border-radius: 4px;
+            border-radius: 6px;
+            background-color: #ffe7e7;
+        }
+
+        .fonts {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: small;
+        }
+    </style>
+
+<!-- divider -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="solidline">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end divider -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12">
+            <section id="featured" class="bg">
+                <!--Start Slider-->
+                <!-- Slider -->
+                <div id="main-slider" class="main-slider flexslider">
+                    <ul class="slides">
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-1.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Pay your <strong>Tax Now</strong></h3>
+                                <p>Let us develop AKWA IBOM together.</p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-2.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Grow in every <strong>aspect</strong></h3>
+                                <p> As Akwa Ibom State moves towards meeting the needs of a mega city, we continue to position ourself as the major funding arm of the state government by putting in place structures that will ensure collection of the proper amount of tax revenue at the least cost.</p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-3.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Build a BETTER  <strong>tomorrow</strong></h3>
+                                <p>
+                                    The 6th Assembly of the Akwa Ibom State House of Assembly (AKHA) immediately swung into their legislative function and passed the “Akwa Ibom State Revenue Administration Law, 2016” on 30th June, 2016 after engaging in relevant legislative procedures.
+                                </p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--End Slider-->
+            </section>
+
+        </div>
+       
+        <div class="col-lg-3 col-md-12 col-sm-12 fonts" @*style="padding: 30px 50px 50px 50px;*@>
+            <div style="justify-content: center;">
+                <h3><strong>Welcome Back,</strong></h3>
+                <p><em>Not registered yet ? Select below to enroll or make payment</em></p>
+            </div>
+            @foreach (var item in Model)
+            {
+                if (item.ItbID == 3)
+                {
+                     <a href="@Url.Action("AddParty", "EnrollmentType", new { rt = item.ItbID })">
+    <div class="well well-sm wells">
+        <h6><strong>@item.Taxtypename</strong></h6>
+        <span class="glyphicon glyphicon-chevron-right" style="float: right;"></span>
+        <p><em>Select to make Payment</em></p>
+    </div>
+</a>
+                }
+                else
+                {
+                    <div>
+                        <div class="well well-sm wells">
+                            <a href="@Url.Action("AddParty", "EnrollmentType", new { rt = item.ItbID })">
+                                <div>
+                                    <h6><strong>@item.Taxtypename</strong></h6>
+                                    <span class="glyphicon glyphicon-chevron-right" style="float: right;"></span>
+                                    <p><em>Select to Enroll</em></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+       
+            @*<div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="box">
+                            <div class="aligncenter">
+
+                                <h3><strong>@item.Taxtypename</strong></h3>
+                                @if (item.ItbID == 3)
+                                {
+                                    <div>
+                                        <a href="@Url.Action("AddParty", "EnrollmentType", new {rt = item.ItbID })" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Make Payment</a>
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <a href="@Url.Action("Login", "Home")" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Login</a>
+
+                                        <a href="@Url.Action("AddParty", "EnrollmentType", new {rt = item.ItbID })" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Enroll</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>*@
+        </div>
+</div>
+
+
+
+@*<section id="featured" class="bg">
+     start slider 
+     start slider 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                 Slider 
+                <div id="main-slider" class="main-slider flexslider">
+                    <ul class="slides">
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-1.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Pay your <strong>Tax Now</strong></h3>
+                                <p>Let us develop AKWA IBOM together.</p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-2.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Grow in every <strong>aspect</strong></h3>
+                                <p> As Akwa Ibom State moves towards meeting the needs of a mega city, we continue to position ourself as the major funding arm of the state government by putting in place structures that will ensure collection of the proper amount of tax revenue at the least cost.</p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="~/resources_home/img/slides/flexslider/back-3.jpg" alt="" />
+                            <div class="flex-caption">
+                                <h3>Build a BETTER  <strong>tomorrow</strong></h3>
+                                <p>  The 6th Assembly of the Akwa Ibom State House of Assembly (AKHA) immediately swung into their legislative function and passed the “Akwa Ibom State Revenue Administration Law, 2016” on 30th June, 2016 after engaging in relevant legislative procedures.
+                                 </p>
+                                <a href="#" class="btn btn-theme">Learn More</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                 end slider 
+            </div>
+        </div>
+    </div>
+
+
+</section>*@
+ 
+
+<section id="content">
+     
+
+    @*<div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    @foreach (var item in Model)
+                     {
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="box">
+                                <div class="aligncenter">
+                                    <div class="icon">
+                                        <i class="fa fa-desktop fa-5x"></i>
+                                    </div>
+                                    <h3><strong>@item.Taxtypename</strong></h3>
+                                    @if (item.ItbID == 3)
+                                    {
+                                        <div>
+                                            <a href="@Url.Action("AddParty", "EnrollmentType", new {rt = item.ItbID })" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Make Payment</a>
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <a href="#mySignin" data-toggle="modal" class="btn btn-theme">Sign in</a>
+
+                                            <a href="@Url.Action("AddParty", "EnrollmentType", new {rt = item.ItbID })" class="btn btn-medium btn-theme"><i class="icon-bolt"></i>Enroll</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                     }
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+    <!-- divider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="solidline">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end divider -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-6">
+                        <h4>About our AKIRS</h4>
+                        <p><strong>BRIEF PROFILE OF INTERNAL REVENUE SERVICE</strong></p>
+                        <p>
+                            It is interesting to note that Akwa Ibom State Internal Revenue Services came to being as one of the State Government Extra-Ministerial Agencies in 1987.  
+                            In accordance with section 85A (I) of the Personnel Income Tax Act 1993 as amended, hereby establish for each state a Board to be known as the 
+                            “Board of Internal Revenue” (In this Act referred to as ‘the State Board’) whose operational arm shall be known as the State Internal Revenue Service 
+                            (in this Act referred to as “the State Service”).
+                        </p>
+                        <p><strong>ESTABLISHMENT AND COMPOSITION</strong></p>
+                        <p>
+                            Akwa Ibom State Internal Revenue Service is thus a provision of the Personal Income Tax Act of 1993 as amended to date, established to perform the functions as 
+                            contained in section 85B(I) of the Act.  Among such functions include: assessment, collection and accounting for tax so collected to the Government of the State.
+                            The State Internal Revenue is made up of eight (8) Directorates namely;
+
+                            Administration and Supplies
+                            Finance and Accounts
+                            Assessment
+                            Collection
+                            Tax Recovery and Litigation
+                            Other State Taxes
+                            Road Taxes
+                            Planning, Research and Statistics
+
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-lg-6">
+                        <h4>Our Vision</h4>
+                        <p><strong>MISSION</strong></p>
+                        <p>
+                            To make the best use of available institutional, administrative, technical, technological, financial and human resources to assess, collect and account for revenue in as efficient and effective manner as possible, 
+                            to achieve optimal results in service delivery and revenue collection performance.
+                        </p>
+                        <p><strong>VISION</strong></p>
+                        <p>
+                            Akwa Ibom State Internal Revenue Service to be one Revenue Authority in Nigeria respected for efficiency, effectiveness, professionalism, integrity, excellent customer service and high performance in revenue generation.
+                        </p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+     
+     
+    <!-- clients -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo1.png" class="img-responsive" />
+            </div>
+
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo2.jpg" class="img-responsive" />
+            </div>
+
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo3.png" class="img-responsive" />
+            </div>
+
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo4.jpg" class="img-responsive" />
+            </div>
+
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo5.jpg" class="img-responsive" />
+            </div>
+            <div class="col-xs-6 col-md-2 aligncenter client">
+                <img alt="logo" src="~/resources_home/img/clients/logo6.jpg" class="img-responsive" />
+            </div>
+
+        </div>
+    </div>
+
+</section>

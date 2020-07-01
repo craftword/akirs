@@ -1,0 +1,35 @@
+﻿@model Akirs.client.Models.GetIncomeYearModel
+@{
+    ViewBag.Title = "GetIncomeYear";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var enrId = Session["EnrollID"];
+    }
+
+<h2>GetIncomeYear</h2>
+
+
+<div>
+
+
+    <p>fggjhgfgkhg</p>
+
+    @*<p> bhfkadhavjkwb</p>
+
+    @using (Html.BeginForm())
+    {
+          @Html.DropDownListFor(s => s.YearIcome.IncomeYear, new SelectList(Model.ListOfYear(), "Value", "Text") , "---Select A Year---")
+
+          <input type="submit" value="Submit" />
+    }*@
+
+</div>
+    
+
+
+
+@*<div id="directAssessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetails", "Assessment")"></div>*@
+
+
+@section Scripts {
+    <script src="~/resources/js/assessment.js"></script>
+}

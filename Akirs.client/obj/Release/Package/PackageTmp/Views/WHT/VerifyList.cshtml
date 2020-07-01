@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "VerifyList";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<style>
+    .buttonDash {
+        background-color: #57ACE7;
+        color: white;
+    }
+
+        .buttonDash:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #57ACE7;
+        }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Verify Witholding Tax</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                @*<div class="panel-heading">
+                    <i class="fa fa-list" style="color:#57ACE7;"></i>Verify Salary Upload
+                </div>*@
+                <div class="panel-body ">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-list" style="color:#57ACE7;"></i>Approve Witholding Tax
+                            </div>
+                            <div class="panel-body ">
+                                <div class="col-lg-122">
+                                    <div style="background-color:#F4F4F4;margin-bottom:10px;padding:10px";"display:flex;justify-content:space-between">
+                                        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formUpload", }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            @Html.Hidden("hidEnrollId")
+                                            <button id="btnValidateWht" class="btn btn-info pull-righta"><i class="fa-check fa"></i> Verify</button>
+
+                                            <input type='button' value='Back to Dashboard' class="btn btn-dark buttonDash" style="margin-left:690px" onClick='dashboardbackOnClick()' />
+                                            <div class="clearfix"></div>
+                                        
+                                        }
+                                    </div>
+                                    <div id="divGrid">
+                                        <div class="table-responsive divad2a">
+                                            <table id="example1" class="table table-striped datatable table-condensed table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                       
+                                                        <th>Vendor TINNO</th>
+                                                        <th>Vendor Name</th>
+                                                        <th>Tax Rate</th>
+                                                        <th>Tax Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ajax-loader">
+        <img src="~/resources/images/ajax-loader.gif" class="img-responsive" />
+    </div>
+</div>
+<div id="whtverify" style="display:none" data-request-url="@Url.Action("VerifyWht", "WHT")"></div>
+<div id="whtverifypost" style="display:none" data-request-url="@Url.Action("VerifyRecord", "WHT")"></div>
+@section Scripts {
+    <script src="~/resources/js/wht.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#example1').DataTable({
+                responsive: true
+        });
+    });
+    </script>
+
+<script>
+        function dashboardbackOnClick() {
+           // window.location.assign("http://localhost:27035/UserHome");
+            window.location.assign("http://62.173.32.98:Revenuepoint/UserHome");
+        }
+</script>
+}
