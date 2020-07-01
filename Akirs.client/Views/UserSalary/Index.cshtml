@@ -4,59 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<style>
 
-    .buttonDash {
-        background-color: #57ACE7;
-        color: white;
-    }
-
-        .buttonDash:hover {
-            background-color: white;
-            color: black;
-            border: 2px solid #57ACE7;
-        }
-
-    .bg-modalforedit {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        position: absolute;
-        top: 0;
-        display: none;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-contentforedit {
-        width: 500px;
-        height: 100%;
-        background-color: white;
-        border-radius: 4px;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .bg-modal {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        position: absolute;
-        top: 0;
-        display: none;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-content {
-        width: 400px;
-        height: 250px;
-        background-color: white;
-        border-radius: 4px;
-        text-align: center;
-        padding: 20px;
-    }
-</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -109,20 +57,49 @@
                                         @Html.TextBox("upldfile", "", new { @style = "display:inline", type = "file" })
                                         @Html.Hidden("hidEnrollId")
                                         <button id="btnUpload" class="btn btn-default pull-righta"><i class="fa-upload fa"></i>Upload</button>
+                                        <button id="btnModifyRecord" class="btn btn-default pull-righta" style="display:none"><i class="fa-save fa"></i>Modify</button>
                                         @*<button id="btnValidate" class="btn btn-info pull-righta" disabled><i class="fa-cog fa"></i> Validate/Save</button>*@
                                         <a style="color:#E67819" class="btn btn-default btn-xs" href="@Url.Content("~/Template/payrolltemp.xlsx")"><i class="fa fa-file-excel-o"></i>  Download Payroll Upload Template</a>
 
-
-                                        @*<button id="btnPay" class="btn btn-info pull-righta" style="margin-left:295px"  onclick="verify2()"><i class="fa-check fa"></i> PAY</button>
-                                            <div class="clearfix"></div>*@
                                     }
                                 </div>
-                                <div id="divGrid">
+                                <br />
+                                <br />
+                                <select class="form-control" id="drpSalaryMonth">
+                                    
+                                    
+                                </select>
+                                <br/>
+                                <br />
+                                <div id="divGrid" style="display:none">
                                     <div class="table-responsive divad2a">
-                                        <table id="example1" class="table table-striped datatable table-condensed table-bordered familytable">
+                                        <table id="salaryuploadtable" class="table table-striped datatable table-condensed table-bordered ">
                                             <thead>
                                                 <tr>
+                                                    
+                                                    <th>EmployeeName</th>
+                                                    <th>AnnualBasic</th>
+                                                    <th>AnnualHousing</th>
+                                                    <th>AnnualTransport</th>
+                                                    <th>AnnualMeal</th>
+                                                    <th>AnnualOthers</th>
+                                                    <th>NHFContribution</th>
                                                     <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div id="divGrid2" style="display:none">
+                                    @*<div class="table-responsive divad2a">
+                                        <table id="salaryuploadtable2" class="table table-striped datatable table-condensed table-bordered ">
+                                            <thead>
+                                                <tr>
+
                                                     <th>EmployeeID</th>
                                                     <th>EmployeeName</th>
                                                     <th>AnnualBasic</th>
@@ -131,129 +108,20 @@
                                                     <th>AnnualMeal</th>
                                                     <th>AnnualOthers</th>
                                                     <th>NHFContribution</th>
-                                                    <th>STATUS</th>
-                                                    <th>ACTION</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                @{
-                                                    var cnt = 0;
-                                                    foreach (var d in Model.SalaryList)
-                                                    {
-                                                        cnt++;
-                                                        <tr>
-                                                            @*<td><input type="checkbox" id=""/>    &nbsp;  </td>*@
-                                                            <td> @cnt </td>
-
-                                                            <td> @d.EmployeeID</td>
-                                                            <td> @d.EmployeeName</td>
-                                                            <td> @d.AnnualBasic</td>
-                                                            <td> @d.AnnualHousing</td>
-                                                            <td> @d.AnnualTransport</td>
-                                                            <td> @d.AnnualMeal</td>
-                                                            <td> @d.AnnualOthers</td>
-                                                            <td> @d.NHFContribution</td>
-                                                            <td style="text-align:center">@d.PayrollStatus</td>
-                                                            <td>
-                                                                <button class="editPopup btn btn-primary">Edit</button>
-                                                            </td>
-                                                            @*@using (Html.BeginForm("GetDetailsForEdit", "UserSalary"))
-                                                                {
-                                                                    <input type="hidden" name="EmployeeID" value="@d.EmployeeID" />
-                                                                    <input type="submit" value="Edit" class="btn btn-primary pull-righta" />
-                                                                }*@
-
-                                                        </tr>
-                                                    }
-                                                }
-                                            </tbody>
+                                            <tbody></tbody>
                                         </table>
-                                    </div>
+                                    </div>*@
                                 </div>
-                                <div class="col-lg-1">
-                                    @using (Html.BeginForm("SendPayeeForApproval", "UserSalary"))
-                                    {
-                                        @*<input type="hidden" name="EmployeeID" value="@employeeId" />*@
-                                        <input id="modal" type="submit" value="Send For Approval" class="btn btn-info pull-righta" />
-                                    }
+                                @*<div class="col-lg-1">
+                                    <input id="btnSend_approval" type="button" value="Send For Approval" disabled="disabled" class="btn btn-info pull-righta" />
 
-                                </div>
+                                </div>*@
                             </div>
 
-                            <!-- EDIT MODAL-->
+                            <!-- EDIT MODAL SendPayeeForApproval-->
 
-                            <div class="bg-modalforedit">
-                                @using (Html.BeginForm("DetailsForEdit", "UserSalary", FormMethod.Post))
-                                {
-                                    <div class="modal-contentforedit">
-                                        <div class="form-group">
-                                            <label class="control-label">EmployeeID</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.EmployeeName)*@
-                                                <input type="text" name="EmployeeID" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Employee Name</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.EmployeeName)*@
-                                                <input type="text" name="EmployeeName" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Annual Basic</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.AnnualBasic)*@
-                                                <input type="text" name="AnnualBasic" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Annual Transport</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.AnnualTransport)*@
-                                                <input type="text" name="AnnualTransport" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Annual Meal</label>
-                                            <div>
-                                                @*  @Html.EditorFor(m => m.Salary.AnnualMeal)*@
-                                                <input type="text" name="AnnualMeal" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label control-label">Annual Others</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.AnnualOthers)*@
-                                                <input type="text" name="AnnualOthers" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">NHFContribution</label>
-                                            <div>
-                                                @*@Html.EditorFor(m => m.Salary.NHFContribution)*@
-                                                <input type="text" name="NHFContribution" value="" placeholder="" class="form-control" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">Annual Housing<span class="required"> *</span></label>
-                                            <div>
-                                                <div class="">
-                                                    @*@Html.EditorFor(m => m.Salary.AnnualHousing)*@
-                                                    <input type="text" id="AnnualHousing" name="AnnualHousing" value="" class="form-control" />
-                                                    <input type="hidden" id="ItbID" name="ItbID" />
-                                                    <input type="hidden" id="EnrollmentID" name="EnrollmentID" value="" />
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <input type="submit" value="Update" class="btn btn-info pull-righta" />
-                                            <button id="close" class="btn btn-info">Cancel</button>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
 
                         </div>
                     </div>
@@ -261,79 +129,127 @@
             </div>
 
             <!-- Modal Section-->
-            <div class="bg-modal">
-                <div class="modal-content">
-                    <img src="~/Content/sweetalert/1024px-OOjs_UI_icon_bell-destructive.svg(small).png" />
-                    <h3>
-                        @message
-                    </h3>
-                    <div style="padding-top:50px">
-                        <button id="closemodal" class="btn btn-primary">OK</button>
+          
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:450px">
+        <div class="modal-content">
+            @using (Html.BeginForm("", "", FormMethod.Post, new { id = "formsalary" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="modal_loader loader2" style="display:none">
+                        <i class="fa fa-spinner fa-spin fa-1x"></i>
                     </div>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-plus"></i>Edit Salary</h4>
+
 
                 </div>
-            </div>
+
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="alert alert-dismissible fade in notyModal" role="alert" style="display:none">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+                                <span aria-hidden="true">×</span>
+
+                            </button>
+                            <span class="notyModalMsg">
+
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Employee Name<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="EmployeeName" name="EmployeeName" placeholder="" readonly class="form-control" />
+                                </div>
+                                <input type="hidden" id="ItbID" name="ItbID" />
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Annual Basic<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualBasic" name="AnnualBasic" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Annual Housing<span class="required"> </span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualHousing" name="AnnualHousing" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Transport<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualTransport" name="AnnualTransport" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Meal<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualMeal" name="AnnualMeal" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">Annual Others<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="AnnualOthers" name="AnnualOthers" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label ">NHF Contribution<span class="required"> *</span></label>
+                            <div class="col-md-8">
+                                <div class="">
+                                    <input type="text" id="NHFContribution" name="NHFContribution" placeholder="" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn_disable" id="btnEdit" ><i class="fa fa-save"></i>Edit</button>
+
+                </div>
+            }
         </div>
+
     </div>
 </div>
 
 <div id="salaryvalidate" style="display:none" data-request-url="@Url.Action("Validate", "UserSalary")"></div>
 <div id="salaryupload" style="display:none" data-request-url="@Url.Action("UploadFiles", "UserSalary")"></div>
 <div id="downloadtemp" style="display:none" data-request-url="@Url.Action("GetPaymentSampleTemplate", "UserSalary")"></div>
-<div id="usersalarylist" style="display:none" data-request-url="@Url.Action("SalList", "UserSalary")"></div>
+<div id="salarydefaultlist" style="display:none" data-request-url="@Url.Action("GetdefaultRecord", "UserSalary")"></div>
+<div id="completemodification" style="display:none" data-request-url="@Url.Action("CompleteModification", "UserSalary")"></div>
+
 <div id="usersalaryviewdetails" style="display:none" data-request-url="@Url.Action("ViewDetail", "UserSalary")"></div>
 <div id="usersalaryviewdeletedetails" style="display:none" data-request-url="@Url.Action("DeleteDetail", "UserSalary")"></div>
 <div id="usersalarycreate" style="display:none" data-request-url="@Url.Action("Create", "UserSalary")"></div>
-@*<div id="btnPay" style="display:none" data-request-url="@Url.Action("Create", "UserSalary")"></div>*@
-@section Scripts {
-    <script type="text/javascript">
-        var popup = function ()
-        {
-            var modal = document.querySelector(".bg-modal");
-                        modal.style.display = "flex";
-           // console.log("Hello World");
-        }
-        var message = '@message';
-        if (message)
-             popup();
-    </script>
-    <script>
-        document.querySelector("#closemodal").addEventListener("click",
-            function () {
-                var modal = document.querySelector(".bg-modal");
-                modal.style.display = "none";
-            })
-    </script>
-    <script>
-        var listButtons = document.getElementsByClassName("editPopup");
-
-        for (var i = 0; i < listButtons.length; i++) {
-            listButtons[i].addEventListener("click",
-                function () {
-                    var modal = document.querySelector(".bg-modalforedit");
-                    modal.style.display = "flex";
-                });
-        }
-    </script>
-    <script>
-        document.querySelector("#close").addEventListener("click",
-            function () {
-                var modal = document.querySelector(".bg-modalforedit");
-                modal.style.display = "none";
-            })
-    </script>
+<div id="salarymonths" style="display:none" data-request-url="@Url.Action("SalaryMonth", "UserSalary")"></div>
+<div id="salarysendforapproval" style="display:none" data-request-url="@Url.Action("SendPayeeForApproval", "UserSalary")"></div>
+@section Scripts{
     <script src="~/resources/js/salary.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#example1').DataTable({
-                responsive: true
-            });
-        });
-    </script>
-    <script>
-        function dashboardbackOnClick() {
-            //window.location.href = "http://localhost:27035/UserHome";
-            window.location.href = "http://62.173.32.98/Revenuepoint/UserHome";
-        }
-    </script>
-}
+    }

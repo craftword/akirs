@@ -257,11 +257,15 @@
     <Compile Include="DL\RentPrice.cs">
       <DependentUpon>Akirs.tt</DependentUpon>
     </Compile>
+    <Compile Include="DL\SALARYUPLOAD_HISTORY.cs">
+      <DependentUpon>Akirs.tt</DependentUpon>
+    </Compile>
     <Compile Include="DL\WHTUPLOAD_temp.cs">
       <DependentUpon>Akirs.tt</DependentUpon>
     </Compile>
     <Compile Include="Enums\PayrollStatus.cs" />
     <Compile Include="Enums\WitholdTaxStatus.cs" />
+    <Compile Include="Models\AssessmentModelPayee.cs" />
     <Compile Include="Models\Implementation\DbFactory.cs" />
     <Compile Include="Models\Implementation\Disposable.cs" />
     <Compile Include="Models\Implementation\IDbFactory.cs" />
@@ -271,11 +275,14 @@
     <Compile Include="Models\GetIncomeYearModel.cs" />
     <Compile Include="Models\HelperClass.cs" />
     <Compile Include="Models\IncomePaymentModel.cs" />
+    <Compile Include="Models\SalaryDate.cs" />
     <Compile Include="Models\TransactionLogModel.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Persistence\Repositories\IncomePaymentModelRepository.cs" />
     <Compile Include="Persistence\Repositories\IncomePaymentRepository.cs" />
     <Compile Include="Persistence\Repositories\PayrollData.cs" />
     <Compile Include="Persistence\Repositories\RentPriceRepository.cs" />
+    <Compile Include="Persistence\Repositories\SalaryUploadSecondaryRepository.cs" />
     <Compile Include="Persistence\Repositories\TransactionLogRepository.cs" />
     <Compile Include="Persistence\Repositories\UserRoleRepository.cs" />
     <Compile Include="Persistence\Repositories\WhtHistoryRepository.cs" />
@@ -284,6 +291,7 @@
     <Compile Include="repository\IIncomePaymentRepository.cs" />
     <Compile Include="repository\IPayrollData.cs" />
     <Compile Include="repository\IRentPriceRepository.cs" />
+    <Compile Include="repository\ISalaryUploadSecondaryRepository.cs" />
     <Compile Include="repository\ITransactionLog.cs" />
     <Compile Include="repository\IUserRole.cs" />
     <Compile Include="repository\IWhtHistoryRepository.cs" />
@@ -641,6 +649,7 @@
     <Content Include="resources\images\ajax-loader.gif" />
     <Content Include="resources\js\additionalassessment.js" />
     <Content Include="resources\js\assessment.js" />
+    <Content Include="resources\js\assessment_payee.js" />
     <Content Include="resources\js\bootstrap.min.js" />
     <Content Include="resources\js\dataTables\dataTables.bootstrap.min.js" />
     <Content Include="resources\js\dataTables\jquery.dataTables.min.js" />
@@ -674,8 +683,10 @@
     <Content Include="resources\js\levy.js" />
     <Content Include="resources\js\login.js" />
     <Content Include="resources\js\metisMenu.min.js" />
+    <Content Include="resources\js\modifysalary.js" />
     <Content Include="resources\js\morris-data.js" />
     <Content Include="resources\js\morris.min.js" />
+    <Content Include="resources\js\payeesalary.js" />
     <Content Include="resources\js\payeestep.js" />
     <Content Include="resources\js\PaymentHistory.js" />
     <Content Include="resources\js\raphael.min.js" />
@@ -912,6 +923,13 @@
     <Content Include="Template\MerchantReportTemplate.html" />
     <Content Include="Template\UploadNotificationTemplate.html" />
     <Content Include="Template\UserCreationTemplate.html" />
+    <Content Include="Views\UserSalary\CreatePayeeUser.cshtml" />
+    <Content Include="Views\UserSalary\CreateWitholdTaxUser.cshtml" />
+    <Content Include="Views\UserSalary\GetPayeeUserForDelete.cshtml" />
+    <Content Include="Views\UserSalary\Index.cshtml" />
+    <Content Include="Views\UserSalary\VerifyList.cshtml" />
+    <Content Include="Views\UserSalary\_salaryUpld.cshtml" />
+    <Content Include="Views\UserSalary\_verifySalary.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -955,11 +973,9 @@
     <Content Include="Views\IncomeDeclaration\Index.cshtml" />
     <Content Include="Views\Assessment\Index.cshtml" />
     <Content Include="Views\WHT\Index.cshtml" />
-    <Content Include="Views\UserSalary\Index.cshtml" />
     <Content Include="Views\Assessment\AdditionalAssessment.cshtml" />
     <Content Include="Views\WHT\_wthUpld.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
-    <Content Include="Views\UserSalary\_salaryUpld.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\EnrollmentType\Index.cshtml" />
     <Content Include="Views\EnrollmentType\_Payee.cshtml" />
@@ -968,8 +984,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\EnrollmentType\EnrollmentList.cshtml" />
     <Content Include="Views\EnrollmentType\AddParty.cshtml" />
-    <Content Include="Views\UserSalary\_verifySalary.cshtml" />
-    <Content Include="Views\UserSalary\VerifyList.cshtml" />
     <Content Include="Views\userpayment\Index.cshtml" />
     <Content Include="Template\payrolltemp.xlsx" />
     <Content Include="Template\WithHoldingTax.xlsx" />
@@ -994,9 +1008,8 @@
     <Content Include="Views\Assessment\_DirectAssessment.cshtml" />
     <Content Include="Views\EnrollmentType\_witHoldTax.cshtml" />
     <Content Include="Views\IncomePayment\PaymentHistory.cshtml" />
-    <Content Include="Views\UserSalary\CreatePayeeUser.cshtml" />
-    <Content Include="Views\UserSalary\GetPayeeUserForDelete.cshtml" />
-    <Content Include="Views\UserSalary\CreateWitholdTaxUser.cshtml" />
+    <Content Include="Views\Assessment\_PayeeAssessment.cshtml" />
+    <Content Include="Views\UserSalary\ModifyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,57 +21,40 @@ namespace Akirs.client.Persistence.Repositories
         public SalaryUploadRepository(AKIRSTAXEntities context)
             : base(context)
         {
-            
+
         }
         public string ApprovePayrollByEmployeeId(string EnrollId)
         {
-           
-                var entity = PlutoContext.SALARYUPLOADs.Where(x => x.EnrollmentID == EnrollId
-                                                                && x.PayrollStatus == PayrollStatus.PENDING.ToString()
-                                                                && x.IsDeleted == false).ToList();
-            if (entity.Count > 0)
-            {
-                using (var unitOfWork = new UnitOfWork(PlutoContext))
-                {
-                    foreach (var employee in entity)
-                    {
-                    employee.PayrollStatus = PayrollStatus.APPROVED.ToString();
-                   
-                        unitOfWork.SalaryUpload.Update(employee);
-                        unitOfWork.Complete();
-                    }
-                }
-                var message = "Approved Successfully";
-                return message;
-            }
-            else
-            {
-                var message = " No Records Found For Approval";
-                return message;
-            }
-            
-        }
 
-        public string SendPayeeForApproval(string EnrollId)
-        {
 
             var entity = PlutoContext.SALARYUPLOADs.Where(x => x.EnrollmentID == EnrollId
-                                                            && x.PayrollStatus == PayrollStatus.AWAITINGAPPROVAL.ToString()
-                                                            && x.IsDeleted == false).ToList();
+                                                                && x.PayrollStatus == PayrollStatus.AWAITINGAPPROVAL.ToString()
+                                                          ).ToList();
+            bool recordsaved = false;
             if (entity.Count > 0)
             {
                 using (var unitOfWork = new UnitOfWork(PlutoContext))
                 {
                     foreach (var employee in entity)
                     {
-                        employee.PayrollStatus = PayrollStatus.PENDING.ToString();
+                        employee.PayrollStatus = PayrollStatus.APPROVED.ToString();
 
                         unitOfWork.SalaryUpload.Update(employee);
-                        unitOfWork.Complete();
+
                     }
+                    recordsaved = unitOfWork.Complete() > 0 ? true : false;
                 }
-                var message = "Sent For Approval Successfully";
-                return message;
+
+                if (recordsaved)
+                {
+                    var message = "Approved Successfully";
+                    return message;
+                }
+                else
+                {
+                    var message = "Approval not Successfully";
+                    return message;
+                }
             }
             else
             {
@@ -80,6 +63,22 @@ namespace Akirs.client.Persistence.Repositories
             }
 
         }
+
+        //public string SendPayeeForApproval(string EnrollId)
+        //{
+
+        //    using (var unitOfWork = new UnitOfWork(PlutoContext))
+        //    {
+        //        foreach (var employee in entity)
+        //        {
+        //            employee.PayrollStatus = PayrollStatus.PENDING.ToString();
+
+        //            unitOfWork.SalaryUpload.Update(employee);
+        //            unitOfWork.Complete();
+        //        }
+        //    }
+
+        //}
 
         public string RejectPayrollEmployee(string EnrollId)
         {
@@ -110,7 +109,7 @@ namespace Akirs.client.Persistence.Repositories
 
         }
 
-        public SALARYUPLOAD GetDetailsForEdit( string EnrollId, SALARYUPLOAD model)
+        public SALARYUPLOAD GetDetailsForEdit(string EnrollId, SALARYUPLOAD model)
         {
             var entity = PlutoContext.SALARYUPLOADs.Where(x => x.EnrollmentID == EnrollId
                                                                && x.PayrollStatus == PayrollStatus.PENDING.ToString()
@@ -132,9 +131,9 @@ namespace Akirs.client.Persistence.Repositories
                     entity.Counter = model.Counter ?? entity.Counter;
                     entity.CreateDate = entity.CreateDate;
                     entity.CreatedBy = model.CreatedBy ?? entity.CreatedBy;
-                    entity.GrossPay = model.GrossPay ?? entity.GrossPay;
+                    //entity.GrossPay = model.GrossPay ?? entity.GrossPay;
                     entity.IsDeleted = entity.IsDeleted;
-                    entity.ItbID =  entity.ItbID;
+                    entity.ItbID = entity.ItbID;
                     entity.Last_Modified_Authid = model.Last_Modified_Authid ?? entity.Last_Modified_Authid;
                     entity.Last_Modified_Date = model.Last_Modified_Date ?? entity.Last_Modified_Date;
                     entity.Last_Modified_Uid = model.Last_Modified_Uid ?? entity.Last_Modified_Uid;
@@ -157,17 +156,20 @@ namespace Akirs.client.Persistence.Repositories
                 return null;
             }
         }
-        public IEnumerable<SALARYUPLOAD> GetPendingSalaryUpload(string EnrollId)
+        public List<SALARYUPLOAD> GetDefaultSalaryList(string EnrollId)
         {
-            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId  && p.PayrollStatus == PayrollStatus.PENDING.ToString() && p.IsDeleted == false
-            ||  p.EnrollmentID == EnrollId && p.PayrollStatus == PayrollStatus.REJECTED.ToString() && p.IsDeleted == false).ToList();
+            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId && p.PayrollStatus == "PENDING").ToList();
             return ret;
         }
-        public IEnumerable<SALARYUPLOAD> GetSalaryUpload(string EnrollId)
+        public List<SALARYUPLOAD> GetPendingSalaryUpload(string EnrollId)
         {
-            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId 
-                                                        && p.PayrollStatus == PayrollStatus.PENDING.ToString()
-                                                        && p.IsDeleted == false).ToList();
+            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId && p.PayrollStatus == PayrollStatus.AWAITINGAPPROVAL.ToString()).ToList();
+            return ret;
+        }
+
+        public List<SALARYUPLOAD> GetSalaryUpload(string EnrollId)
+        {
+            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId).ToList();
             return ret;
         }
 
@@ -177,7 +179,7 @@ namespace Akirs.client.Persistence.Repositories
             {
                 throw new Exception("User Details is empty");
             }
-                using (var unitOfWork = new UnitOfWork(PlutoContext))
+            using (var unitOfWork = new UnitOfWork(PlutoContext))
             {
                 // check if user already exist
                 var checkUser = PlutoContext.AspNetUsers.Where(x => x.EnrollmentID == model.EnrollmentID && x.Email == model.Email).FirstOrDefault();
@@ -234,39 +236,40 @@ namespace Akirs.client.Persistence.Repositories
             }
             return "User Created Successfully";
         }
-
+        public List<SALARYUPLOAD_HISTORY> GetSalaryMonths(string SessionID)
+        {
+            var salary_object = PlutoContext.SALARYUPLOAD_HISTORY.Where(x => x.EnrollmentID == SessionID).ToList();
+            return salary_object;
+        }
 
         public SALARYUPLOAD GetSalaryUploadById(int Itbid)
         {
-            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.ItbID == Itbid && p.IsDeleted == false).FirstOrDefault();
+            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.ItbID == Itbid).FirstOrDefault();
             return ret;
         }
 
-        public List<SALARYUPLOAD> UploadPayroll(HttpPostedFileBase file, string SessionID)
+        public List<SALARYUPLOAD> SkipPay(string EnrollId)
         {
-            var querySalaryupload = PlutoContext.SALARYUPLOADs.Where(x => x.EnrollmentID == SessionID && x.IsDeleted == false).ToList();
+            var ret = PlutoContext.SALARYUPLOADs.Where(p => p.EnrollmentID == EnrollId).ToList();
 
+            return ret;
+        }
+
+        public List<SALARYUPLOAD> UploadPayroll(HttpPostedFileBase file, string SessionID, short monthindex)
+        {
+            var querySalaryupload = PlutoContext.SALARYUPLOADs.Where(x => x.EnrollmentID == SessionID).ToList();
+            List<SALARYUPLOAD> saveuplList = new List<SALARYUPLOAD>();
             using (var unitOfWork = new UnitOfWork(PlutoContext))
             {
-                List<SALARYUPLOAD> saveuplList = new List<SALARYUPLOAD>();
-                if (querySalaryupload.Count > 0 )
-                {
-                    if (querySalaryupload.FirstOrDefault().NextUploadDate != null || querySalaryupload.FirstOrDefault().NextUploadDate >= DateTime.Now)
-                    {
-                        throw new Exception("Upload is done once a month, Please wait for next month");
-                        
-                    }
-                    else
-                    {
-                        foreach (var entity in querySalaryupload)
-                        {
-                            entity.IsDeleted = true;
 
-                            unitOfWork.SalaryUpload.Update(entity);
-                            unitOfWork.Complete();
-                        }
-                    }
+                if (querySalaryupload.Count > 0)
+                {
+                    throw new Exception("You have a pending request to approve and make payment for. Please treat before uploading a new file");
                 }
+                else
+                {
+
+
                     using (var package = new ExcelPackage(file.InputStream))
                     {
                         var currentSheet = package.Workbook.Worksheets;
@@ -292,20 +295,29 @@ namespace Akirs.client.Persistence.Repositories
                             saveupl.PayrollStatus = PayrollStatus.AWAITINGAPPROVAL.ToString();
                             saveupl.IsDeleted = false;
                             saveupl.CreateDate = DateTime.Now;
-                            saveupl.NextUploadDate = DateTime.Now.AddDays(30);
+                            // saveupl.NextUploadDate = DateTime.Now.AddDays(30);
                             saveupl.Counter = count;
                             saveupl.VALIDATIONERRORSTATUS = true;
-
+                            saveupl.UploadMonthIndex = monthindex;
+                            saveupl.UploadYear = DateTime.Now.Year;
                             saveuplList.Add(saveupl);
                             unitOfWork.SalaryUpload.Add(saveupl);
-                            unitOfWork.Complete();
+
                         }
+                        unitOfWork.Complete();
                     }
-                return saveuplList;
+                }
+
 
             }
+            return saveuplList;
         }
 
+        public List<SALARYUPLOAD_HISTORY> GetSalaryHistory(string EnrollId, short monthindex, int year)
+        {
+            var payeeUsers = PlutoContext.SALARYUPLOAD_HISTORY.Where(x => x.EnrollmentID == EnrollId && x.UploadMonthIndex == monthindex && x.UploadYear == year).ToList();
+            return payeeUsers;
+        }
         public IEnumerable<AspNetUser> GetPayeeUserForDelete(string EnrollId)
         {
             var payeeUsers = PlutoContext.AspNetUsers.Where(x => x.EnrollmentID == EnrollId && x.IsDeleted == false && x.RoleName != "Admin").ToList();

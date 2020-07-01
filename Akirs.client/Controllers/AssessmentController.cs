@@ -1,6 +1,7 @@
 ﻿using Akirs.client.DL;
 using Akirs.client.Models;
 using Akirs.client.Persistence;
+using Akirs.client.utility;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -16,7 +17,7 @@ namespace Akirs.client.Controllers
       
         AKIRSTAXEntities db = new AKIRSTAXEntities();
         private object IncomeYear;
-
+        
         public string _ConnectionString { get; private set; }
         public object _context { get; private set; }
         //public object NewCheck { get; private set; }
@@ -95,6 +96,8 @@ namespace Akirs.client.Controllers
                 return Json(new { data = new JsonResult(), RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
             }
         }
+
+
         public ActionResult AdditionalAssessment()
         {
             return View();
@@ -255,7 +258,15 @@ namespace Akirs.client.Controllers
 
                         Assessmentdata = unitOfWork.Assessment.GetAssessmentSingle2(Session["EnrollID"].ToString(), yearValue);
                     }
-                    return Json(new { data = Assessmentdata, RespCode = 0, isNew = false, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+                    if(Assessmentdata == null)
+                    {
+                        return Json(new { data = Assessmentdata, RespCode = -2, isNew = false, RespMessage = "lower Income declaired" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { data = Assessmentdata, RespCode = 0, isNew = false, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+                    }
+                   
                 }
                 catch (Exception ex)
                 {
@@ -266,7 +277,114 @@ namespace Akirs.client.Controllers
 
 
         }
+        public ActionResult AssessmentDetailsTaxPayee()
+        {
+            List<AssessmentRecord> Assessmentdata = new List<AssessmentRecord>();
+            AssessmentModelPayee assessmentpayee = new AssessmentModelPayee();
+            EnrollmentLog enrollmentdetails = new EnrollmentLog();
+            try
+            {
+                string html = string.Empty;
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    string eID = Session["EnrollID"].ToString();
+                    Assessmentdata = unitOfWork.Assessment.GetAssessmentSingleFirst(Session["EnrollID"].ToString()).ToList();
 
+                    assessmentpayee.AssessmentRecord = Assessmentdata;
+                    
+                    html = PartialView("_PayeeAssessment", assessmentpayee).RenderToString();
+                }
+                return Json(new { data = Assessmentdata,  html_div = html, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new proc_computeAssessment_Result(), enrollmentdetails = new EnrollmentLog(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpPost]
+        public ActionResult MakeSalaryPayment(string netTax)
+        {
+            try
+            {
+                List<string> IncomeYear = new List<string>();
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    string eID = Session["EnrollID"].ToString();
+                    var response = 0;
+                    if (response == 0)
+                    {
+                        var salaryhistory = unitOfWork.SalaryUploadSecondary.GetSalaryUploadSecondaryCount(Session["EnrollID"].ToString());
+                        var salarydata = unitOfWork.SalaryUpload.GetSalaryUpload(Session["EnrollID"].ToString());
+
+                        int count = (int)salaryhistory++;
+                        foreach (var item in salarydata)
+                        {
+                            unitOfWork.SalaryUploadSecondary.Add(new SALARYUPLOAD_HISTORY()
+                            {
+                                AnnualBasic = item.AnnualBasic,
+                                AnnualHousing = item.AnnualHousing,
+                                AnnualMeal = item.AnnualMeal,
+                                AnnualOthers = item.AnnualOthers,
+                                AnnualTransport = item.AnnualTransport,
+                                AuthUserID = item.AuthUserID,
+                                Counter = item.Counter,
+                                CreateDate = DateTime.Now,
+                                EmployeeID = item.EmployeeID,
+                                EmployeeName = item.EmployeeName,
+                                EnrollmentID = item.EnrollmentID,
+                                GrossPay = item.GrossPay,
+                                IsDeleted = item.IsDeleted,
+                                NHFContribution = item.NHFContribution,
+                                NHIS = item.NHIS,
+                                Others = item.Others,
+                                PayrollStatus = "PAID",
+                                Pension = item.Pension,
+                                Premium = item.Premium,
+                                UploadMonthIndex = item.UploadMonthIndex,
+                                UploadYear = item.UploadYear,
+                                IndexCount = count
+                            });
+                            var salaryrecord = unitOfWork.SalaryUpload.Find(p => p.ItbID == item.ItbID).FirstOrDefault();
+                            unitOfWork.SalaryUpload.Remove(salaryrecord);
+
+
+
+                        }
+
+                    }
+
+                    var retValue = unitOfWork.Complete() > 0 ? true : false;
+                    if (retValue)
+                    {
+                        var assessment = unitOfWork.AssessmentRecord.GetAssessmentRecord(Session["EnrollID"].ToString());
+
+                        foreach(var item in assessment)
+                        {
+                            var salaryrecord = unitOfWork.AssessmentRecord.Find(p => p.Itbid == item.Itbid).FirstOrDefault();
+                            unitOfWork.AssessmentRecord.Remove(salaryrecord);
+                            var returnValue = unitOfWork.Complete() > 0 ? true : false;
+                        }
+
+
+                        return Json(new { RespCode = 0, RespMessage = "Payment successful" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { RespCode = -1, RespMessage = "An error occured" }, JsonRequestBehavior.AllowGet);
+                    }
+
+                }
+
+                //return View(IncomeYear);
+                ///return Json(new { data = IncomeYear, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
         public ActionResult AssessmentList()
         {
             List<AssessmentRecord> Assessmentdata = new List<AssessmentRecord>();
@@ -284,6 +402,119 @@ namespace Akirs.client.Controllers
                 return Json(new { data = new proc_computeAssessment_Result(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        //dummy posting from incomeSource to incomPayment on click of verify pay
+        [HttpPost]
+        public ActionResult IncomePaymentSave(string yearValue)
+        {
+            IncomePayment model = new IncomePayment();
+            List<IncomeSource> Incomedetails = new List<IncomeSource>();
+            IncomeSource incS = new IncomeSource();
+
+            try
+            {
+                string eID = Session["EnrollID"].ToString();
+                var errorMsg = "";
+                if (ModelState.IsValid)
+                {
+                    if (model.ItbID == 0)
+                    {
+
+                        using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                        {
+                            //get details of company from enrollment using enrollid
+                            //pass fthose details eg name, address etc to payment gateway
+                            ////pass amount pasyable taxpayable
+                            var interswitchresponse = 0;
+                            if (interswitchresponse == 0)//response from interswitch
+                            {
+                                var rec = new IncomeSource();
+                                List<IncomePayment> Paymentdetails = new List<IncomePayment>();
+                                IncomePayment PaymentMsg = new IncomePayment();
+                                int PaymentMsgCnt = 0;
+                                //incS = db.IncomeSources.Where(j => j.EnrollmentID == eID && j.IncomeYear == yearValue);
+
+                                var incomepayment_object = db.IncomePayments.Where(j => j.EnrollmentID == eID && j.IncomeYear == yearValue).ToList();
+
+                                var PaymentMsg1 = incomepayment_object == null|| incomepayment_object.Count==0 ? 0 : incomepayment_object.Max(p => p.Count);
+                               
+                                ErrorManager.SaveLog($"PaymentMsg1 {Newtonsoft.Json.JsonConvert.SerializeObject(PaymentMsg1)}");
+
+
+
+                                Incomedetails = db.IncomeSources.Where(j => j.EnrollmentID == eID).ToList();
+                                int count = 0;
+                                count = PaymentMsg1+1;
+                                foreach (IncomeSource item in Incomedetails) // Loop through List with foreach
+                                {
+                                    //model.ItbID = item.ItbID;
+                                    model = new IncomePayment();
+                                    model.EnrollmentID = item.EnrollmentID;
+                                    model.SourceOfIncomeID = item.SourceOfIncomeID;
+                                    model.Status = "S";
+                                    model.CreateDate = item.CreateDate;
+                                    model.Amount = item.Amount;
+                                    model.IncomeYear = item.IncomeYear;
+                                    model.Count = count;
+                                    unitOfWork.IncomePayment.Add(model);
+
+                                    ErrorManager.SaveLog($"Itbid {item.ItbID}");
+                                    var removeobject = unitOfWork.IncomeDeclarartion.Find(p=>p.ItbID==item.ItbID).SingleOrDefault();
+                                    ErrorManager.SaveLog($"removeobject {Newtonsoft.Json.JsonConvert.SerializeObject(removeobject)}");
+
+                                    unitOfWork.IncomeDeclarartion.Remove(removeobject);
+                                    ErrorManager.SaveLog($"Itbid {item.ItbID}");
+
+                                }
+                                var retv = unitOfWork.Complete() > 0 ? true : false; ;
+                                ErrorManager.SaveLog($"retv {Newtonsoft.Json.JsonConvert.SerializeObject(retv)}");
+
+                                if (retv)
+                                {
+                                    //unitOfWork.IncomeDeclarartion.RemoveRange(Incomedetails);
+                                    //unitOfWork.Complete();
+                                    //rec = unitOfWork.IncomeDeclarartion.GetIncomeSourceById(item.ItbID);
+                                    return Json(new { RespCode = 0, RespMessage = "Payment Successfully" });
+                                    //unitOfWork.Complete();
+                                }
+                            }
+
+
+                            //++;
+
+
+
+
+
+                        }
+
+                        
+
+
+                    }
+                    else
+                    {
+                        
+
+                        return Json(new {  RespCode = -1, RespMessage = "Error" });
+
+
+                    }
+                }
+                // If we got this far, something failed, redisplay form
+                return Json(new { RespCode = 1, RespMessage = errorMsg });
+            }
+            catch (SqlException ex)
+            {
+                return Json(new { RespCode = 1, RespMessage = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { RespCode = 1, RespMessage = ex.Message });
+            }
+        }
+
+
         [HttpPost]
         // [AllowAnonymous]
         [ValidateAntiForgeryToken]

@@ -34,7 +34,7 @@ namespace Akirs.client.repository
         IIncomeDeclarationRepository IncomeDeclarartion { get; }
         IIncomeSourceTypeRepository IncomeSourceType { get; }
         IIncomeSourceModelRepository IncomeModel { get; }
-
+        ISalaryUploadSecondaryRepository SalaryUploadSecondary { get; }
         ITransactionLog TransactionLog { get; }
         int Complete();
     }

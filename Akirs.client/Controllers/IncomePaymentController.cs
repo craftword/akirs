@@ -39,9 +39,12 @@ namespace Akirs.client.Controllers
                     PaymentMsg = db.IncomePayments.Where(j => j.EnrollmentID == eID && j.IncomeYear == yearValue).OrderByDescending(m => m.Count).FirstOrDefault();
 
                     PaymentModelIenum = unitOfWork.IncomePaymentModel.GetIncomePaymentDetails(eID, yearValue, PaymentMsg.Count);
+                    ErrorManager.SaveLog($"PaymentModelIenum {Newtonsoft.Json.JsonConvert.SerializeObject(PaymentModelIenum)}");
                     PaymentModeldetails = PaymentModelIenum.ToList();
+                    ErrorManager.SaveLog($"PaymentModeldetails {Newtonsoft.Json.JsonConvert.SerializeObject(PaymentModeldetails)}");
 
-                        }
+
+                }
                 return Json(new { data = PaymentModeldetails, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -119,6 +122,7 @@ namespace Akirs.client.Controllers
                                     model.CreateDate = item.CreateDate;
                                     model.Amount = item.Amount;
                                     model.IncomeYear = item.IncomeYear;
+                                    model.IsNew = "N";
                                     unitOfWork.IncomeDeclarartion.Add(model);
                                     unitOfWork.Complete();
                                 }
@@ -131,7 +135,7 @@ namespace Akirs.client.Controllers
                             
                         }
 
-                        return Json(new { data = model, RespCode = 0, RespMessage = "Record Created Successfully" });
+                        return Json(new { data = model, RespCode = 0, RespMessage = "Record(s) ready for Modification!!!" });
 
 
                     }

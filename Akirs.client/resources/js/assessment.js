@@ -60,11 +60,19 @@ $('#drpAssesmentYear').change(function () {
                         $('#lblconsolidated_allowance').text(formatter1.format(response.data.ConsolidateAllowance));
                         $('#lbldirectnetid').text(formatter1.format(response.data.TaxableLiab));
                         $('#nid').val(formatter1.format(response.data.TaxableLiab));
+                        $('#nidtx').val(lbldirectnetid);
+
                         //asign all fields you need
                     }
                 } else {
                     $('#directassessment_partial').css('display', 'none')
-                    alert('Assessment Record not found')
+                    swal(
+                ' The Income modified is lesser, Kindly visit the nearest IRS Office ',
+                response.RespMessage,
+                'success'
+            )
+
+                    setTimeout(function () { window.location.reload(true) }, 6000)
                     //Alert Assessment not found
                 }
             },
@@ -87,7 +95,7 @@ $('#drpAssesmentYear').change(function () {
 })
 
 
-        function getYear() {
+      function getYear() {
           
 
             $.ajax({
@@ -130,10 +138,7 @@ $('#drpAssesmentYear').change(function () {
                     $('.ajax-loader').css("visibility", "hidden");
                 }
             });
-        }
-
-
-    
+        }    
 
 
      function getEEmaill2() {
@@ -214,31 +219,106 @@ $('#drpAssesmentYear').change(function () {
      }
 
 
-    //To get netTax before making a modified payment
-    function getNetTax() {
+    //Dommy moving data from income source to income payment
+    $('#verifyfake').click(function (e) {
+        //alert('Kindly Proceed to Assessment to Pay')
+        e.preventDefault();
+        var result = $('#drpAssesmentYear option:selected').text();
+        $.ajax({
+            url: $('#IncomepaymentPost').data('request-url'),//'Assessment/IncomePaymentSave',
+            data: { yearValue: result },
+            type: "Post",
+            contentType: "application/x-www-form-urlencoded",
+            success: function (response) {
+                console.log('****Payment', response)
+                //alert(response.RespCode)
+                //alert(response.RespMessage)
+                if (response.RespCode == 0) {
+                    // $('#familytable')[0].reset();
+                    
+                    swal(
+                        ' Payment Successful! ',
+                        response.RespMessage,
+                        'success'
+                    )
 
-            $.ajax({
-                url: $('#getNetTax').data('request-url'),//'Assessment/GetNetTax',
-                data: null,
-                type: "Get",
-                data: null,
-                contentType: "application/json",
-                success: function (response) {
-                    console.log(response);                    
-                   
-                },
-                failure: function (xhr, status, err) {
-                    $('.ajax-loader').css("visibility", "hidden");
-                    //$('#display-error').show();
-                },
-                beforeSend: function () {
-                    $('.ajax-loader').css("visibility", "visible");
-                },
-                complete: function () {
-                    $('.ajax-loader').css("visibility", "hidden");
+                    setTimeout(function () { window.location.reload(true)}, 4000 )
+                   // location.reload();
+                } else {
+                    // $('#directassessment_partial').css('display', 'none')
+                    swal(
+                        ' Payment Failure! ',
+                        response.RespMessage,
+                        'error'
+                    )
+                    //Alert Assessment not found
                 }
-            });
-        }
+            },
+            failure: function (xhr, status, err) {
+                $('.ajax-loader').css("visibility", "hidden");
+                //$('#display-error').show();
+            },
+            beforeSend: function () {
+                $('.ajax-loader').css("visibility", "visible");
+            },
+            complete: function () {
+                $('#directassessment_partial').css('display', 'none')
+                $('.ajax-loader').css("visibility", "hidden");
+            }
+        });
+
+        //clear fields
+        //alert('no')
+        
+    });
+
+
+    $('#verifyfake1').click(function () {
+        //alert('Kindly Proceed to Assessment to Pay')
+        var result = $('#drpAssesmentYear option:selected').text();
+        $.ajax({
+            url: $('#IncomepaymentPost').data('request-url'),//'Assessment/IncomePaymentSave',
+            data: { yearValue: result },
+            type: "Post",
+            contentType: "application/x-www-form-urlencoded",
+            success: function (response) {
+                console.log('****Payment', response)
+                //alert(response.RespCode)
+                //alert(response.RespMessage)
+                if (response.RespCode == 0) {
+                    // $('#familytable')[0].reset();
+                    
+                    swal(
+                       ' Payment Successful! ',
+                       response.RespMessage,
+                       'success'
+                   )
+
+                    setTimeout(function () { window.location.reload(true) }, 4000)
+                } else {
+                    // $('#directassessment_partial').css('display', 'none')
+                    alert('No Record to Modify')
+                    //Alert Assessment not found
+                }
+            },
+            failure: function (xhr, status, err) {
+                $('.ajax-loader').css("visibility", "hidden");
+                //$('#display-error').show();
+            },
+            beforeSend: function () {
+                $('.ajax-loader').css("visibility", "visible");
+            },
+            complete: function () {
+                $('#directassessment_partial').css('display', 'none')
+                $('.ajax-loader').css("visibility", "hidden");
+
+            }
+        });
+
+        //clear fields
+        //alert('no')
+       
+    });
 
 
 
@@ -250,8 +330,10 @@ $('#drpAssesmentYear').change(function () {
             $('#newAssesment').addClass('showM');
             $('#incomeDeclared').text(formatter1.format(listData.data.IncomePaid))
             $('#nIncomeDeclared').text(formatter1.format(listData.data.Income))
-            $('#amount').text(formatter1.format(listData.data.IncomeDifference))
+            $('#amountDiff').text(formatter1.format(listData.data.IncomeDifference))
             $('#taxPayable').text(formatter1.format(listData.data.TaxableLiab))
+            //$('#nid').text(formatter1.format(response.data.TaxableLiab))
+
         } else {
 
             console.log('new', listData.isNew)
@@ -259,6 +341,8 @@ $('#drpAssesmentYear').change(function () {
             $('#newAssesment').addClass('hideModal');
             $('#amountDeclared').text(formatter1.format(listData.data.Income))
             $('#taxPayablee').text(formatter1.format(listData.data.TaxableLiab))
+            //$('#nid').text(formatter1.format(response.data.TaxableLiab))
+
         }
         //alert('ff')
         $('#myModal').modal({ backdrop: 'static', keyboard: false });
@@ -376,7 +460,8 @@ $('#drpAssesmentYear').change(function () {
         firstName: document.getElementById('compname').value,
         lastName: document.getElementById('compSurname').value,
         phone: document.getElementById('comphone').value,
-        amount: document.getElementById('nid').value,
+        amount: 2000//document.getElementById('nid').value,
+        //amount: document.getElementById('nid').value,
 
 
     };
@@ -395,7 +480,8 @@ $('#drpAssesmentYear').change(function () {
             firstName: document.getElementById('compname').value,
             lastName: document.getElementById('compSurname').value,
             phone: document.getElementById('comphone').value,
-            amount: document.getElementById('nid').value,
+            amount: 29900//document.getElementById('nid').value,
+            //amount: document.getElementById('nid').value,
 
 
         };

@@ -7,24 +7,130 @@ var nettaxx = 0;
 
 
 $(document).ready(function () {
+    //$("#salaryuploadtable").DataTable().fnDestroy();
+    var table2 = $('#salaryuploadtable').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "bDestroy": true,
+        "ajax": {
+            "url": $('#salarydefaultlist').data('request-url'),
+            "dataSrc": function (json) {
+                if (json.RespCode == 0) {
+                    $('#btnUpload').attr('disabled', 'disabled');
+                    $('#upldfile').attr('disabled', 'disabled');
+                    $('#drpSalaryMonth').attr('disabled', 'disabled');
+                    $('#divGrid').css('display', '');
+                    $('#btnModifyRecord').css('display', '');
+                   // $('#btnSkip').removeAttr('disabled');
+                } else {
+                    $('#drpSalaryMonth').removeAttr('disabled');
+                    $('#upldfile').removeAttr('disabled');
+                    $('#btnUpload').removeAttr('disabled');
+                    $('#divGrid').css('display', 'none');
+                    $('#btnModifyRecord').css('display', 'none');
+                }
+                return json.data;
+            }
+        },
+        "type": "GET",
+        "datatype": "json",
+        columns: [
+            { data: "EmployeeName" },
+            { data: "AnnualBasic" },
+            { data: "AnnualHousing" },
+            { data: "AnnualTransport" },
+            { data: "AnnualMeal" },
+            { data: "AnnualOthers" },
+            { data: "NHFContribution" },
 
-    var eID = $('#enrId').val();
-    console.log(eID);
+            {
+                data: null,
+                className: "center_column",
+                render: function (data, type, row) {
+                    var html = '<a class="btn btn-primary btn-xs editor_edit" data-key="' + data.ItbID + '"><i class="fa fa-edit"></i></a>&emsp;&emsp; <a class ="btn btn-danger btn-xs editor_delete" data-key="' + data.ItbID  +'"><i class ="fa fa-trash"></i></a>'
+                        
+                    return html;
+                }
+            }
+        ]
+    });
+    function Translatemonthsindex(monthIndexValue) {
+        var monthsValue = '';
+        switch(monthIndexValue){
+            case 1:
+                monthsValue = 'JANUARY';
+                break;
+            case 2:
+                monthsValue = 'FEBUARY';
+                break;
+            case 3:
+                monthsValue = 'MARCH';
+                break;
+            case 4:
+                monthsValue = 'APRIL';
+                break;
+            case 5:
+                monthsValue = 'MAY';
+                break;
+            case 6:
+                monthsValue = 'JUNE';
+                break;
+            case 7:
+                monthsValue = 'JULY';
+                break;
+            case 8:
+                monthsValue = 'AUGUST';
+                break;
+            case 9:
+                monthsValue = 'SEPTEMBER';
+                break;
+            case 10:
+                monthsValue = 'OCTOBER';
+                break;
+            case 11:
+                monthsValue = 'NOVEMBER';
+                break;
+            case 12:
+                monthsValue = 'DECEMBER';
+                break;
+        }
 
-    
+        return monthsValue
+    }
+
+    $.ajax({
+        url: $('#salarymonths').data('request-url'),
+        data: null,
+        type: "Get",
+        contentType: "application/json",
+        success: function (response) {
+            var selectvalues = '<option value="0">--Select month--</option>';
+
+            $.each(response.data, function (count, row) {
+                //console.log('roww', row)
+                selectvalues += '<option value="' + row + '">' + Translatemonthsindex(row) + '</option>'
+            });
+            $('#drpSalaryMonth').html(selectvalues)
+        },
+        failure: function (xhr, status, err) {
+            $('.ajax-loader').css("visibility", "hidden");
+        },
+        beforeSend: function () {
+            $('.ajax-loader').css("visibility", "visible");
+        },
+        complete: function () {
+            $('.ajax-loader').css("visibility", "hidden");
+        }
+    })
 
 
         $.ajax({
             url: $('#assessmentload').data('request-url'),//'Assessment/AssessmentDetails',
             data: null,
             type: "Get",
-            data: { EnrollID: eID },
             contentType: "application/json",
             success: function (response) {
-                console.log("im rkvboibrfjbfjk");
-                console.log('***', response)
-                
-               
+          
                 if (response.RespCode === 0)
                 {
                     
@@ -59,139 +165,29 @@ $(document).ready(function () {
         })
     
 
-    $.ajax({
-        url: $('#userdetails').data('request-url'),//'Assessment/AssessmentDetails',
-        type: "GET",
-        data: { EnrollID: eID },
-        contentType: "application/json",
-        success: function (response) {
-          
-            console.log(response)
-            if (response.RespCode == 0) {
-                payment.email = response.data.Email;
-                payment.firstname = response.data.FirstName;
-                payment.lastname = response.data.LastName;
-                payment.phone = response.data.PhoneNo;
-                payment.custId = response.data.EnrollmentId;
-
-
-            }
-
-        },
-        failure: function (xhr, status, err) {
-            $('.ajax-loader').css("visibility", "hidden");
-            //$('#display-error').show();
-        },
-        beforeSend: function () {
-            $('.ajax-loader').css("visibility", "visible");
-        },
-        complete: function () {
-            $('.ajax-loader').css("visibility", "hidden");
-        }
-    })
-
-    $.ajax({
-        type: "GET",
-        url: $('#salaryverify').data('request-url'),
-        contentType: 'json',
-        data: null,
-        success: function (response) {
-            //loaderSpin2(false);
-            if (response.RespCode == 0) {
-
-                $('#divGrid').html(response.data_html);
-                $('#btnValidate').removeAttr('disabled');
-
-            }
-            else {
-                //displayDialogNoty('Notification', response.RespMessage);
-            }
-        },
-        error: function (err) {
-            console.log(err);
-            //loaderSpin2(false);
-        }
-    });
-    $(document).on('click', '#btnValidateSalary', function (e) {
-        e.preventDefault();
-
-        //return;
-        $.ajax({
-            type: "POST",
-            url: $('#salaryverifypost').data('request-url'), //url + 'VerifyRecord',
-            contentType: "application/json",
-            data: null,
-            success: function (response) {
-                if (response.RespCode == 0) {
-
-                    $('#divGrid').html(response.data_html);
-                    $('#btnValidateSalary').attr('disabled','disabled');
-                    swal({ title: 'Successfull', text: 'Record approved successfully', type: 'success' })
-
-                }
-                else {
-                    swal({ title: 'Error!!', text: response.RespMessage, type: 'error' })
-                    //displayDialogNoty('Notification', response.RespMessage);
-                }
-            },
-            error: function (err) {
-                console.log(err);
-            }
-
-        });
-
-    });
-    var table2 = $('#example123').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": $('#usersalarylist').data('request-url'),//"SalList",
-        "type": "GET",
-        "datatype": "json",
-        columns: [
-            { data: "EmployeeID" },
-            { data: "EmployeeName" },
-            { data: "AnnualBasic" },
-            { data: "AnnualHousing" },
-            { data: "AnnualTransport" },
-            
-            {
-                data: null,
-                className: "center_column",
-                render: function (data, type, row) {
-                    console.log('***', data)
-                    var html = '<a class="btn btn-primary btn-xs editor_edit" data-key="' + data.ItbID + '"><i class="fa fa-edit"></i></a>';
-                    return html;
-                }
-            },
-            {
-                data: null,
-                className: "center_column",
-                render: function (data, type, row) {
-                    var html = '<a class="btn btn-primary btn-xs editor_delete" data-key="' + data.ItbID + '"><i class="fa fa-trash"></i></a>';
-                    return html;
-                }
-            }
-        ]
-    });
+ 
+    
     function updateGridItem(model) {
         var rowIdx = table2
             .cell(col)
             .index().row;
 
         var d = table2.row(rowIdx).data();
-        d.EmployeeID = model.EmployeeID;
         d.EmployeeName = model.EmployeeName;
         d.AnnualBasic = model.AnnualBasic;
         d.AnnualHousing = model.AnnualHousing
         d.AnnualTransport = model.AnnualTransport
-
+        d.AnnualMeal = model.AnnualMeal
+        d.AnnualOthers = model.AnnualOthers
+        d.NHFContribution = model.NHFContribution
         table2
             .row(rowIdx)
             .data(d)
             .draw();
 
     }
-    $("#example123").on("click", "a.editor_edit", editDetailServer);
+    
+    $("#salaryuploadtable").on("click", "a.editor_edit", editDetailServer);
     function editDetailServer() {
         var editLink = $(this).attr('data-key');
         col = $(this).parent();
@@ -203,7 +199,6 @@ $(document).ready(function () {
             contentType: "application/json",
             success: function (response) {
                 if (response.RespCode === 0) {
-                    $('#EmployeeID').val(response.model.EmployeeID);
                     $('#EmployeeName').val(response.model.EmployeeName);
                     $('#AnnualBasic').val(response.model.AnnualBasic);
                     $('#AnnualTransport').val(response.model.AnnualTransport);
@@ -213,11 +208,6 @@ $(document).ready(function () {
                     $('#NHFContribution').val(response.model.NHFContribution);
                     $('#AnnualHousing').val(response.model.AnnualHousing);
                     $('#ItbID').val(response.model.ItbID);
-                    //$('#divStatus').show();
-                    $('#pnlAudit').css('display', 'block');
-                    $('a.editor_reset').hide();
-                    $('#btnSave').html('<i class="fa fa-edit"></i> Update');
-                    $('#btnSave').val(2);
                     $('#myModal').modal({ backdrop: 'static', keyboard: false });
                 }
                 else {
@@ -237,7 +227,36 @@ $(document).ready(function () {
 
 
     }
-    $("#example123").on("click", "a.editor_delete", deleteDetailServer);
+    $('#btnModifyRecord').click(function (e) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to complete this modification?')) {
+            $.ajax({
+                url: $('#completemodification').data('request-url'),
+                type: "Post",
+                contentType: "application/json",
+                success: function (response) {
+                    if (response.RespCode == 0) {
+
+                        swal({ title: 'Successfull', text: response.RespMessage, type: 'success' });
+                        setTimeout(function () { window.location.reload(true) }, 4000)
+                    } else {
+                        swal({ title: 'Error!', text: response.RespMessage, type: 'error' })
+                    }
+
+                },
+                failure: function (xhr, status, err) {
+                    $('.ajax-loader').css("visibility", "hidden");
+                },
+                beforeSend: function () {
+                    $('.ajax-loader').css("visibility", "visible");
+                },
+                complete: function () {
+                    $('.ajax-loader').css("visibility", "hidden");
+                }
+            })
+        }
+    })
+    $("#salaryuploadtable").on("click", "a.editor_delete", deleteDetailServer);
     function deleteDetailServer() {
         var editLink = $(this).attr('data-key');
         col = $(this).parent();
@@ -291,83 +310,98 @@ $(document).ready(function () {
             }
         })
     }
-    var validator = $("#formFamily").validate({
+    var validator = $("#formsalary").validate({
         rules: {
-            FullName: "required",
-            RelationshipType: "required",
-            Age: "required",
+            EmployeeName :{
+                required:true
+            },
+            AnnualBasic :{
+                required:true
+            },
+            AnnualHousing :{
+                required:true
+            },
+            AnnualTransport :{
+                required:true
+            },
+            AnnualMeal :{
+                required:true
+            },
+            AnnualOthers :{
+                required:true
+            },
+            NHFContribution :{
+                required:true
+            }
         },
         messages: {
 
-            Name: {
-                required: "Please Enter FullName"
+            EmployeeName: {
+                required: "Required"
             },
+            AnnualBasic: {
+                required: "Required"
+            },
+            AnnualHousing: {
+                required: "Required"
+            },
+            AnnualTransport: {
+                required: "Required"
+            },
+            AnnualMeal: {
+                required: "Required"
+            },
+            AnnualOthers: {
+                required: "Required"
+            },
+            NHFContribution: {
+                required: "Required"
+            }
 
 
         },
         submitHandler: function () {
-            var btn = $('#btnSave').val();
+            var btn = $('#btnEdit').val();
             var urlTemp;
             var postTemp;
             var event;
-            if (btn === "1") {
-
-                urlTemp =$('#usersalarycreate').data('request-url')// 'Create';
-                postTemp = 'post';
-                $('#ItbID').val(0);
-                event = 'new';
-            }
-            else {
-
-                urlTemp = $('#usersalarycreate').data('request-url')//'Create';
-                //postTemp = 'put';
-                postTemp = 'post';
-                event = 'modify';
-            };
+            urlTemp = $('#usersalarycreate').data('request-url')
+            postTemp = 'post';
+            event = 'modify';
             //  alert(urlTemp);
             var $reqLogin = {
                 url: urlTemp,
 
-                data: $('#formFamily').serialize(),
+                data: $('#formsalary').serialize(),
                 type: postTemp,
                 contentType: "application/x-www-form-urlencoded"
             };
 
             $.ajax({
                 url: urlTemp,
-                data: $('#formFamily').serialize(),
+                data: $('#formsalary').serialize(),
                 type: postTemp,
                 contentType: "application/x-www-form-urlencoded",
                 success: function (response) {
                     if (response.RespCode === 0) {
-                        $('#formFamily')[0].reset();
+                        $('#formsalary')[0].reset();
+                        updateGridItem(response.data);
+                        $('#myModal').modal('hide');
+                        $('#ItbID').val(0);
 
-                        if (event === 'new') {
-                            addGridItem(response.data);
-                            $('#myModal').modal('hide');
-                            $('#ItbID').val(0);
-                        }
-                        else {
-                            var btn = $('#btnSave').html('<i class="fa fa-save"></i> Save');
-                            updateGridItem(response.data);
-                            $('#myModal').modal('hide');
-                            $('#ItbID').val(0);
-
-                            swal(
-                                  'Success!',
-                                  response.RespMessage,
-                                  'success'
-                                )
-
-                        }
+                        swal(
+                              'Success!',
+                              response.RespMessage,
+                              'success'
+                            )
 
                     }
                     else {
-                        swal(
-                                   'Error!',
-                                   response.RespMessage,
-                                   'error'
-                                 )
+                    swal(
+                        'Error!',
+                        response.RespMessage,
+                        'error'
+                        )
 
                     }
                 },
@@ -387,9 +421,9 @@ $(document).ready(function () {
     });
 });
 
+
 $(document).on('click', '#btnUpload', function (e) {
 
-    console.log('uploading');
     $("#example1 tbody").empty();
     e.preventDefault();
     if (window.FormData !== undefined) {
@@ -398,14 +432,65 @@ $(document).on('click', '#btnUpload', function (e) {
         if (files.length <= 0) {
             alert("Please select the file you are to upload!");
             return;
-        }
+    }
+    if ($('#drpSalaryMonth').val() ==='0') {
+        alert("Please select a month!");
+    return;
+}
         $('#btnValidate').prop('disabled', true);
 
         var data = new FormData();
         for (var x = 0; x < files.length; x++) {
             data.append(files[x].name + x, files[x]);
+            data.append("Month", $('#drpSalaryMonth').val())
         }
 
+        //$("#salaryuploadtable2").DataTable().fnDestroy();
+        //$('#salaryuploadtable2').DataTable({
+        //    "processing": true,
+        //    "serverSide": true,
+        //    "destroy": true,
+        //    "ajax": {
+        //        "url": $('#salaryupload').data('request-url'),
+        //        "data": data,
+        //        "processData": false,
+        //        "dataSrc": function (json) {
+        //            if (json.RespCode == 0) {
+        //                $('#upldfile').val('');
+        //                $('#divGrid2').css('display', '');
+        //                //$('#divGrid').css('display', 'none');
+        //               swal({ title: 'Successfull', text: response.RespMessage, type: 'success' })
+        //            } else {
+        //                swal({ title: 'Error!', text: response.RespMessage, type: 'error' })
+        //                //$('#divGrid2').css('display', 'none');
+        //            }
+        //            return json.data;
+        //        }
+        //    },//"SalList",
+        //    "type": "POST",
+        //    "datatype": "json",
+        //    columns: [
+        //        { data: "EmployeeID" },
+        //        { data: "EmployeeName" },
+        //        { data: "AnnualBasic" },
+        //        { data: "AnnualHousing" },
+        //        { data: "AnnualTransport" },
+        //        { data: "AnnualMeal" },
+        //        { data: "AnnualOthers" },
+        //        { data: "NHFContribution" },
+
+        //        //{
+        //        //    data: null,
+        //        //    className: "center_column",
+        //        //    render: function (data, type, row) {
+        //        //        var html = '<a class="btn btn-primary btn-xs editor_edit" data-key="' + data.ItbID + '"><i class="fa fa-edit"></i></a>';
+        //        //        return html;
+        //        //    }
+        //        //}
+        //    ]
+        //});
+      //  console.log('**salary', data.get("Month"))
+        //return
         $.ajax({
             type: "POST",
             url: $('#salaryupload').data('request-url'),//'UploadFiles',
@@ -413,11 +498,16 @@ $(document).on('click', '#btnUpload', function (e) {
             processData: false,
             data: data,
             success: function (response) {
+                console.log('**', response)
                 if (response.RespCode === 0) {
                     $('#upldfile').val('');
+                    $('#drpSalaryMonth').val('0')
+
                     swal({ title: 'Successfull', text: response.RespMessage, type: 'success' })
-                    $('#divGrid').html(response.data_html);
-                    $('#btnValidate').removeAttr('disabled');
+                    
+                    $('#divGrid2').html(response.data_html);
+                    $('#btnSend_aroval').removeAttr('disabled');
+                    setTimeout(function () { window.location.reload(true) }, 3000)
                 }
                 else {
                     swal({ title: 'Error!', text: response.RespMessage, type: 'error' })
@@ -425,6 +515,13 @@ $(document).on('click', '#btnUpload', function (e) {
             },
             error: function (err) {
                 console.log(err);
+            },
+            beforeSend: function () {
+                $('#divGrid2').css('display', 'none');
+            },
+            complete: function () {
+                //$('.ajax-loader').css("visibility", "hidden");
+                $('#divGrid2').css('display', '');
             }
         });
 

@@ -15,7 +15,7 @@ namespace Akirs.client.DL
 using System;
     using System.Collections.Generic;
     
-public partial class SALARYUPLOAD
+public partial class SALARYUPLOAD_HISTORY
 {
 
     public long ItbID { get; set; }
@@ -73,6 +73,8 @@ public partial class SALARYUPLOAD
     public Nullable<short> UploadMonthIndex { get; set; }
 
     public Nullable<int> UploadYear { get; set; }
+
+    public Nullable<int> IndexCount { get; set; }
 
 }
 

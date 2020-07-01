@@ -4,16 +4,18 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 
     var enrId = Session["EnrollID"];
-    
+
 }
 <style>
     .form-group input {
         text-align: right;
     }
-    .hideModal{
+
+    .hideModal {
         display: block;
     }
-    .showM{
+
+    .showM {
         display: none;
     }
 </style>
@@ -21,7 +23,7 @@
        value="@enrId" id="eid" />
 
 <input type="hidden"
-        id="nid" />
+       id="nid" />
 
 <input type="hidden"
        id="emailhid" />
@@ -45,14 +47,14 @@
             <div class="col-lg-12">
 
                 <h1 class="page-header">Assessment</h1>
-       <select id="drpAssesmentYear" style="border: 1px solid grey; border-radius: 7px; padding: 10px;outline:none;"></select>
+                <select id="drpAssesmentYear" style="border: 1px solid grey; border-radius: 7px; padding: 10px;outline:none;"></select>
             </div>
         </div>
-        
-       
-       
+
+
+
         <div class="row" id="directassessment_partial" style="margin-top:15px;">
-            
+
             <div class="col-lg-12">
 
                 <div class="panel panel-default">
@@ -73,7 +75,7 @@
                                     <span id="lblEnrollId"></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6" style="display:flex; justify-content:flex-end; align-items:flex-end">   
+                            <div class="form-group col-md-6" style="display:flex; justify-content:flex-end; align-items:flex-end">
                                 <div>
                                     <label>First Name:</label>
                                     <span id="lblfullname"></span>
@@ -96,7 +98,7 @@
 
                             <div class="col-lg-6">
 
-                                <div role="form" >
+                                <div role="form">
 
                                     <div class="form-group row">
 
@@ -148,7 +150,7 @@
 
                         </div>
                         <div class="form-group text-center">
-                            <label style="color: #00f">Tax Payable: </label><span id="lbldirectnetid" style="color: #00f" ></span>
+                            <label style="color: #00f">Tax Payable: </label><span id="lbldirectnetid" style="color: #00f"></span>
 
                         </div>
 
@@ -162,55 +164,53 @@
                 <button class="btn btn-primary btn-lg" id="verify1" type="button">Verify Payment</button>
             </div>
         </div>
-       
-           
+
+
     </div>
 </div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:600px">
         <div class="modal-content" id="modifyAssessment">
-           
-                <div class="modal-header" style="padding-top: 0 !important">
-                    <div class="row">
-                        <div class="col-md-6" style="border-right : 1px solid gray">
-                            <p><b>Old Income Declared</b> </p><span style="margin-left: 10px" id="incomeDeclared">10000</span>
-                        </div>
-                        <div class="col-md-6">
-                            <p><b>New Income declared</b></p><span style="margin-left: 10px" id="nIncomeDeclared">10000</span>
-                        </div>
 
+            <div class="modal-header" style="padding-top: 0 !important">
+                <div class="row">
+                    <div class="col-md-6" style="border-right : 1px solid gray">
+                        <p><b>Old Income Declared</b> </p><span style="margin-left: 10px" id="incomeDeclared">10000</span>
                     </div>
-                   
-                </div>
-
-                <div class="modal-body" style="padding-top: 0 !important; padding-bottom: 0 !important">
-                        <div class="row">
-                           
-                            <div class="col-md-12" style="border-bottom : 1px solid gray">
-                                <h4 class="text-center">DIFFERENCE</h4>
-                            </div>
-                            <div class="col-md-6"  style="border-right : 1px solid gray">
-                                <p><b>Amount</b></p><span style="margin-left: 10px" id="amount">10000</span>
-                            </div>
-                            <div class="col-md-6">
-                                <p><b>Tax Payable</b></p><span style="margin-left: 10px" id="taxPayable">10000</span>
-                            </div>
-                        </div>             
-                            
-                       
-                   
-                </div>
-                <div class="modal-footer" style="text-align: center !important">
-                    @*<button type="submit" class="btn btn-primary btn_disable" id="btnSave" value="1"><i class="fa fa-save"></i>Save</button>*@
-                    <button class="btn btn-primary btn-lg" id="verify" type="button">Make Payment</button>
-
+                    <div class="col-md-6">
+                        <p><b>New Income declared</b></p><span style="margin-left: 10px" id="nIncomeDeclared">10000</span>
+                    </div>
 
                 </div>
-            
+
+            </div>
+
+            <div class="modal-body" style="padding-top: 0 !important; padding-bottom: 0 !important">
+                <div class="row">
+
+                    <div class="col-md-12" style="border-bottom : 1px solid gray">
+                        <h4 class="text-center">DIFFERENCE</h4>
+                    </div>
+                    <div class="col-md-6" style="border-right : 1px solid gray">
+                        <p><b>Amount</b></p><span style="margin-left: 10px" id="amount">10000</span>
+                    </div>
+                    <div class="col-md-6">
+                        <p><b>Tax Payable</b></p><span style="margin-left: 10px" id="taxPayable">10000</span>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer" style="text-align: center !important">
+                @*<button type="submit" class="btn btn-primary btn_disable" id="btnSave" value="1"><i class="fa fa-save"></i>Save</button>*@
+                <button class="btn btn-primary btn-lg" id="verifyPayee" type="button">Make Payment</button>
+            </div>
+
         </div>
 
-        <div class="modal-content" id="newAssesment">            
+        <div class="modal-content" id="newAssesment">
 
             <div class="modal-body" style="padding-top: 0 !important; padding-bottom: 0 !important">
                 <div class="row">
@@ -229,22 +229,17 @@
 
             </div>
             <div class="modal-footer" style="text-align: center !important">
-                @*<button type="submit" class="btn btn-primary btn_disable" id="btnSave" value="1"><i class="fa fa-save"></i>Save</button>*@
-                <button class="btn btn-primary btn-lg" id="verify2" type="button">Make Payment</button>
+                <button class="btn btn-primary btn-lg" id="verify" type="button">Make Payment</button>
 
             </div>
         </div>
-
-
     </div>
     <div class="ajax-loader">
         <img src="~/assets/images/ajax-loader.gif" class="img-responsive" />
     </div>
 </div>
-
 <div id="directAssessmentload" style="display:none" data-request-url="@Url.Action("GetIncomeYear", "Assessment")"></div>
 
-@*<div id="assessmentload1" style="display:none" data-request-url="@Url.Action("GetIncomeYear", "Assessment")"></div>*@
 <div id="directAssessmentdetails" style="display:none" data-request-url="@Url.Action("AssessmentDetails", "Assessment")"></div>
 
 <div id="getEmail" style="display:none" data-request-url="@Url.Action("GetEmail", "Assessment")"></div>

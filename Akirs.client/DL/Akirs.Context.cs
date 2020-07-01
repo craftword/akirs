@@ -163,11 +163,13 @@ public partial class AKIRSTAXEntities : DbContext
 
     public virtual DbSet<IncomeSourceType> IncomeSourceTypes { get; set; }
 
-    public virtual DbSet<SALARYUPLOAD> SALARYUPLOADs { get; set; }
+    public virtual DbSet<IncomeSource> IncomeSources { get; set; }
 
     public virtual DbSet<IncomePayment> IncomePayments { get; set; }
 
-    public virtual DbSet<IncomeSource> IncomeSources { get; set; }
+    public virtual DbSet<SALARYUPLOAD> SALARYUPLOADs { get; set; }
+
+    public virtual DbSet<SALARYUPLOAD_HISTORY> SALARYUPLOAD_HISTORY { get; set; }
 
 
     public virtual ObjectResult<proc_BankTransactionType_Result> proc_BankTransactionType(Nullable<int> bankid)

@@ -984,32 +984,32 @@ namespace Akirs.client.Controllers
                                 unitOfWork.Users.Add(user);
                                 unitOfWork.Complete();
 
-                                var Witholding = (List<WHTUPLOAD_temp>)Session["Witholding"];
+                                //var Witholding = (List<WHTUPLOAD_temp>)Session["Witholding"];
 
-                                WHTUPLOAD wht = null;
-                                foreach (var item in Witholding)
-                                {
-                                    wht = new WHTUPLOAD();
-
-
-                                    wht.TaxRate = item.TaxRate;
-                                    wht.TaxAmount = item.TaxAmount;
-                                    wht.VendorName = item.VendorName;
-                                    wht.VendorTINNO = item.VendorTINNO;
-                                    wht.AuthUserID = item.AuthUserID;
-                                    wht.CreateDate = item.CreateDate;
-                                    wht.CreatedBy = item.CreatedBy;
-                                    wht.Last_Modified_Authid = item.Last_Modified_Authid;
-                                    wht.Last_Modified_Date = item.Last_Modified_Date;
-                                    wht.Last_Modified_Uid = item.Last_Modified_Uid;
-                                    wht.Status = "P";
-                                    wht.VALIDATIONERRORSTATUS = item.VALIDATIONERRORSTATUS;
-                                    wht.EnrollmentID = EnrollID;
+                                //WHTUPLOAD wht = null;
+                                //foreach (var item in Witholding)
+                                //{
+                                //    wht = new WHTUPLOAD();
 
 
-                                    unitOfWork.WhtUpload.Add(wht);
-                                    unitOfWork.Complete();
-                                }
+                                //    wht.TaxRate = item.TaxRate;
+                                //    wht.TaxAmount = item.TaxAmount;
+                                //    wht.VendorName = item.VendorName;
+                                //    wht.VendorTINNO = item.VendorTINNO;
+                                //    wht.AuthUserID = item.AuthUserID;
+                                //    wht.CreateDate = item.CreateDate;
+                                //    wht.CreatedBy = item.CreatedBy;
+                                //    wht.Last_Modified_Authid = item.Last_Modified_Authid;
+                                //    wht.Last_Modified_Date = item.Last_Modified_Date;
+                                //    wht.Last_Modified_Uid = item.Last_Modified_Uid;
+                                //    wht.Status = "P";
+                                //    wht.VALIDATIONERRORSTATUS = item.VALIDATIONERRORSTATUS;
+                                //    wht.EnrollmentID = EnrollID;
+
+
+                                //    unitOfWork.WhtUpload.Add(wht);
+                                //    unitOfWork.Complete();
+                                //}
 
                                 // Send email and sms to customer
                                 proc_Notification_Result rec2 = new proc_Notification_Result();
@@ -1026,7 +1026,7 @@ namespace Akirs.client.Controllers
 
                             }
                         }
-                        return Json(new { RespCode = 0, RespMessage = "Success created your account. Kindly check for email or mobile phone", EnrollID = EnrollID }, JsonRequestBehavior.AllowGet);
+                        return Json(new { RespCode = 0, RespMessage = "Account Created Successfully. Kindly check your mail for your login details", EnrollID = EnrollID }, JsonRequestBehavior.AllowGet);
                     }
                     catch (Exception ex)
                     {

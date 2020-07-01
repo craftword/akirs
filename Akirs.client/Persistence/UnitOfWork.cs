@@ -18,7 +18,7 @@ namespace Akirs.client.Persistence
         {
             _context = context;
             Notification = new NotificationUpdateRepository(_context);
-
+            IncomePayment = new IncomePaymentRepository(_context);
             PayrollData = new PayrollDataRepository(_context);
             CompanyData = new CompanyDataRepository(_context);
             NextEnroll = new NexEnrollNumberRepository(_context);
@@ -51,7 +51,9 @@ namespace Akirs.client.Persistence
             RentPrices = new RentPriceRepository(_context);
             TransactionLog = new TransactionLogRepository(_context);
             UserRoleRepository = new UserRoleRepository(_context);
+            SalaryUploadSecondary = new SalaryUploadSecondaryRepository(_context);
         }
+        public ISalaryUploadSecondaryRepository SalaryUploadSecondary { get; private set; }
         public IRentPriceRepository RentPrices { get; private set; }
         public IWhtHistoryRepository WhtHistory { get; private set; } 
         public INotificationUpdateRepository Notification { get; private set; }

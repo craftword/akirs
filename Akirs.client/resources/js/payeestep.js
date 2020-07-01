@@ -187,7 +187,7 @@ $(document).ready(function () {
     });
 
     $("#btnUploadSal").click(function (e) {
-        console.log('uploading');
+        //console.log('uploading');
         $("#example1_salup tbody").empty();
         e.preventDefault();
         if (window.FormData !== undefined) {

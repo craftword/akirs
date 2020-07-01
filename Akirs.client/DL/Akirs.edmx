@@ -525,7 +525,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.gb' does not have a primary key def
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="int" Nullable="false" />
+          <Property Name="ItbID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="EnrollmentID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="SourceOfIncomeID" Type="int" Nullable="false" />
           <Property Name="Amount" Type="decimal" Precision="22" Scale="2" Nullable="false" />
@@ -882,6 +882,42 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.RevenueHead' does not have a primar
           <Property Name="Others" Type="decimal" Precision="22" Scale="2" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="NextUploadDate" Type="datetime" />
+          <Property Name="UploadMonthIndex" Type="smallint" />
+          <Property Name="UploadYear" Type="int" />
+        </EntityType>
+        <EntityType Name="SALARYUPLOAD_HISTORY">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollmentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmployeeID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="AnnualBasic" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualHousing" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualTransport" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualMeal" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualOthers" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="GrossPay" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="NHFContribution" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Last_Modified_Date" Type="datetime" />
+          <Property Name="Last_Modified_Authid" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Modified_Uid" Type="varchar" MaxLength="50" />
+          <Property Name="PayrollStatus" Type="varchar(max)" />
+          <Property Name="VALIDATIONERRORSTATUS" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="AuthUserID" Type="varchar" MaxLength="20" />
+          <Property Name="Counter" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Pension" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Premium" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="NHIS" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="Others" Type="decimal" Precision="22" Scale="2" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="NextUploadDate" Type="datetime" />
+          <Property Name="UploadMonthIndex" Type="smallint" />
+          <Property Name="UploadYear" Type="int" />
+          <Property Name="IndexCount" Type="int" />
         </EntityType>
         <EntityType Name="Salaryupload_temp">
           <Key>
@@ -1377,6 +1413,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <EntitySet Name="RoleReportToLog" EntityType="Self.RoleReportToLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALARYUPLOAD" EntityType="Self.SALARYUPLOAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SALARYUPLOAD_HISTORY" EntityType="Self.SALARYUPLOAD_HISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Salaryupload_temp" EntityType="Self.Salaryupload_temp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SALARYUPLOADHISTORY" EntityType="Self.SALARYUPLOADHISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SMSMessage" EntityType="Self.SMSMessage" Schema="dbo" store:Type="Tables" />
@@ -1581,7 +1618,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AKIRSTAXModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AKIRSTAXModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityType Name="C__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -1596,7 +1633,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="AcctTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="AcctTypeDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -1627,7 +1664,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1648,7 +1685,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="GrossIncome_rate" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="MinTax_rate" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="FPA_Amount" Type="Decimal" Precision="18" Scale="2" />
@@ -1676,7 +1713,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="BranchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BranchName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1696,7 +1733,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ChargeCode" Type="Int32" Nullable="false" />
@@ -1713,7 +1750,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Roleid" Type="Int32" Nullable="false" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -1725,7 +1762,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="ProviderID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="BankName" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1762,7 +1799,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="DafaultNarration" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -1793,7 +1830,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RoleID" Type="Int32" Nullable="false" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="BranchCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1824,7 +1861,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ChargeCode" />
           </Key>
-          <Property Name="ChargeCode" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChargeCode" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ChargeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1835,7 +1872,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbiD" />
           </Key>
-          <Property Name="itbiD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbiD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="CityCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="CityName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -1848,7 +1885,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TIN_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TINVerificationstatus" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
@@ -1872,7 +1909,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="CurrencyCode" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="CurrencyName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="CurrencySymbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -1899,7 +1936,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EmailContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="emailPlatform" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -1916,7 +1953,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ExceptionId" />
           </Key>
-          <Property Name="ExceptionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExceptionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ExceptionMessage" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="ExceptionDate" Type="DateTime" Precision="3" />
@@ -1926,7 +1963,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Age" Type="Int32" />
@@ -1995,7 +2032,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RoutingNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="BankName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="NoOfDays" Type="Int32" />
@@ -2011,7 +2048,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="roleAssgId" />
           </Key>
-          <Property Name="roleAssgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleAssgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="roleId" Type="Int32" Nullable="false" />
           <Property Name="menuId" Type="Int32" Nullable="false" />
           <Property Name="userId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2028,7 +2065,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RoleId" Type="Int64" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="LimitAmount" Type="Decimal" Precision="22" Scale="2" />
@@ -2041,7 +2078,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="roleId" Type="Int64" Nullable="false" />
           <Property Name="reportToRoleId" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
@@ -2063,7 +2100,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2092,7 +2129,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2116,7 +2153,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="SMSContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SenderID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2128,7 +2165,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="StateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -2140,7 +2177,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="MFBChargeBasis" Type="Int32" Nullable="false" />
@@ -2158,7 +2195,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="Roleid" />
           </Key>
-          <Property Name="Roleid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Roleid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
@@ -2184,14 +2221,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Passport" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TransactionType">
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TransactionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -2203,7 +2240,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Roleid" Type="Int32" Nullable="false" />
           <Property Name="BankID" Type="Int64" Nullable="false" />
           <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -2236,7 +2273,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VendorTINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2255,7 +2292,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="Itbid" />
           </Key>
-          <Property Name="Itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="BankId" Type="Int32" />
           <Property Name="Acct_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Trans_Ref_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -2274,7 +2311,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
             <PropertyRef Name="CountryCode" />
             <PropertyRef Name="CountryName" />
           </Key>
-          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="CountryCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CountryName" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CountryCodeNo" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
@@ -2286,14 +2323,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="passport" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="MaritalStatu">
           <Key>
             <PropertyRef Name="ItbId" />
           </Key>
-          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Code" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -2301,7 +2338,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="bankid" Type="Int32" />
           <Property Name="PAN_Digit" Type="Int64" />
           <Property Name="createdate" Type="DateTime" Precision="3" />
@@ -2313,7 +2350,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="MinistryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MinistryDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
@@ -2328,7 +2365,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ProfessionName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
           <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2342,7 +2379,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RelationshipName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
           <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2359,7 +2396,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
             <PropertyRef Name="RevenueCode" />
             <PropertyRef Name="RevenueHead1" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="MinistryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RevenueCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RevenueHead1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
@@ -2375,7 +2412,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Taxtypename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
           <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2433,7 +2470,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AKIRSTAXEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AKIRSTAXEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AccountTypes" EntityType="Self.AccountType" />
           <EntitySet Name="Applications" EntityType="Self.Application" />
@@ -2570,13 +2607,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
             <Parameter Name="enrollmentID" Mode="In" Type="String" />
             <Parameter Name="yearValue" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="SALARYUPLOADs" EntityType="AKIRSTAXModel.SALARYUPLOAD" />
-          <EntitySet Name="IncomePayments" EntityType="AKIRSTAXModel.IncomePayment" />
-          <EntitySet Name="IncomeSources" EntityType="AKIRSTAXModel.IncomeSource" />
           <FunctionImport Name="proc_computeAssessment_modification" ReturnType="Collection(AKIRSTAXModel.proc_computeAssessment_modification_Result)">
             <Parameter Name="enrollmentID" Mode="In" Type="String" />
             <Parameter Name="yearValue" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="IncomeSources" EntityType="AKIRSTAXModel.IncomeSource" />
+          <EntitySet Name="IncomePayments" EntityType="AKIRSTAXModel.IncomePayment" />
+          <EntitySet Name="SALARYUPLOADs" EntityType="AKIRSTAXModel.SALARYUPLOAD" />
+          <EntitySet Name="SALARYUPLOAD_HISTORY" EntityType="AKIRSTAXModel.SALARYUPLOAD_HISTORY" />
         </EntityContainer>
         <ComplexType Name="proc_BankTransactionType_Result">
           <Property Type="String" Name="TransactionCode" Nullable="true" MaxLength="3" />
@@ -2708,7 +2746,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
           <Property Name="CreateUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
           <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -2771,7 +2809,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="ProviderID" Type="Int32" />
           <Property Name="NotificationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NotificationDefaultMsg" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -2789,7 +2827,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NotificationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SMSAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -2825,14 +2863,14 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="RentRange" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EnrollmentLog">
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TaxtypeID" Type="Int32" Nullable="false" />
           <Property Name="Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -2871,7 +2909,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -2890,7 +2928,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VendorTINNO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VendorName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -2909,7 +2947,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbid" />
           </Key>
-          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NotificationClass" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ProviderName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -2949,7 +2987,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="LogisticTest1" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
           <Property Name="LogisticTest2" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
           <Property Name="NetTax" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
-          <Property Name="Itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="counter" Type="Int32" />
           <Property Name="EmployeeName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="NontaxableIncome" Type="Decimal" Precision="22" Scale="2" />
@@ -2960,7 +2998,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="itbID" />
           </Key>
-          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="TransactionCode" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="2" />
@@ -3017,7 +3055,7 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="SourceOfIncome" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
           <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -3051,6 +3089,71 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="500" />
           <Property Type="Decimal" Name="NontaxableIncome" Nullable="true" Precision="22" Scale="2" />
         </ComplexType>
+        <ComplexType Name="proc_computeAssessment_modification_Result">
+          <Property Type="String" Name="enrollmentID" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Income" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="GrossIncome" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="ConsolidateAllowance" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TotalFPA" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TaxableIncome" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="MinimumTax" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C7PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C11PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C15PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C19PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C21PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="C24PercON" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TaxableLiab" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="TaxableLiabMonth" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="LogisticTest1" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="LogisticTest2" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="NetTax" Nullable="false" Precision="22" Scale="2" />
+          <Property Type="Int32" Name="Itbid" Nullable="false" />
+          <Property Type="Int32" Name="counter" Nullable="true" />
+          <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="NontaxableIncome" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="IncomePaid" Nullable="true" Precision="22" Scale="2" />
+          <Property Type="Decimal" Name="IncomeDifference" Nullable="true" Precision="22" Scale="2" />
+        </ComplexType>
+        <EntityType Name="IncomeSource">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="NHFFlag" Type="Int32" />
+          <Property Name="PensionFlag" Type="Int32" />
+          <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsNew" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IncomePayment">
+          <Key>
+            <PropertyRef Name="ItbID" />
+          </Key>
+          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="NHFFlag" Type="Int32" />
+          <Property Name="PensionFlag" Type="Int32" />
+          <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="22" Scale="2" />
+        </EntityType>
         <EntityType Name="SALARYUPLOAD">
           <Key>
             <PropertyRef Name="ItbID" />
@@ -3081,72 +3184,43 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
           <Property Name="Others" Type="Decimal" Precision="22" Scale="2" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="NextUploadDate" Type="DateTime" Precision="3" />
+          <Property Name="UploadMonthIndex" Type="Int16" />
+          <Property Name="UploadYear" Type="Int32" />
         </EntityType>
-        <EntityType Name="IncomePayment">
+        <EntityType Name="SALARYUPLOAD_HISTORY">
           <Key>
             <PropertyRef Name="ItbID" />
           </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" />
-          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
+          <Property Name="ItbID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AnnualBasic" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualHousing" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualTransport" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualMeal" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="AnnualOthers" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="GrossPay" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="NHFContribution" Type="Decimal" Precision="22" Scale="2" />
           <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
           <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PayrollStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VALIDATIONERRORSTATUS" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="NHFFlag" Type="Int32" />
-          <Property Name="PensionFlag" Type="Int32" />
-          <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="AmountPaid" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="AuthUserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Counter" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Pension" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Premium" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="NHIS" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="Others" Type="Decimal" Precision="22" Scale="2" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="NextUploadDate" Type="DateTime" Precision="3" />
+          <Property Name="UploadMonthIndex" Type="Int16" />
+          <Property Name="UploadYear" Type="Int32" />
+          <Property Name="IndexCount" Type="Int32" />
         </EntityType>
-        <EntityType Name="IncomeSource">
-          <Key>
-            <PropertyRef Name="ItbID" />
-          </Key>
-          <Property Name="ItbID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EnrollmentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SourceOfIncomeID" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="22" Scale="2" />
-          <Property Name="Last_Modified_Date" Type="DateTime" Precision="3" />
-          <Property Name="Last_Modified_Authid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Last_Modified_Uid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <Property Name="NHFFlag" Type="Int32" />
-          <Property Name="PensionFlag" Type="Int32" />
-          <Property Name="IncomeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsNew" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <ComplexType Name="proc_computeAssessment_modification_Result">
-          <Property Type="String" Name="enrollmentID" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="Income" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="GrossIncome" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="ConsolidateAllowance" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="TotalFPA" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="TaxableIncome" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="MinimumTax" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C7PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C11PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C15PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C19PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C21PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="C24PercON" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="TaxableLiab" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="TaxableLiabMonth" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="LogisticTest1" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="LogisticTest2" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="NetTax" Nullable="false" Precision="22" Scale="2" />
-          <Property Type="Int32" Name="Itbid" Nullable="false" />
-          <Property Type="Int32" Name="counter" Nullable="true" />
-          <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="500" />
-          <Property Type="Decimal" Name="NontaxableIncome" Nullable="true" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="IncomePaid" Nullable="true" Precision="22" Scale="2" />
-          <Property Type="Decimal" Name="IncomeDifference" Nullable="true" Precision="22" Scale="2" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4496,79 +4570,6 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="SALARYUPLOADs">
-            <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOAD">
-              <MappingFragment StoreEntitySet="SALARYUPLOAD">
-                <ScalarProperty Name="NextUploadDate" ColumnName="NextUploadDate" />
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="Others" ColumnName="Others" />
-                <ScalarProperty Name="NHIS" ColumnName="NHIS" />
-                <ScalarProperty Name="Premium" ColumnName="Premium" />
-                <ScalarProperty Name="Pension" ColumnName="Pension" />
-                <ScalarProperty Name="Counter" ColumnName="Counter" />
-                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
-                <ScalarProperty Name="PayrollStatus" ColumnName="PayrollStatus" />
-                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
-                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
-                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
-                <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
-                <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
-                <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
-                <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
-                <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
-                <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
-                <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
-                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="IncomePayments">
-            <EntityTypeMapping TypeName="AKIRSTAXModel.IncomePayment">
-              <MappingFragment StoreEntitySet="IncomePayment">
-                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
-                <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
-                <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
-                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
-                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="IncomeSources">
-            <EntityTypeMapping TypeName="AKIRSTAXModel.IncomeSource">
-              <MappingFragment StoreEntitySet="IncomeSource">
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
-                <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
-                <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
-                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
-                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
-                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
-                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="proc_computeAssessment_modification" FunctionName="AKIRSTAXModel.Store.proc_computeAssessment_modification">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AKIRSTAXModel.proc_computeAssessment_modification_Result">
@@ -4599,27 +4600,137 @@ warning 6002: The table/view 'AKIRSTAX01.dbo.TaxType' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="IncomeSources">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.IncomeSource">
+              <MappingFragment StoreEntitySet="IncomeSource">
+                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+                <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
+                <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
+                <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IncomePayments">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.IncomePayment">
+              <MappingFragment StoreEntitySet="IncomePayment">
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IncomeYear" ColumnName="IncomeYear" />
+                <ScalarProperty Name="PensionFlag" ColumnName="PensionFlag" />
+                <ScalarProperty Name="NHFFlag" ColumnName="NHFFlag" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SourceOfIncomeID" ColumnName="SourceOfIncomeID" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALARYUPLOADs">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOAD">
+              <MappingFragment StoreEntitySet="SALARYUPLOAD">
+                <ScalarProperty Name="UploadYear" ColumnName="UploadYear" />
+                <ScalarProperty Name="UploadMonthIndex" ColumnName="UploadMonthIndex" />
+                <ScalarProperty Name="NextUploadDate" ColumnName="NextUploadDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="NHIS" ColumnName="NHIS" />
+                <ScalarProperty Name="Premium" ColumnName="Premium" />
+                <ScalarProperty Name="Pension" ColumnName="Pension" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+                <ScalarProperty Name="PayrollStatus" ColumnName="PayrollStatus" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+                <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+                <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+                <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+                <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+                <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+                <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALARYUPLOAD_HISTORY">
+            <EntityTypeMapping TypeName="AKIRSTAXModel.SALARYUPLOAD_HISTORY">
+              <MappingFragment StoreEntitySet="SALARYUPLOAD_HISTORY">
+                <ScalarProperty Name="IndexCount" ColumnName="IndexCount" />
+                <ScalarProperty Name="UploadYear" ColumnName="UploadYear" />
+                <ScalarProperty Name="UploadMonthIndex" ColumnName="UploadMonthIndex" />
+                <ScalarProperty Name="NextUploadDate" ColumnName="NextUploadDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="NHIS" ColumnName="NHIS" />
+                <ScalarProperty Name="Premium" ColumnName="Premium" />
+                <ScalarProperty Name="Pension" ColumnName="Pension" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+                <ScalarProperty Name="AuthUserID" ColumnName="AuthUserID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VALIDATIONERRORSTATUS" ColumnName="VALIDATIONERRORSTATUS" />
+                <ScalarProperty Name="PayrollStatus" ColumnName="PayrollStatus" />
+                <ScalarProperty Name="Last_Modified_Uid" ColumnName="Last_Modified_Uid" />
+                <ScalarProperty Name="Last_Modified_Authid" ColumnName="Last_Modified_Authid" />
+                <ScalarProperty Name="Last_Modified_Date" ColumnName="Last_Modified_Date" />
+                <ScalarProperty Name="NHFContribution" ColumnName="NHFContribution" />
+                <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+                <ScalarProperty Name="AnnualOthers" ColumnName="AnnualOthers" />
+                <ScalarProperty Name="AnnualMeal" ColumnName="AnnualMeal" />
+                <ScalarProperty Name="AnnualTransport" ColumnName="AnnualTransport" />
+                <ScalarProperty Name="AnnualHousing" ColumnName="AnnualHousing" />
+                <ScalarProperty Name="AnnualBasic" ColumnName="AnnualBasic" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="ItbID" ColumnName="ItbID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <Connection>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
-      </DesignerInfoPropertySet>
-    </Connection>
-    <Options>
-      <DesignerInfoPropertySet>
-        <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-      </DesignerInfoPropertySet>
-    </Options>
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="true" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
-  </Designer>
+    <edmx:Diagrams />
+  </edmx:Designer>
 </edmx:Edmx>

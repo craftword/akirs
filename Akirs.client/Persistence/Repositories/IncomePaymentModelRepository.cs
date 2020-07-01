@@ -8,9 +8,9 @@ using System.Web;
 
 namespace Akirs.client.Persistence.Repositories
 {
-    public class IncomePaymentRepository : Repository<IncomePayment>, IIncomePaymentRepository
+    public class IncomePaymentModelRepository : Repository<IncomePaymentModel>, IIncomePaymentModelRepository
     {
-        public IncomePaymentRepository(AKIRSTAXEntities context)
+        public IncomePaymentModelRepository(AKIRSTAXEntities context)
             : base(context)
         {
         }
@@ -60,7 +60,7 @@ namespace Akirs.client.Persistence.Repositories
             IncomePayment PaymentMsg = new IncomePayment();
             PaymentMsg = PlutoContext.IncomePayments.Where(j => j.EnrollmentID == EnrollId && j.IncomeYear == yearValue).OrderByDescending(m => m.Count).FirstOrDefault();
 
-            var familydetails = from i in PlutoContext.IncomePayments.Where(p => p.Count == count).ToList()
+            var familydetails = from i in PlutoContext.IncomePayments.Where(p => p.Count == count && p.IncomeYear == yearValue).ToList()
                                 join j in PlutoContext.IncomeSourceTypes.ToList()
                                 on i.SourceOfIncomeID equals j.ItbID
                                 select new IncomePaymentModel

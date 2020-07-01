@@ -23,37 +23,23 @@ namespace Akirs.client.Controllers
     public class UserSalaryController : Controller
     {
 
-      
+
         //string _EnrollId = string.Empty;
         public UserSalaryController()
         {
-            
+
             //_EnrollId = Session["EnrollID"].ToString();
         }
+
         // GET: Salary
         public ActionResult Index()
         {
-            try
-            {
-                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
-                {
-                    var model = new SALARYUPLOAD();
-                    var rec = unitOfWork.SalaryUpload.GetPendingSalaryUpload(Session["EnrollID"].ToString()).ToList();
+            return View();
 
-                    var entity = new MultipleSalaryUploadViewModel
-                    {
-                        Salary = model,
-                        SalaryList = rec
-                    };
-                   
-                    return View(entity);
-                }
-            }
-            catch (Exception ex)
-            {
-                return Json(new { RespCode = 1, RespMessage = "Problem Processing Validation. " }, JsonRequestBehavior.AllowGet);
-            }
-
+        }
+        public ActionResult ModifyList()
+        {
+            return View();
         }
 
         public ActionResult DetailsForEdit(SALARYUPLOAD model)
@@ -73,45 +59,37 @@ namespace Akirs.client.Controllers
             using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
             {
                 //IList<SalaryuploadObj> model = null;
+                bool recordsaved = false;
                 var EnrollId = Session["EnrollId"].ToString();
                 try
                 {
-                 var result = unitOfWork.SalaryUpload.ApprovePayrollByEmployeeId(EnrollId);
+                    var result = unitOfWork.SalaryUpload.GetPendingSalaryUpload(EnrollId);
 
-                    TempData["AlertMessage"] = result;
-                    return RedirectToAction("VerifyList");
+                    foreach (var employee in result)
+                    {
+                        employee.PayrollStatus = PayrollStatus.APPROVED.ToString();
+
+                        unitOfWork.SalaryUpload.Update(employee);
+
+                    }
+                    recordsaved = unitOfWork.Complete() > 0 ? true : false;
+                    if (recordsaved)
+                    {
+                        var assessment = unitOfWork.Assessment.GetAssessmentSingleWork(EnrollId, null);
+
+                        if (assessment.Count() > 0)
+                            return Json(new { RespCode = 0, RespMessage = "Record approved. Go to the assessment" });
+                    }
+                    return Json(new { RespCode = -1, RespMessage = "Cannot approve at this time. Try again later" });
                 }
                 catch (Exception ex)
                 {
-                    TempData["AlertMessage"] = "Error while approving " + ex.Message;
-                    return RedirectToAction("VerifyList");
-                }
-            }
-           
-        }
-
-        [HttpPost]
-        public ActionResult SendPayeeForApproval()
-        {
-            using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
-            {
-                //IList<SalaryuploadObj> model = null;
-                var EnrollId = Session["EnrollId"].ToString();
-                try
-                {
-                    var result = unitOfWork.SalaryUpload.SendPayeeForApproval(EnrollId);
-
-                    TempData["AlertMessage"] = result;
-                    return RedirectToAction("Index");
-                }
-                catch (Exception ex)
-                {
-                    TempData["AlertMessage"] = "Error while approving " + ex.Message;
-                    return RedirectToAction("Index");
+                    return Json(new { RespCode = -1, RespMessage = ex.Message });
                 }
             }
 
         }
+
 
         public ActionResult RejectPayrollEmployee()
         {
@@ -142,12 +120,13 @@ namespace Akirs.client.Controllers
             try
             {
                 var errorMsg = "";
+                bool recordsaved = false;
                 if (ModelState.IsValid)
                 {
                     if (model.ItbID == 0)
                     {
                         model.EnrollmentID = Session["EnrollID"].ToString();
-                        model.PayrollStatus = PayrollStatus.APPROVED.ToString() ;
+                        model.PayrollStatus = PayrollStatus.APPROVED.ToString();
                         model.CreateDate = DateTime.Now;
                         model.CreatedBy = User.Identity.Name;
 
@@ -165,14 +144,29 @@ namespace Akirs.client.Controllers
                     {
                         using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
                         {
-                            model.PayrollStatus = PayrollStatus.APPROVED.ToString();
-                            model.EnrollmentID = Session["EnrollID"].ToString();
-                            unitOfWork.SalaryUpload.Add(model);
-                            unitOfWork.SalaryUpload.Update(model);
-                            unitOfWork.Complete();
+                            //model.PayrollStatus = PayrollStatus.APPROVED.ToString();
+                            // model.EnrollmentID = Session["EnrollID"].ToString();
+                            SALARYUPLOAD modeluspdate = unitOfWork.SalaryUpload.SingleOrDefault(p => p.ItbID == model.ItbID);
+                            modeluspdate.NHFContribution = model.NHFContribution;
+                            modeluspdate.AnnualBasic = model.AnnualBasic;
+                            modeluspdate.AnnualHousing = model.AnnualHousing;
+                            modeluspdate.AnnualTransport = model.AnnualTransport;
+                            modeluspdate.AnnualMeal = model.AnnualMeal;
+                            modeluspdate.AnnualOthers = model.AnnualOthers;
+
+
+                            unitOfWork.SalaryUpload.Update(modeluspdate);
+                            recordsaved = unitOfWork.Complete() > 0 ? true : false;
+                        }
+                        if (recordsaved)
+                        {
+                            return Json(new { data = model, RespCode = 0, RespMessage = "Record Updated Successfully" });
+                        }
+                        else
+                        {
+                            return Json(new { data = model, RespCode = -1, RespMessage = "Record Not Updated Successfully" });
                         }
 
-                        return Json(new { data = model, RespCode = 0, RespMessage = "Record Updated Successfully" });
 
 
                     }
@@ -225,6 +219,74 @@ namespace Akirs.client.Controllers
                 return Json(obj1, JsonRequestBehavior.AllowGet);
             }
         }
+        [HttpPost]
+        public JsonResult SkipPay()
+        {
+
+            try
+            {
+                var rec = new List<SALARYUPLOAD>();
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    rec = unitOfWork.SalaryUpload.SkipPay(Session["EnrollID"].ToString());
+                    if (rec == null)
+                    {
+
+                        var obj = new { RespCode = -1, RespMessage = "Record Not Found" };
+                        return Json(obj, JsonRequestBehavior.AllowGet);
+
+                    }
+                    var savedvalue = false;
+
+                    foreach (var item in rec)
+                    {
+
+                        unitOfWork.SalaryUploadSecondary.Add(new SALARYUPLOAD_HISTORY
+                        {
+                            AnnualBasic = item.AnnualBasic,
+                            AnnualHousing = item.AnnualHousing,
+                            AnnualMeal = item.AnnualMeal,
+                            AnnualOthers = item.AnnualOthers,
+                            AnnualTransport = item.AnnualTransport,
+                            AuthUserID = item.AuthUserID,
+                            Counter = item.Counter,
+                            CreateDate = DateTime.Now,
+                            CreatedBy = item.CreatedBy,
+                            EmployeeID = item.EmployeeID,
+                            EmployeeName = item.EmployeeName,
+                            EnrollmentID = item.EnrollmentID,
+                            GrossPay = item.GrossPay,
+                            IsDeleted = item.IsDeleted,
+                            Last_Modified_Authid = item.Last_Modified_Authid,
+                            Last_Modified_Date = item.Last_Modified_Date,
+                            Last_Modified_Uid = item.Last_Modified_Uid,
+                            NextUploadDate = item.NextUploadDate,
+                            NHFContribution = item.NHFContribution,
+                            NHIS = item.NHIS,
+                            Others = item.Others,
+                            PayrollStatus = "SKIPPED",
+                            Pension = item.Pension,
+                            Premium = item.Premium,
+                            UploadMonthIndex = item.UploadMonthIndex,
+                            UploadYear = DateTime.Now.Year,
+                            VALIDATIONERRORSTATUS = item.VALIDATIONERRORSTATUS
+                        });
+                    }
+
+
+                    savedvalue = unitOfWork.Complete() > 0 ? true : false;
+                    var obj1 = new { model = rec, RespCode = 0, RespMessage = "Success" };
+                    return Json(obj1, JsonRequestBehavior.AllowGet);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                var obj1 = new { RespCode = 2, RespMessage = ex.Message };
+                return Json(obj1, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         public JsonResult DeleteDetail(int id = 0)
         {
@@ -269,14 +331,258 @@ namespace Akirs.client.Controllers
                 {
                     salarydata = unitOfWork.SalaryUpload.GetPendingSalaryUpload(Session["EnrollID"].ToString()).ToList();
                 }
-                return Json(new { data = salarydata, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+                return Json(new { data = salarydata, RespCode = salarydata.Count > 0 ? 0 : -1, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 return Json(new { data = new List<Salaryupload_temp>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
             }
+            //return Json(data);GetSalaryDate
+        }
+        [HttpGet]
+        public ActionResult GetdefaultRecord()
+        {
+            var salarydata = new List<SALARYUPLOAD>();
+            try
+            {
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salarydata = unitOfWork.SalaryUpload.GetDefaultSalaryList(Session["EnrollID"].ToString()).ToList();
+                }
+                return Json(new { data = salarydata, RespCode = salarydata.Count > 0 ? 0 : -1, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<Salaryupload_temp>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+            //return Json(data);GetSalaryDate
+        }
+        [HttpPost]
+        public ActionResult ModifySalary(string datemonth)
+        {
+            var salarydata = new List<SALARYUPLOAD_HISTORY>();
+            var salary = new List<SALARYUPLOAD>();
+            var months = new List<int>();
+            try
+            {
+                var splitedstring = datemonth.Split('-');
+                short month = Convert.ToInt16(splitedstring[0]);
+                int year = Convert.ToInt32(splitedstring[1]);
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salary = unitOfWork.SalaryUpload.GetSalaryUpload(Session["EnrollID"].ToString());
+                    if (salary.Count > 0)
+                    {
+                        return Json(new { RespCode = -1, RespMessage = "You cannot modify while having a pending transaction" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        salarydata = unitOfWork.SalaryUploadSecondary.GetSalaryUploadSecondary(Session["EnrollID"].ToString(), month, year);
+
+
+                        foreach (var item in salarydata)
+                        {
+                            unitOfWork.SalaryUpload.Add(new SALARYUPLOAD()
+                            {
+                                AnnualBasic = item.AnnualBasic,
+                                AnnualHousing = item.AnnualHousing,
+                                AnnualMeal = item.AnnualMeal,
+                                AnnualOthers = item.AnnualOthers,
+                                AnnualTransport = item.AnnualTransport,
+                                AuthUserID = item.AuthUserID,
+                                Counter = item.Counter,
+                                CreateDate = DateTime.Now,
+                                EmployeeID = item.EmployeeID,
+                                EmployeeName = item.EmployeeName,
+                                EnrollmentID = item.EnrollmentID,
+                                //GrossPay = item.GrossPay,
+                                IsDeleted = item.IsDeleted,
+                                NHFContribution = item.NHFContribution,
+                                NHIS = item.NHIS,
+                                Others = item.Others,
+                                PayrollStatus = "PENDING",
+                                Pension = item.Pension,
+                                Premium = item.Premium,
+                                UploadMonthIndex = item.UploadMonthIndex,
+                                UploadYear = item.UploadYear,
+                            });
+                        }
+
+                    }
+                    var retValue = unitOfWork.Complete() > 0 ? true : false;
+                    if (retValue)
+                    {
+                        return Json(new { RespCode = 0, RespMessage = "Data ready to be modified. check in upload" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return Json(new { RespCode = -1, RespMessage = "An error occured" }, JsonRequestBehavior.AllowGet);
+                    }
+
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<int?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public ActionResult GetSalaryhistory(string datemonth)
+        {
+            var salarydata = new List<SALARYUPLOAD_HISTORY>();
+            var months = new List<int>();
+            try
+            {
+                var splitedstring = datemonth.Split('-');
+                short month = Convert.ToInt16(splitedstring[0]);
+                int year = Convert.ToInt32(splitedstring[1]);
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salarydata = unitOfWork.SalaryUploadSecondary.GetSalaryUploadSecondary(Session["EnrollID"].ToString(), month, year);
+
+
+                }
+                return Json(new { data = salarydata, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<int?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public ActionResult GetSalaryDate()
+        {
+            var salarydata = new List<short?>();
+            var months = new List<short>();
+            var year = new List<int?>();
+            List<SalaryDate> salarydate = new List<SalaryDate>();
+            try
+            {
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    for (short i = 1; i <= 12; i++)
+                    {
+                        salarydate.Add(new SalaryDate()
+                        {
+                            monthIndex = i,
+                            year = DateTime.Now.Year
+                        });
+                        //months.Add(i);
+                    }
+
+
+                }
+                return Json(new { data = salarydate, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<short?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
             //return Json(data);
         }
+        [HttpGet]
+        public ActionResult SalaryMonth()
+        {
+            var salarydata = new List<short?>();
+            var months = new List<short>();
+            try
+            {
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salarydata = unitOfWork.SalaryUploadSecondary.GetMonths(Session["EnrollID"].ToString());
+                    if (salarydata != null)
+                    {
+                        for (short i = 1; i <= 12; i++)
+                        {
+                            if (!salarydata.Contains(i))
+                                months.Add(i);
+                        }
+
+
+                    }
+                    else
+                    {
+                        for (short i = 1; i <= 12; i++)
+                        {
+                            months.Add(i);
+                        }
+                    }
+
+                }
+                return Json(new { data = months, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<short?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+            //return Json(data);
+        }
+        [HttpGet]
+        public ActionResult SalaryYear()
+        {
+            var salarydata = new List<int?>();
+            var months = new List<int>();
+            try
+            {
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salarydata = unitOfWork.SalaryUploadSecondary.GetYears(Session["EnrollID"].ToString());
+
+
+                }
+                return Json(new { data = salarydata, RespCode = 0, RespMessage = "Success" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<int?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+            //return Json(data);
+        }
+
+        [HttpPost]
+        public ActionResult CompleteModification()
+        {
+            bool savedrecord = false;
+            var salarydata = new List<SALARYUPLOAD>();
+            try
+            {
+
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
+                    salarydata = unitOfWork.SalaryUpload.GetSalaryUpload(Session["EnrollID"].ToString());
+
+                    foreach (var item in salarydata)
+                    {
+                        item.PayrollStatus = PayrollStatus.AWAITINGAPPROVAL.ToString();
+
+                        unitOfWork.SalaryUpload.Update(item);
+                    }
+
+                    savedrecord = unitOfWork.Complete() > 0 ? true : false;
+
+                }
+                if (savedrecord)
+                    return Json(new { RespCode = 0, RespMessage = "Record saved sucessfully" }, JsonRequestBehavior.AllowGet);
+                else
+                {
+                    return Json(new { RespCode = -1, RespMessage = "Failed" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { data = new List<int?>(), RespCode = 2, RespMessage = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         [HttpPost]
         // [ValidateAntiForgeryToken]
         public ActionResult UploadFiles()
@@ -290,6 +596,7 @@ namespace Akirs.client.Controllers
                 //  var dd = Request.Form["requestType"];
                 if (rc != null)
                 {
+                    var monthindex = Request.Form[0];
                     var file = rc[0];
                     if (file != null && file.ContentLength > 0)
                     {
@@ -302,15 +609,16 @@ namespace Akirs.client.Controllers
                         }
                         using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
                         {
-                            saveuplList = unitOfWork.SalaryUpload.UploadPayroll(file, SeesionID);
+                            saveuplList = unitOfWork.SalaryUpload.UploadPayroll(file, SeesionID, Convert.ToInt16(monthindex));
                         }
 
-                        Session["Salary"] = saveuplList;
+
 
                         int cnt = saveuplList.Count();
                         if (cnt > 0)
                         {
                             var html = PartialView("_salaryUpld", saveuplList).RenderToString();
+                            Session["Salary"] = saveuplList;
                             return Json(new { data_html = html, RespCode = 0, RespMessage = "File Uploaded Succesfully" });
                         }
                         else
@@ -338,7 +646,7 @@ namespace Akirs.client.Controllers
         {
             return Json(new { Itbid = Itbid });
         }
-       
+
         [HttpPost]
         public ActionResult VerifyRecord()
         {
@@ -391,7 +699,7 @@ namespace Akirs.client.Controllers
                 return Json(new { RespCode = 1, RespMessage = "Problem Processing Validation. " });
             }
         }
-       
+
         public ActionResult VerifyList()
         {
             return View();
@@ -465,17 +773,17 @@ namespace Akirs.client.Controllers
                 var t = unitOfWork.EnrollLog.GetEnrollDetails(enrollID);
                 if (t != null)
                 {
-                    CompanyID =(int)  t.CompanyID;
+                    CompanyID = (int)t.CompanyID;
                     Companyname = t.Companyname;
                 }
 
 
-               
+
 
 
                 //var rec = repoSalarytemp.Query().Where(m => m.CreatedBy == User.Identity.Name && m.EnrollmentID == enrollID && m.Status == "A");
 
-                
+
                 foreach (var tm in rec)
                 {
                     int errorCount = 0;
@@ -564,14 +872,14 @@ namespace Akirs.client.Controllers
                     if (errorCount == 0)
                     {
                         tm.VALIDATIONERRORSTATUS = false;
-                       // tm.VALIDATIONERRORMESSAGE = "";
+                        // tm.VALIDATIONERRORMESSAGE = "";
                         tm.PayrollStatus = PayrollStatus.APPROVED.ToString();
                     }
                     else
                     {
                         totalErrorCount++;
                         tm.VALIDATIONERRORSTATUS = true;
-                       // tm.VALIDATIONERRORMESSAGE = GetStringFromList(validationErrorMessage);
+                        // tm.VALIDATIONERRORMESSAGE = GetStringFromList(validationErrorMessage);
                     }
 
                     unitOfWork.SalaryUpload.Add(tm);
@@ -597,15 +905,16 @@ namespace Akirs.client.Controllers
         }
 
         public JsonResult GetUserById()
-          {
-           var EnrollID = Session["EnrollID"].ToString();
+        {
+            var EnrollID = Session["EnrollID"].ToString();
             try
             {
                 var user = new AspNetUser();
                 var userM = new UserModel();
 
 
-                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities())) {
+                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+                {
 
                     user = unitOfWork.Users.GetUser(EnrollID);
 
@@ -630,7 +939,7 @@ namespace Akirs.client.Controllers
                     }
 
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -639,7 +948,7 @@ namespace Akirs.client.Controllers
             }
 
             //System.Threading.Thread.Sleep(200);
-           
+
         }
 
         public ActionResult CreateWitholdTaxUser()
@@ -666,7 +975,7 @@ namespace Akirs.client.Controllers
                         entity = unitOfWork.SalaryUpload.CreatePayeeUser(model);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     TempData["AlertMessage"] = "Error while Creating User";
                     return RedirectToAction("CreatePayeeUser");
@@ -682,11 +991,11 @@ namespace Akirs.client.Controllers
 
             var EnrollId = Session["EnrollId"].ToString();
 
-                using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
-                {
-                    var entity = unitOfWork.SalaryUpload.GetPayeeUserForDelete(EnrollId);
-                     return View(entity);
-                }
+            using (var unitOfWork = new UnitOfWork(new AKIRSTAXEntities()))
+            {
+                var entity = unitOfWork.SalaryUpload.GetPayeeUserForDelete(EnrollId);
+                return View(entity);
+            }
         }
 
         [HttpPost]

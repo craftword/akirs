@@ -13,68 +13,124 @@
         text-align: right;
     }
 </style>
-<input type="hidden"
-       value="@enrId" id="eid" />
 
-<input type="hidden"
-       id="nid" />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Assessment Information</h1>
 
-<input type="hidden"
-       id="emailhid" />
+        </div>
+    </div>
 
-<input type="hidden"
-       id="comphone" />
-<input type="hidden"
-       id="compname" />
-<input type="hidden"
-       id="compSurname" />
-<input type="hidden"
-       id="amount" />
-@*<input type="hidden"
-    id="directnetid" />*@
+    <div class="row">
 
-<div id="forassess">
-    <div class="container-fluid">
+        <div class="col-lg-12">
 
-        <div class="row">
+            <div class="panel panel-default">
 
-            <div class="col-lg-12">
+                <div id="assessment_container">
 
-                <h1 class="page-header">Assessment</h1>
+                    @*<div class="payee_assessment">
+                            <div class="panel-body">
+
+                                <div class="form-horizontal row">
+
+                                    <div class="form-group col-md-6">
+
+                                        <div style="padding-left:15px; display:flex;">
+
+                                            <label>EnrollmentID:</label>
+                                            <div class="col-sm-10">
+
+                                                <span id="EnrollId"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+
+                                        <div class="form-group col-md-6" style="display:flex; justify-content:flex-end;">
+
+                                            <label>First Name:</label>
+                                            <div class="col-sm-10">
+                                                <label class="form-control firstname"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading" style="text-align:center !important">
+
+                                    Assesment Details
+                                </div>
+                                <div class="panel-body">
+
+                                    <div class="col-lg-6">
+
+                                        <div role="form">
+
+                                            <div class="form-group">
+
+                                                <label>Total Income :</label>
+                                                <label id="txtincome"></label>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <label>20% Gross Income: </label>
+                                                <label id="txtgrossincome"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                        <div role="form">
+
+                                            <div class="form-group">
+
+                                                <label>Total FPA: </label>
+                                                <label id="txttotalpfa"></label>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <label>Consolidated Allowance: </label>
+                                                <label></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                        <div class="form-group">
+
+                                            <label>Taxable Income: </label>
+                                            <label></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                </div>
             </div>
         </div>
-                   
-                <div class="row" id="secondone">
 
-
-                </div>
-                <div class="form-group text-center">
-                    <label style="color: #00f">Tax Payable: </label><span id="netid" style="color: #00f"></span>
-                    @*<input class="form-control" readonly="readonly" id="nettaxx" />*@
-
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-primary btn-lg" id="verifyy" type="button">Verify Payment</button>
-                    @*<button class="btn btn-primary btn-sx" type="button">Make Payment</button>*@
-                </div>
-
-            
-        
     </div>
+
+
+
+    <div class="text-center">
+        <button class="btn btn-primary btn-lg" id="makepayment" type="button">Make Payment</button>
+    </div>
+
+
+
 </div>
 
 
+<div id="assessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetailsTaxPayee", "Assessment")"></div>
+<div id="makePaymenturl" style="display:none" data-request-url="@Url.Action("MakeSalaryPayment", "Assessment")"></div>
 
-<div id="directAssessmentload" style="display:none" data-request-url="@Url.Action("GetDirectAssessmentDetailsTax", "Assessment")"></div>
-
-<div id="assessmentload" style="display:none" data-request-url="@Url.Action("AssessmentDetailsTax", "Assessment")"></div>
-
-<div id="getEmail" style="display:none" data-request-url="@Url.Action("GetEmail", "Assessment")"></div>
-<div id="getCompany" style="display:none" data-request-url="@Url.Action("checkCompanyData", "Assessment")"></div>
-<div id="getUser" style="display:none" data-request-url="@Url.Action("checkUserData", "Assessment")"></div>
-@*<div id="assessmentload" style="display:none" data-request-+url="@Url.Action("AssessmentDetails", "EnrollmentType")"></div>*@
 
 
 @section Scripts {
-    <script src="~/resources/js/assessment.js"></script>
+    <script src="~/resources/js/assessment_payee.js"></script>
 }
